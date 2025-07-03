@@ -1,7 +1,7 @@
 ---
 title: "Contact Us"
 description: "Get in touch with IBPSA Vietnam. Find our contact information, office locations, and ways to connect with our team and community."
-featured_image: "/images/contact/office.jpg"
+featured_image: "/images/pages/contact-person.jpg"
 layout: "contact"
 ---
 

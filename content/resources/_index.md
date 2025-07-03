@@ -1,7 +1,7 @@
 ---
 title: "Resources"
 description: "Access comprehensive resources for building performance simulation including publications, guidelines, software tools, case studies, and standards relevant to Vietnamese building projects."
-featured_image: "/images/resources/library.jpg"
+featured_image: "/images/resources/library-books.jpg"
 layout: "section"
 ---
 

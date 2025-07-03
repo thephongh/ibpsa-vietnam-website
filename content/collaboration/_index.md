@@ -1,7 +1,7 @@
 ---
 title: "Collaboration & Partnerships"
 description: "Explore IBPSA Vietnam's partnerships with academic institutions, industry organizations, government agencies, and research projects advancing building performance simulation."
-featured_image: "/images/collaboration/handshake.jpg"
+featured_image: "/images/collaboration/collaboration.jpg"
 layout: "section"
 ---
 

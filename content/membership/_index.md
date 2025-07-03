@@ -1,7 +1,7 @@
 ---
 title: "Membership"
 description: "Join IBPSA Vietnam and become part of our growing community of building performance simulation professionals. Learn about membership benefits, requirements, and how to join."
-featured_image: "/images/membership/community.jpg"
+featured_image: "/images/membership/handshake.jpg"
 layout: "section"
 ---
 

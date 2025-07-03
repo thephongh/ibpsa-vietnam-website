@@ -1,7 +1,7 @@
 ---
 title: "Career Development"
 description: "Advance your career in building performance simulation with job opportunities, educational programs, certification paths, and professional development resources in Vietnam."
-featured_image: "/images/career/professional-growth.jpg"
+featured_image: "/images/career/office-workspace.jpg"
 layout: "section"
 ---
 

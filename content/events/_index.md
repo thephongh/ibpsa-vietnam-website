@@ -1,7 +1,7 @@
 ---
 title: "Events"
 description: "Discover upcoming conferences, workshops, webinars, and networking events organized by IBPSA Vietnam. Join us for professional development and knowledge sharing opportunities."
-featured_image: "/images/events/conference-hall.jpg"
+featured_image: "/images/events/conference.jpg"
 layout: "section"
 ---
 

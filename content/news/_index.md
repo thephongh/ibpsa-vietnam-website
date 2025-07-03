@@ -1,7 +1,7 @@
 ---
 title: "News & Updates"
 description: "Stay informed with the latest news, announcements, and updates from IBPSA Vietnam and the global building performance simulation community."
-featured_image: "/images/news/newsletter.jpg"
+featured_image: "/images/pages/energy-simulation.jpg"
 layout: "section"
 ---
 
