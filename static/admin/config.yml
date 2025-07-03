@@ -1,0 +1,194 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+# Local development backend
+local_backend: true
+
+media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+site_url: https://ibpsa-vietnam.netlify.app
+display_url: https://ibpsa-vietnam.netlify.app
+logo_url: https://ibpsa-vietnam.netlify.app/images/logo.png
+
+# Editorial workflow for content review
+publish_mode: editorial_workflow
+
+collections:
+  # Pages collection for main content pages
+  - name: "pages"
+    label: "Pages"
+    folder: "content"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false}
+      - {label: "Layout", name: "layout", widget: "select", options: ["single", "section", "contact", "home"], default: "single"}
+      - {label: "Keywords", name: "keywords", widget: "list", required: false}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # News/Blog posts
+  - name: "news"
+    label: "News & Posts"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Date", name: "date", widget: "datetime", required: true}
+      - {label: "Author", name: "author", widget: "string", required: false}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false}
+      - {label: "Category", name: "category", widget: "select", options: ["News", "Announcement", "Research", "Event", "Update"], required: false}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # Events
+  - name: "events"
+    label: "Events"
+    folder: "content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Event Date", name: "date", widget: "datetime", required: true}
+      - {label: "End Date", name: "end_date", widget: "datetime", required: false}
+      - {label: "Location", name: "location", widget: "string", required: false}
+      - {label: "Event Type", name: "event_type", widget: "select", options: ["Conference", "Workshop", "Webinar", "Networking", "Training"], required: false}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false}
+      - {label: "Registration Link", name: "registration_link", widget: "string", required: false}
+      - {label: "Registration Fee", name: "registration_fee", widget: "string", required: false}
+      - {label: "Organizer", name: "organizer", widget: "string", required: false}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # Resources
+  - name: "resources"
+    label: "Resources"
+    folder: "content/resources"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Resource Type", name: "resource_type", widget: "select", options: ["Publication", "Guideline", "Software", "Case Study", "Standard", "Tool"], required: false}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false}
+      - {label: "Download Link", name: "download_link", widget: "string", required: false}
+      - {label: "External Link", name: "external_link", widget: "string", required: false}
+      - {label: "File Size", name: "file_size", widget: "string", required: false}
+      - {label: "Language", name: "language", widget: "select", options: ["English", "Vietnamese", "Both"], default: "English"}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # About section pages
+  - name: "about"
+    label: "About Pages"
+    folder: "content/about"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false}
+      - {label: "Order", name: "weight", widget: "number", default: 10}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # Membership pages
+  - name: "membership"
+    label: "Membership Pages"
+    folder: "content/membership"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false}
+      - {label: "Order", name: "weight", widget: "number", default: 10}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # Career pages
+  - name: "career"
+    label: "Career Pages"
+    folder: "content/career"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false}
+      - {label: "Job Type", name: "job_type", widget: "select", options: ["Full-time", "Part-time", "Contract", "Internship", "Volunteer"], required: false}
+      - {label: "Company", name: "company", widget: "string", required: false}
+      - {label: "Location", name: "location", widget: "string", required: false}
+      - {label: "Salary Range", name: "salary_range", widget: "string", required: false}
+      - {label: "Application Link", name: "application_link", widget: "string", required: false}
+      - {label: "Application Deadline", name: "deadline", widget: "datetime", required: false}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # Collaboration pages
+  - name: "collaboration"
+    label: "Collaboration Pages"
+    folder: "content/collaboration"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false}
+      - {label: "Partner Type", name: "partner_type", widget: "select", options: ["Academic", "Industry", "Government", "International"], required: false}
+      - {label: "Organization", name: "organization", widget: "string", required: false}
+      - {label: "Contact Email", name: "contact_email", widget: "string", required: false}
+      - {label: "Website", name: "website", widget: "string", required: false}
+      - {label: "Order", name: "weight", widget: "number", default: 10}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # Site settings
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "data/settings.yml"
+        fields:
+          - {label: "Site Title", name: "title", widget: "string"}
+          - {label: "Site Description", name: "description", widget: "text"}
+          - {label: "Contact Email", name: "email", widget: "string"}
+          - {label: "Contact Phone", name: "phone", widget: "string"}
+          - {label: "Address", name: "address", widget: "text"}
+          - label: "Social Media"
+            name: "social"
+            widget: "object"
+            fields:
+              - {label: "Facebook", name: "facebook", widget: "string", required: false}
+              - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}
+              - {label: "Twitter", name: "twitter", widget: "string", required: false}
+
+      - name: "navigation"
+        label: "Navigation Menu"
+        file: "data/navigation.yml"
+        fields:
+          - label: "Main Menu"
+            name: "main"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+              - {label: "Weight", name: "weight", widget: "number"}
+
+# Media library settings
+media_library:
+  name: uploadcare
+  config:
+    publicKey: YOUR_UPLOADCARE_PUBLIC_KEY
+
+# Editor settings
+editor:
+  preview: true

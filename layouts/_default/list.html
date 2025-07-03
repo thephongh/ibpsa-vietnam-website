@@ -1,0 +1,337 @@
+{{ define "main" }}
+<div class="bg-white">
+    <!-- Hero Section -->
+    {{ if .Params.featured_image }}
+    <div class="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
+        <img src="{{ .Params.featured_image | absURL }}" 
+             alt="{{ .Title }}"
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <div class="text-center text-white">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">{{ .Title }}</h1>
+                {{ if .Description }}
+                <p class="text-lg sm:text-xl opacity-90">{{ .Description }}</p>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    {{ else }}
+    <div class="bg-gradient-to-r from-blue-600 to-blue-800 py-16 sm:py-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">{{ .Title }}</h1>
+            {{ if .Description }}
+            <p class="text-lg sm:text-xl opacity-90">{{ .Description }}</p>
+            {{ end }}
+        </div>
+    </div>
+    {{ end }}
+
+    <!-- Breadcrumb Navigation -->
+    <div class="bg-gray-50 py-4 border-b">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-2 text-sm">
+                    <li>
+                        <a href="{{ .Site.BaseURL }}" class="text-gray-500 hover:text-blue-600 transition-colors duration-200">Home</a>
+                    </li>
+                    {{ $sections := split (trim .RelPermalink "/") "/" }}
+                    {{ $sectionPath := "" }}
+                    {{ range $index, $section := $sections }}
+                        {{ if ne $section "" }}
+                            {{ $sectionPath = printf "%s/%s" $sectionPath $section }}
+                            <li class="flex items-center">
+                                <svg class="flex-shrink-0 h-4 w-4 text-gray-400 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 111.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                {{ if eq $index (sub (len $sections) 1) }}
+                                    <span class="text-gray-700 font-medium">{{ humanize $section }}</span>
+                                {{ else }}
+                                    <a href="{{ $sectionPath }}/" class="text-gray-500 hover:text-blue-600 transition-colors duration-200">{{ humanize $section }}</a>
+                                {{ end }}
+                            </li>
+                        {{ end }}
+                    {{ end }}
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+        <!-- Section description -->
+        {{ if .Content }}
+        <div class="max-w-4xl mx-auto mb-12">
+            <div class="prose prose-lg max-w-none">
+                {{ .Content }}
+            </div>
+        </div>
+        {{ end }}
+
+        <!-- Filters and Search -->
+        {{ if .Pages }}
+        <div class="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
+            <div class="flex items-center space-x-4">
+                <!-- Category filter -->
+                {{ $categories := .Site.Taxonomies.categories }}
+                {{ if $categories }}
+                <div class="relative">
+                    <select id="category-filter" class="bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="">All Categories</option>
+                        {{ range $categories.ByCount }}
+                        <option value="{{ .Name | urlize }}">{{ .Name | title }} ({{ .Count }})</option>
+                        {{ end }}
+                    </select>
+                </div>
+                {{ end }}
+
+                <!-- Sort options -->
+                <div class="relative">
+                    <select id="sort-filter" class="bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="date-desc">Newest First</option>
+                        <option value="date-asc">Oldest First</option>
+                        <option value="title-asc">Title A-Z</option>
+                        <option value="title-desc">Title Z-A</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Search -->
+            <div class="relative">
+                <input type="text" 
+                       id="search-input"
+                       placeholder="Search..." 
+                       class="w-full sm:w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results count -->
+        <div class="mb-6">
+            <p class="text-sm text-gray-600">
+                <span id="results-count">{{ len .Pages }}</span> {{ if eq (len .Pages) 1 }}result{{ else }}results{{ end }} found
+            </p>
+        </div>
+
+        <!-- Content Grid -->
+        <div id="content-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {{ range .Pages }}
+            <article class="content-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                     data-title="{{ .Title | lower }}"
+                     data-category="{{ if .Params.category }}{{ .Params.category | urlize }}{{ end }}"
+                     data-date="{{ .Date.Format "2006-01-02" }}"
+                     data-content="{{ .Content | plainify | lower }}">
+                
+                <!-- Featured Image -->
+                {{ if .Params.featured_image }}
+                <div class="aspect-w-16 aspect-h-9">
+                    <img src="{{ .Params.featured_image | absURL }}" 
+                         alt="{{ .Title }}" 
+                         class="w-full h-48 object-cover">
+                </div>
+                {{ end }}
+
+                <!-- Content -->
+                <div class="p-6">
+                    <!-- Category -->
+                    {{ if .Params.category }}
+                    <div class="mb-2">
+                        <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+                            {{ .Params.category }}
+                        </span>
+                    </div>
+                    {{ end }}
+
+                    <!-- Title -->
+                    <h2 class="text-xl font-semibold text-gray-900 mb-3">
+                        <a href="{{ .Permalink }}" class="hover:text-blue-600 transition-colors duration-200">
+                            {{ .Title }}
+                        </a>
+                    </h2>
+
+                    <!-- Excerpt -->
+                    {{ if .Description }}
+                    <p class="text-gray-600 text-sm mb-4">{{ .Description | truncate 150 }}</p>
+                    {{ else if .Summary }}
+                    <p class="text-gray-600 text-sm mb-4">{{ .Summary | truncate 150 }}</p>
+                    {{ end }}
+
+                    <!-- Meta information -->
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <div class="flex items-center space-x-4">
+                            <!-- Date -->
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <time datetime="{{ .Date.Format "2006-01-02" }}">
+                                    {{ .Date.Format "Jan 2, 2006" }}
+                                </time>
+                            </div>
+
+                            <!-- Author -->
+                            {{ if .Params.author }}
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                                <span>{{ .Params.author }}</span>
+                            </div>
+                            {{ end }}
+                        </div>
+
+                        <!-- Read more link -->
+                        <a href="{{ .Permalink }}" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">
+                            Read more →
+                        </a>
+                    </div>
+
+                    <!-- Tags -->
+                    {{ if .Params.tags }}
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <div class="flex flex-wrap">
+                            {{ range first 3 .Params.tags }}
+                            <span class="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded mr-2 mb-1">
+                                {{ . }}
+                            </span>
+                            {{ end }}
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </article>
+            {{ end }}
+        </div>
+
+        <!-- No results message -->
+        <div id="no-results" class="hidden text-center py-12">
+            <svg class="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <h3 class="text-lg font-medium text-gray-900 mb-2">No results found</h3>
+            <p class="text-gray-500">Try adjusting your search or filter criteria.</p>
+        </div>
+
+        <!-- Pagination -->
+        {{ if .Paginator.HasPrev }}
+        <nav class="flex justify-center">
+            <div class="flex items-center space-x-1">
+                {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.Prev.URL }}" 
+                   class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-gray-50 hover:text-gray-700 transition-colors duration-200">
+                    Previous
+                </a>
+                {{ end }}
+
+                {{ range .Paginator.Pagers }}
+                {{ if eq . $.Paginator }}
+                <span class="px-3 py-2 text-sm font-medium text-blue-600 bg-blue-50 border border-blue-300">
+                    {{ .PageNumber }}
+                </span>
+                {{ else }}
+                <a href="{{ .URL }}" 
+                   class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 hover:bg-gray-50 hover:text-gray-700 transition-colors duration-200">
+                    {{ .PageNumber }}
+                </a>
+                {{ end }}
+                {{ end }}
+
+                {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.Next.URL }}" 
+                   class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-gray-50 hover:text-gray-700 transition-colors duration-200">
+                    Next
+                </a>
+                {{ end }}
+            </div>
+        </nav>
+        {{ end }}
+        {{ else }}
+        <!-- Empty state -->
+        <div class="text-center py-12">
+            <svg class="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <h3 class="text-lg font-medium text-gray-900 mb-2">No content available</h3>
+            <p class="text-gray-500">Check back later for new content in this section.</p>
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<!-- JavaScript for filtering and search -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    const categoryFilter = document.getElementById('category-filter');
+    const sortFilter = document.getElementById('sort-filter');
+    const contentGrid = document.getElementById('content-grid');
+    const resultsCount = document.getElementById('results-count');
+    const noResults = document.getElementById('no-results');
+    const contentItems = Array.from(document.querySelectorAll('.content-item'));
+
+    function filterAndSort() {
+        const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+        const selectedCategory = categoryFilter ? categoryFilter.value : '';
+        const sortOption = sortFilter ? sortFilter.value : 'date-desc';
+
+        let filteredItems = contentItems.filter(item => {
+            const matchesSearch = searchTerm === '' || 
+                item.dataset.title.includes(searchTerm) || 
+                item.dataset.content.includes(searchTerm);
+            const matchesCategory = selectedCategory === '' || 
+                item.dataset.category === selectedCategory;
+            return matchesSearch && matchesCategory;
+        });
+
+        // Sort items
+        filteredItems.sort((a, b) => {
+            switch(sortOption) {
+                case 'date-asc':
+                    return new Date(a.dataset.date) - new Date(b.dataset.date);
+                case 'date-desc':
+                    return new Date(b.dataset.date) - new Date(a.dataset.date);
+                case 'title-asc':
+                    return a.dataset.title.localeCompare(b.dataset.title);
+                case 'title-desc':
+                    return b.dataset.title.localeCompare(a.dataset.title);
+                default:
+                    return new Date(b.dataset.date) - new Date(a.dataset.date);
+            }
+        });
+
+        // Hide all items
+        contentItems.forEach(item => item.style.display = 'none');
+
+        // Show filtered items
+        filteredItems.forEach(item => item.style.display = 'block');
+
+        // Update results count
+        if (resultsCount) {
+            resultsCount.textContent = filteredItems.length;
+        }
+
+        // Show/hide no results message
+        if (noResults) {
+            noResults.style.display = filteredItems.length === 0 ? 'block' : 'none';
+        }
+        if (contentGrid) {
+            contentGrid.style.display = filteredItems.length === 0 ? 'none' : 'grid';
+        }
+    }
+
+    // Event listeners
+    if (searchInput) {
+        searchInput.addEventListener('input', filterAndSort);
+    }
+    if (categoryFilter) {
+        categoryFilter.addEventListener('change', filterAndSort);
+    }
+    if (sortFilter) {
+        sortFilter.addEventListener('change', filterAndSort);
+    }
+});
+</script>
+{{ end }}

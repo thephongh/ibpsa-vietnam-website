@@ -1,0 +1,99 @@
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+        <!-- Logo and site title -->
+        <div class="flex items-center">
+            <a href="{{ .Site.BaseURL }}" class="flex items-center space-x-3">
+                {{ if .Site.Params.logo }}
+                <img src="{{ .Site.Params.logo | absURL }}" alt="{{ .Site.Title }}" class="h-8 w-auto">
+                {{ end }}
+                <span class="text-xl font-bold text-gray-900">{{ .Site.Title }}</span>
+            </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-8">
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main }}
+                {{ $isActive := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+                <div class="relative group">
+                    <a href="{{ .URL }}" 
+                       class="flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200 {{ if $isActive }}text-blue-600 bg-blue-50{{ else }}text-gray-700 hover:text-blue-600 hover:bg-gray-50{{ end }}">
+                        {{ .Name }}
+                        {{ if .HasChildren }}
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        {{ end }}
+                    </a>
+                    
+                    <!-- Dropdown Menu -->
+                    {{ if .HasChildren }}
+                        {{ $menuIdentifier := .Identifier }}
+                        {{ if index $.Site.Menus $menuIdentifier }}
+                            <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <div class="py-1">
+                                    {{ range index $.Site.Menus $menuIdentifier }}
+                                        <a href="{{ .URL }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200">
+                                            {{ .Name }}
+                                        </a>
+                                    {{ end }}
+                                </div>
+                            </div>
+                        {{ end }}
+                    {{ end }}
+                </div>
+            {{ end }}
+        </nav>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+            <button type="button" 
+                    class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+                    aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <!-- Menu icon -->
+                <svg class="menu-icon block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <!-- Close icon -->
+                <svg class="close-icon hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-menu hidden md:hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+            {{ range .Site.Menus.main }}
+                {{ $isActive := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+                <div class="space-y-1">
+                    <a href="{{ .URL }}" 
+                       class="flex items-center px-3 py-2 text-base font-medium rounded-md transition-colors duration-200 {{ if $isActive }}text-blue-600 bg-blue-50{{ else }}text-gray-700 hover:text-blue-600 hover:bg-gray-50{{ end }}">
+                        {{ .Name }}
+                        {{ if .HasChildren }}
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        {{ end }}
+                    </a>
+                    
+                    <!-- Mobile Submenu -->
+                    {{ if .HasChildren }}
+                        {{ $menuIdentifier := .Identifier }}
+                        {{ if index $.Site.Menus $menuIdentifier }}
+                            <div class="pl-4 space-y-1">
+                                {{ range index $.Site.Menus $menuIdentifier }}
+                                    <a href="{{ .URL }}" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200">
+                                        {{ .Name }}
+                                    </a>
+                                {{ end }}
+                            </div>
+                        {{ end }}
+                    {{ end }}
+                </div>
+            {{ end }}
+        </div>
+    </div>
+</div>

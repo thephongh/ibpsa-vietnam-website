@@ -1,0 +1,308 @@
+baseURL: "https://ibpsa-vietnam.netlify.app"
+languageCode: "en-us"
+title: "IBPSA Vietnam"
+googleAnalytics: ""
+
+# Site description and meta information
+params:
+  description: "International Building Performance Simulation Association - Vietnam Chapter"
+  author: "IBPSA Vietnam"
+  email: "info@ibpsa-vietnam.org"
+  phone: "+84 xxx xxx xxxx"
+  address: "Vietnam"
+  social:
+    facebook: "https://facebook.com/ibpsa.vietnam"
+    linkedin: "https://linkedin.com/company/ibpsa-vietnam"
+    twitter: "https://twitter.com/ibpsa_vietnam"
+  logo: "/images/ibpsa-vietnam-logo.png"
+  favicon: "/images/favicon.ico"
+
+# SEO and social media
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: false
+    style: "github"
+    tabWidth: 2
+
+# Output formats
+outputs:
+  home: ["HTML", "RSS", "JSON"]
+  page: ["HTML"]
+  section: ["HTML", "RSS"]
+
+# Menu configuration based on INITIAL.md navigation structure
+menu:
+  main:
+    - name: "Home"
+      url: "/"
+      weight: 10
+    
+    - name: "About"
+      url: "/about/"
+      weight: 20
+      hasChildren: true
+    
+    - name: "Membership"
+      url: "/membership/"
+      weight: 30
+      hasChildren: true
+    
+    - name: "Events"
+      url: "/events/"
+      weight: 40
+      hasChildren: true
+    
+    - name: "Resources"
+      url: "/resources/"
+      weight: 50
+      hasChildren: true
+    
+    - name: "News"
+      url: "/news/"
+      weight: 60
+      hasChildren: true
+    
+    - name: "Collaboration"
+      url: "/collaboration/"
+      weight: 70
+      hasChildren: true
+    
+    - name: "Career"
+      url: "/career/"
+      weight: 80
+      hasChildren: true
+    
+    - name: "Contact"
+      url: "/contact/"
+      weight: 90
+
+  about:
+    - name: "Mission & Vision"
+      url: "/about/mission/"
+      parent: "about"
+      weight: 10
+    
+    - name: "Board of Directors"
+      url: "/about/board/"
+      parent: "about"
+      weight: 20
+    
+    - name: "Committees"
+      url: "/about/committees/"
+      parent: "about"
+      weight: 30
+    
+    - name: "History"
+      url: "/about/history/"
+      parent: "about"
+      weight: 40
+    
+    - name: "Annual Reports"
+      url: "/about/reports/"
+      parent: "about"
+      weight: 50
+
+  membership:
+    - name: "Join IBPSA Vietnam"
+      url: "/membership/join/"
+      parent: "membership"
+      weight: 10
+    
+    - name: "Benefits"
+      url: "/membership/benefits/"
+      parent: "membership"
+      weight: 20
+    
+    - name: "Member Directory"
+      url: "/membership/directory/"
+      parent: "membership"
+      weight: 30
+    
+    - name: "Fees"
+      url: "/membership/fees/"
+      parent: "membership"
+      weight: 40
+
+  events:
+    - name: "Upcoming Events"
+      url: "/events/upcoming/"
+      parent: "events"
+      weight: 10
+    
+    - name: "Past Events"
+      url: "/events/archive/"
+      parent: "events"
+      weight: 20
+    
+    - name: "Webinars"
+      url: "/events/webinars/"
+      parent: "events"
+      weight: 30
+    
+    - name: "Workshops"
+      url: "/events/workshops/"
+      parent: "events"
+      weight: 40
+
+  resources:
+    - name: "Publications"
+      url: "/resources/publications/"
+      parent: "resources"
+      weight: 10
+    
+    - name: "Guidelines"
+      url: "/resources/guidelines/"
+      parent: "resources"
+      weight: 20
+    
+    - name: "Software & Tools"
+      url: "/resources/tools/"
+      parent: "resources"
+      weight: 30
+    
+    - name: "Case Studies"
+      url: "/resources/case-studies/"
+      parent: "resources"
+      weight: 40
+    
+    - name: "Standards"
+      url: "/resources/standards/"
+      parent: "resources"
+      weight: 50
+
+  news:
+    - name: "Latest News"
+      url: "/news/"
+      parent: "news"
+      weight: 10
+    
+    - name: "Newsletter Archive"
+      url: "/news/newsletter/"
+      parent: "news"
+      weight: 20
+    
+    - name: "Announcements"
+      url: "/news/announcements/"
+      parent: "news"
+      weight: 30
+
+  collaboration:
+    - name: "Academic Partners"
+      url: "/collaboration/academic/"
+      parent: "collaboration"
+      weight: 10
+    
+    - name: "Industry Partners"
+      url: "/collaboration/industry/"
+      parent: "collaboration"
+      weight: 20
+    
+    - name: "Government Relations"
+      url: "/collaboration/government/"
+      parent: "collaboration"
+      weight: 30
+    
+    - name: "Research Projects"
+      url: "/collaboration/research/"
+      parent: "collaboration"
+      weight: 40
+
+  career:
+    - name: "Job Board"
+      url: "/career/jobs/"
+      parent: "career"
+      weight: 10
+    
+    - name: "Education"
+      url: "/career/education/"
+      parent: "career"
+      weight: 20
+    
+    - name: "Certification"
+      url: "/career/certification/"
+      parent: "career"
+      weight: 30
+    
+    - name: "Professional Development"
+      url: "/career/development/"
+      parent: "career"
+      weight: 40
+
+  footer:
+    - name: "Privacy Policy"
+      url: "/privacy/"
+      weight: 10
+    
+    - name: "Terms of Service"
+      url: "/terms/"
+      weight: 20
+    
+    - name: "Sitemap"
+      url: "/sitemap/"
+      weight: 30
+
+# Permalinks
+permalinks:
+  posts: "/news/:year/:month/:title/"
+  events: "/events/:year/:month/:title/"
+
+# Taxonomy
+taxonomies:
+  tag: "tags"
+  category: "categories"
+  author: "authors"
+
+# Related content
+related:
+  includeNewer: true
+  indices:
+    - name: "keywords"
+      weight: 100
+    - name: "tags"
+      weight: 80
+    - name: "categories"
+      weight: 60
+    - name: "date"
+      weight: 10
+
+# Image processing
+imaging:
+  resampleFilter: "CatmullRom"
+  quality: 85
+  anchor: "smart"
+
+# Build settings
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+canonifyURLs: true
+enableRobotsTXT: true
+enableGitInfo: false
+enableEmoji: true
+
+# Pagination
+pagination:
+  pagerSize: 10
+  path: "page"
+
+# Minification
+minify:
+  minifyOutput: true
+
+# Security
+security:
+  exec:
+    allow: ["^dart-sass-embedded$", "^go$", "^npx$", "^postcss$", "^tailwindcss$", "^git$"]
+  funcs:
+    getenv: ["^HUGO_", "^CI$"]
+  http:
+    methods: ["(?i)GET|POST"]
+    urls: [".*"]

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 text-white p-2 z-50">
+        Skip to main content
+    </a>
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        {{ partial "header.html" . }}
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="flex-1">
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        {{ partial "footer.html" . }}
+    </footer>
+
+    <!-- Scripts -->
+    {{ $js := resources.Get "js/main.js" }}
+    {{ if $js }}
+        {{ $js = $js | minify | fingerprint }}
+        <script src="{{ $js.RelPermalink }}" defer></script>
+    {{ end }}
+
+    <!-- Analytics placeholder -->
+    <!-- Google Analytics can be added here when needed -->
+</body>
+</html>
