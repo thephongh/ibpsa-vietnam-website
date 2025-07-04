@@ -64,11 +64,9 @@
 
       <!-- Language Switcher for Desktop -->
       <div class="flex space-x-2 ml-4">
-        {{ range .Site.Languages }} {{ $url := "" }} {{ if eq .Lang
-        $.Site.Home.Language.Lang }} {{ $url = $.Site.BaseURL }} {{ else }} {{
-        $url = printf "%s%s/" $.Site.BaseURL .Lang }} {{ end }}
+        {{ range .Site.Languages }}
         <a
-          href="{{ $url }}"
+          href="{{ if eq .Lang $.Site.Language.Lang }}/{{ else }}/{{ .Lang }}/{{ end }}"
           class="px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200 
                         {{ if eq .Lang $.Site.Language.Lang }}text-white bg-blue-600{{ else }}text-gray-700 hover:text-blue-600 hover:bg-gray-50{{ end }}"
         >
@@ -81,16 +79,14 @@
     <!-- Mobile menu button -->
     <div class="md:hidden flex items-center">
       <!-- Language Switcher for Mobile (inline with button) -->
-      <div class="flex space-x-2 mr-4">
-        {{ range .Site.Languages }} {{ $url := "" }} {{ if eq .Lang
-        $.Site.Home.Language.Lang }} {{ $url = $.Site.BaseURL }} {{ else }} {{
-        $url = printf "%s%s/" $.Site.BaseURL .Lang }} {{ end }}
+      <div class="flex space-x-1 mr-2">
+        {{ range .Site.Languages }}
         <a
-          href="{{ $url }}"
-          class="px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200 
+          href="{{ if eq .Lang $.Site.Language.Lang }}/{{ else }}/{{ .Lang }}/{{ end }}"
+          class="px-2 py-1 text-xs font-medium rounded transition-colors duration-200 
                         {{ if eq .Lang $.Site.Language.Lang }}text-white bg-blue-600{{ else }}text-gray-700 hover:text-blue-600 hover:bg-gray-50{{ end }}"
         >
-          {{ .LanguageName }}
+          {{ if eq .Lang "vi" }}VI{{ else }}EN{{ end }}
         </a>
         {{ end }}
       </div>
