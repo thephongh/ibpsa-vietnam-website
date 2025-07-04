@@ -1,59 +1,66 @@
 ---
-title: "Events"
-description: "Discover upcoming conferences, workshops, webinars, and networking events organized by IBPSA Vietnam. Join us for professional development and knowledge sharing opportunities."
+title: "Sự kiện"
+description: "Khám phá các hội nghị, hội thảo, hội thảo trực tuyến và sự kiện kết nối sắp tới do IBPSA Việt Nam tổ chức. Tham gia cùng chúng tôi để có cơ hội phát triển chuyên môn và chia sẻ kiến thức."
 featured_image: "/images/events/conference.jpg"
 layout: "section"
 ---
 
-# Events & Activities
+# Sự kiện & Hoạt động
 
-IBPSA Vietnam organizes various events throughout the year to bring together the building performance simulation community, share knowledge, and promote professional development.
+IBPSA Việt Nam tổ chức nhiều sự kiện khác nhau trong suốt cả năm để quy tụ cộng đồng mô phỏng hiệu suất tòa nhà, chia sẻ kiến thức và thúc đẩy phát triển chuyên môn.
 
-## Upcoming Events
+## Sự kiện sắp tới
 
-Stay connected with our community through our regular events, including:
+Luôn kết nối với cộng đồng của chúng tôi thông qua các sự kiện thường xuyên, bao gồm:
 
-### Annual Conference
-Our flagship event brings together local and international experts to share the latest research, case studies, and technological advances in building performance simulation.
+### Hội nghị thường niên
 
-### Technical Workshops
-Hands-on training sessions covering simulation software, methodologies, and best practices tailored for Vietnamese building contexts.
+Sự kiện hàng đầu của chúng tôi quy tụ các chuyên gia trong nước và quốc tế để chia sẻ những nghiên cứu, nghiên cứu điển hình và tiến bộ công nghệ mới nhất trong lĩnh vực mô phỏng hiệu suất tòa nhà.
 
-### Monthly Webinars
-Regular online sessions featuring presentations on current research, industry trends, and practical applications of building simulation.
+### Hội thảo kỹ thuật
 
-### Networking Events
-Informal gatherings to connect professionals, foster collaboration, and build relationships within the community.
+Các buổi đào tạo thực hành bao gồm phần mềm mô phỏng, phương pháp luận và các thực tiễn tốt nhất được điều chỉnh cho bối cảnh xây dựng Việt Nam.
 
-## Event Types
+### Hội thảo trực tuyến hàng tháng
 
-### Conferences
-- Annual IBPSA Vietnam Conference
-- International Building Simulation Conference participation
-- Regional symposiums and forums
+Các buổi trực tuyến thường xuyên có các bài thuyết trình về nghiên cứu hiện tại, xu hướng ngành và các ứng dụng thực tế của mô phỏng tòa nhà.
 
-### Educational Programs
-- Software training workshops
-- Methodology masterclasses
-- Student research presentations
-- Professional certification courses
+### Sự kiện kết nối
 
-### Industry Engagement
-- Industry roundtables
-- Project showcase events
-- Technology vendor presentations
-- Policy discussion forums
+Các buổi gặp gỡ thân mật để kết nối các chuyên gia, thúc đẩy hợp tác và xây dựng mối quan hệ trong cộng đồng.
 
-## Benefits of Attending
+## Các loại hình sự kiện
 
-- **Learn**: Access to cutting-edge research and practical insights
-- **Network**: Connect with peers, mentors, and potential collaborators
-- **Grow**: Develop new skills and advance your professional capabilities
-- **Contribute**: Share your expertise and contribute to the community
-- **Discover**: Explore new tools, technologies, and opportunities
+### Hội nghị
 
-## Event Calendar
+- Hội nghị thường niên IBPSA Việt Nam
+- Tham gia Hội nghị Mô phỏng Tòa nhà Quốc tế
+- Các hội nghị chuyên đề và diễn đàn khu vực
 
-Check our events calendar for the latest information on upcoming activities, registration details, and how to participate in our community events.
+### Chương trình giáo dục
 
-[View Upcoming Events](/events/upcoming/) | [Browse Past Events](/events/archive/)
+- Hội thảo đào tạo phần mềm
+- Các lớp học chuyên sâu về phương pháp luận
+- Bài thuyết trình nghiên cứu của sinh viên
+- Các khóa học chứng nhận chuyên nghiệp
+
+### Tham gia ngành
+
+- Bàn tròn ngành
+- Sự kiện giới thiệu dự án
+- Bài thuyết trình của nhà cung cấp công nghệ
+- Diễn đàn thảo luận chính sách
+
+## Lợi ích khi tham dự
+
+- **Học hỏi**: Tiếp cận nghiên cứu tiên tiến và thông tin chi tiết thực tế
+- **Kết nối**: Kết nối với đồng nghiệp, cố vấn và các đối tác tiềm năng
+- **Phát triển**: Phát triển các kỹ năng mới và nâng cao năng lực chuyên môn của bạn
+- **Đóng góp**: Chia sẻ chuyên môn của bạn và đóng góp cho cộng đồng
+- **Khám phá**: Khám phá các công cụ, công nghệ và cơ hội mới
+
+## Lịch sự kiện
+
+Kiểm tra lịch sự kiện của chúng tôi để biết thông tin mới nhất về các hoạt động sắp tới, chi tiết đăng ký và cách tham gia các sự kiện cộng đồng của chúng tôi.
+
+[Xem các sự kiện sắp tới](/events/upcoming/) | [Duyệt các sự kiện đã qua](/events/archive/)

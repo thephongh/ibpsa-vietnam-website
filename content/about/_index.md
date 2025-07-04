@@ -1,41 +1,41 @@
 ---
-title: "About IBPSA Vietnam"
-description: "Learn about IBPSA Vietnam's mission, vision, leadership, and commitment to advancing building performance simulation in Vietnam."
+title: "Về IBPSA Việt Nam"
+description: "Tìm hiểu về sứ mệnh, tầm nhìn, ban lãnh đạo và cam kết của IBPSA Việt Nam trong việc thúc đẩy mô phỏng hiệu suất tòa nhà tại Việt Nam."
 featured_image: "/images/about/team-meeting.jpg"
 layout: "section"
 ---
 
-# About IBPSA Vietnam
+# Về IBPSA Việt Nam
 
-IBPSA Vietnam is the official Vietnam chapter of the International Building Performance Simulation Association (IBPSA), representing the growing community of building performance simulation professionals in Vietnam.
+IBPSA Việt Nam là chi hội chính thức tại Việt Nam của Hiệp hội Mô phỏng Hiệu suất Tòa nhà Quốc tế (IBPSA), đại diện cho cộng đồng ngày càng phát triển của các chuyên gia mô phỏng hiệu suất tòa nhà tại Việt Nam.
 
-## Our Organization
+## Tổ chức của chúng tôi
 
-As a regional affiliate of IBPSA International, we are committed to advancing the science and application of building performance simulation to improve the design, construction, operation, and maintenance of buildings throughout Vietnam.
+Là một chi nhánh khu vực của IBPSA Quốc tế, chúng tôi cam kết thúc đẩy khoa học và ứng dụng mô phỏng hiệu suất tòa nhà để cải thiện thiết kế, xây dựng, vận hành và bảo trì các tòa nhà trên khắp Việt Nam.
 
-Our chapter brings together professionals from various sectors including:
+Chi hội của chúng tôi quy tụ các chuyên gia từ nhiều lĩnh vực khác nhau bao gồm:
 
-- Academic researchers and students
-- Building simulation consultants
-- Architects and engineers
-- Software developers
-- Government officials and policymakers
-- Building owners and facility managers
+- Các nhà nghiên cứu và sinh viên học thuật
+- Các nhà tư vấn mô phỏng tòa nhà
+- Kiến trúc sư và kỹ sư
+- Các nhà phát triển phần mềm
+- Các quan chức chính phủ và nhà hoạch định chính sách
+- Chủ sở hữu tòa nhà và quản lý cơ sở
 
-## Key Focus Areas
+## Các lĩnh vực trọng tâm chính
 
-- **Tropical Climate Simulation**: Developing expertise in modeling buildings for Vietnam's diverse climate zones
-- **Energy Efficiency**: Promoting simulation-driven approaches to reduce building energy consumption
-- **Sustainable Design**: Supporting green building initiatives through performance-based design
-- **Capacity Building**: Training the next generation of simulation professionals
-- **Local Standards**: Contributing to Vietnam-specific building performance standards
+- **Mô phỏng khí hậu nhiệt đới**: Phát triển chuyên môn trong việc mô hình hóa các tòa nhà cho các vùng khí hậu đa dạng của Việt Nam
+- **Hiệu quả năng lượng**: Thúc đẩy các phương pháp tiếp cận dựa trên mô phỏng để giảm tiêu thụ năng lượng tòa nhà
+- **Thiết kế bền vững**: Hỗ trợ các sáng kiến công trình xanh thông qua thiết kế dựa trên hiệu suất
+- **Xây dựng năng lực**: Đào tạo thế hệ chuyên gia mô phỏng tiếp theo
+- **Tiêu chuẩn địa phương**: Đóng góp vào các tiêu chuẩn hiệu suất tòa nhà cụ thể của Việt Nam
 
-## Our Impact
+## Tác động của chúng tôi
 
-Since our establishment, IBPSA Vietnam has been instrumental in:
+Kể từ khi thành lập, IBPSA Việt Nam đã đóng vai trò quan trọng trong việc:
 
-- Building local simulation expertise and capacity
-- Facilitating knowledge transfer from international best practices
-- Supporting policy development for building energy efficiency
-- Promoting research collaboration between institutions
-- Advancing the use of simulation in Vietnamese building projects
+- Xây dựng chuyên môn và năng lực mô phỏng tại địa phương
+- Tạo điều kiện chuyển giao kiến thức từ các thực tiễn tốt nhất quốc tế
+- Hỗ trợ phát triển chính sách về hiệu quả năng lượng tòa nhà
+- Thúc đẩy hợp tác nghiên cứu giữa các tổ chức
+- Thúc đẩy việc sử dụng mô phỏng trong các dự án xây dựng tại Việt Nam

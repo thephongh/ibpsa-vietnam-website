@@ -1,29 +1,37 @@
 ---
-title: "IBPSA Vietnam"
-description: "International Building Performance Simulation Association - Vietnam Chapter. Advancing building performance simulation to improve the design, construction, operation, and maintenance of the built environment in Vietnam."
+title: "IBPSA Việt Nam"
+description: "Hiệp hội Mô phỏng Hiệu suất Tòa nhà Quốc tế - Chi hội Việt Nam. Thúc đẩy mô phỏng hiệu suất tòa nhà để cải thiện thiết kế, xây dựng, vận hành và bảo trì môi trường xây dựng tại Việt Nam."
 featured_image: "/images/pages/homepage-hero.jpg"
-keywords: ["building simulation", "energy modeling", "performance analysis", "Vietnam", "IBPSA", "building performance"]
+keywords:
+  [
+    "mô phỏng tòa nhà",
+    "mô hình năng lượng",
+    "phân tích hiệu suất",
+    "Việt Nam",
+    "IBPSA",
+    "hiệu suất tòa nhà",
+  ]
 layout: "home"
 ---
 
-# Welcome to IBPSA Vietnam
+# Chào mừng đến với IBPSA Việt Nam
 
-The International Building Performance Simulation Association (IBPSA) Vietnam chapter is dedicated to advancing and promoting building and environmental performance simulation to improve the design, construction, operation, and maintenance of the built environment throughout Vietnam.
+Chi hội Hiệp hội Mô phỏng Hiệu suất Tòa nhà Quốc tế (IBPSA) Việt Nam cam kết thúc đẩy và phát triển mô phỏng hiệu suất tòa nhà và môi trường để cải thiện thiết kế, xây dựng, vận hành và bảo trì môi trường xây dựng trên khắp Việt Nam.
 
-## Our Mission
+## Sứ mệnh của chúng tôi
 
-We foster better buildings through simulation by connecting professionals, researchers, and students working in building performance simulation across Vietnam. Our community promotes knowledge sharing, professional development, and the adoption of simulation technologies in the Vietnamese building industry.
+Chúng tôi thúc đẩy các tòa nhà tốt hơn thông qua mô phỏng bằng cách kết nối các chuyên gia, nhà nghiên cứu và sinh viên làm việc trong lĩnh vực mô phỏng hiệu suất tòa nhà trên khắp Việt Nam. Cộng đồng của chúng tôi thúc đẩy chia sẻ kiến thức, phát triển chuyên môn và áp dụng các công nghệ mô phỏng trong ngành xây dựng Việt Nam.
 
-## What We Do
+## Những gì chúng tôi làm
 
-- **Professional Development**: Organize workshops, webinars, and training sessions
-- **Knowledge Sharing**: Facilitate exchange of research, best practices, and case studies
-- **Networking**: Connect professionals across academia, industry, and government
-- **Standards Development**: Contribute to building simulation standards and guidelines
-- **Collaboration**: Partner with local and international organizations
+- **Phát triển chuyên môn**: Tổ chức các buổi hội thảo, hội thảo trực tuyến và các khóa đào tạo
+- **Chia sẻ kiến thức**: Tạo điều kiện trao đổi nghiên cứu, thực tiễn tốt nhất và các trường hợp điển hình
+- **Kết nối**: Kết nối các chuyên gia trong giới học thuật, công nghiệp và chính phủ
+- **Phát triển tiêu chuẩn**: Đóng góp vào các tiêu chuẩn và hướng dẫn mô phỏng tòa nhà
+- **Hợp tác**: Hợp tác với các tổ chức trong nước và quốc tế
 
-## Join Our Community
+## Tham gia cộng đồng của chúng tôi
 
-Become part of Vietnam's growing building performance simulation community. Whether you're a researcher, consultant, student, or building professional, IBPSA Vietnam offers opportunities to advance your knowledge and contribute to sustainable building practices in Vietnam.
+Trở thành một phần của cộng đồng mô phỏng hiệu suất tòa nhà đang phát triển của Việt Nam. Cho dù bạn là nhà nghiên cứu, tư vấn viên, sinh viên hay chuyên gia xây dựng, IBPSA Việt Nam mang đến cơ hội để nâng cao kiến thức và đóng góp vào các thực hành xây dựng bền vững tại Việt Nam.
 
-[Learn more about membership](/membership/) or [contact us](/contact/) to get involved.
+[Tìm hiểu thêm về tư cách thành viên](/membership/) hoặc [liên hệ với chúng tôi](/contact/) để tham gia.

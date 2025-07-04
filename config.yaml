@@ -1,21 +1,298 @@
 baseURL: "https://ibpsa-vietnam.netlify.app"
-languageCode: "en-us"
-title: "IBPSA Vietnam"
-googleAnalytics: ""
+defaultContentLanguage: vi
+defaultContentLanguageInSubdir: false
 
-# Site description and meta information
-params:
-  description: "International Building Performance Simulation Association - Vietnam Chapter"
-  author: "IBPSA Vietnam"
-  email: "info@ibpsa-vietnam.org"
-  phone: "+84 xxx xxx xxxx"
-  address: "Vietnam"
-  social:
-    facebook: "https://facebook.com/ibpsa.vietnam"
-    linkedin: "https://linkedin.com/company/ibpsa-vietnam"
-    twitter: "https://twitter.com/ibpsa_vietnam"
-  logo: "/images/ibpsa-vietnam-logo.png"
-  favicon: "/images/favicon.ico"
+languages:
+  en:
+    languageCode: en-us
+    languageName: English
+    weight: 2
+    title: "IBPSA Vietnam"
+    params:
+      description: "International Building Performance Simulation Association - Vietnam Chapter"
+      author: "IBPSA Vietnam"
+      email: "info@ibpsa-vietnam.org"
+      phone: "+84 xxx xxx xxxx"
+      address: "Vietnam"
+      social:
+        facebook: "https://facebook.com/ibpsa.vietnam"
+        linkedin: "https://linkedin.com/company/ibpsa-vietnam"
+        twitter: "https://twitter.com/ibpsa_vietnam"
+      logo: "/images/ibpsa-vietnam-logo.png"
+      favicon: "/images/favicon.ico"
+    menu:
+      main:
+        - name: "Home"
+          url: "/"
+          weight: 10
+        
+        - name: "About"
+          url: "/about/"
+          weight: 20
+          hasChildren: true
+        
+        - name: "Membership"
+          url: "/membership/"
+          weight: 30
+          hasChildren: true
+        
+        - name: "Events"
+          url: "/events/"
+          weight: 40
+          hasChildren: true
+        
+        - name: "Resources"
+          url: "/resources/"
+          weight: 50
+          hasChildren: true
+        
+        - name: "News"
+          url: "/news/"
+          weight: 60
+          hasChildren: true
+        
+        - name: "Collaboration"
+          url: "/collaboration/"
+          weight: 70
+          hasChildren: true
+        
+        - name: "Career"
+          url: "/career/"
+          weight: 80
+          hasChildren: true
+        
+        - name: "Contact"
+          url: "/contact/"
+          weight: 90
+
+  vi:
+    languageCode: vi-vn
+    languageName: Tiếng Việt
+    weight: 1
+    title: "IBPSA Việt Nam"
+    params:
+      description: "Hiệp hội Mô phỏng Hiệu suất Tòa nhà Quốc tế - Chi hội Việt Nam"
+      author: "IBPSA Việt Nam"
+      email: "info@ibpsa-vietnam.org"
+      phone: "+84 xxx xxx xxxx"
+      address: "Việt Nam"
+      social:
+        facebook: "https://facebook.com/ibpsa.vietnam"
+        linkedin: "https://linkedin.com/company/ibpsa-vietnam"
+        twitter: "https://twitter.com/ibpsa_vietnam"
+      logo: "/images/ibpsa-vietnam-logo.png"
+      favicon: "/images/favicon.ico"
+    menu:
+      main:
+        - name: "Trang chủ"
+          url: "/"
+          weight: 10
+        
+        - name: "Giới thiệu"
+          url: "/about/"
+          weight: 20
+          hasChildren: true
+        
+        - name: "Thành viên"
+          url: "/membership/"
+          weight: 30
+          hasChildren: true
+        
+        - name: "Sự kiện"
+          url: "/events/"
+          weight: 40
+          hasChildren: true
+        
+        - name: "Tài nguyên"
+          url: "/resources/"
+          weight: 50
+          hasChildren: true
+        
+        - name: "Tin tức"
+          url: "/news/"
+          weight: 60
+          hasChildren: true
+        
+        - name: "Hợp tác"
+          url: "/collaboration/"
+          weight: 70
+          hasChildren: true
+        
+        - name: "Nghề nghiệp"
+          url: "/career/"
+          weight: 80
+          hasChildren: true
+        
+        - name: "Liên hệ"
+          url: "/contact/"
+          weight: 90
+      
+      about:
+        - name: "Sứ mệnh & Tầm nhìn"
+          url: "/about/mission/"
+          parent: "about"
+          weight: 10
+        
+        - name: "Hội đồng quản trị"
+          url: "/about/board/"
+          parent: "about"
+          weight: 20
+        
+        - name: "Các ủy ban"
+          url: "/about/committees/"
+          parent: "about"
+          weight: 30
+        
+        - name: "Lịch sử"
+          url: "/about/history/"
+          parent: "about"
+          weight: 40
+        
+        - name: "Báo cáo thường niên"
+          url: "/about/reports/"
+          parent: "about"
+          weight: 50
+
+      membership:
+        - name: "Tham gia IBPSA Việt Nam"
+          url: "/membership/join/"
+          parent: "membership"
+          weight: 10
+        
+        - name: "Lợi ích"
+          url: "/membership/benefits/"
+          parent: "membership"
+          weight: 20
+        
+        - name: "Danh sách thành viên"
+          url: "/membership/directory/"
+          parent: "membership"
+          weight: 30
+        
+        - name: "Phí"
+          url: "/membership/fees/"
+          parent: "membership"
+          weight: 40
+
+      events:
+        - name: "Sự kiện sắp tới"
+          url: "/events/upcoming/"
+          parent: "events"
+          weight: 10
+        
+        - name: "Sự kiện đã qua"
+          url: "/events/archive/"
+          parent: "events"
+          weight: 20
+        
+        - name: "Hội thảo trực tuyến"
+          url: "/events/webinars/"
+          parent: "events"
+          weight: 30
+        
+        - name: "Hội thảo"
+          url: "/events/workshops/"
+          parent: "events"
+          weight: 40
+
+      resources:
+        - name: "Xuất bản"
+          url: "/resources/publications/"
+          parent: "resources"
+          weight: 10
+        
+        - name: "Hướng dẫn"
+          url: "/resources/guidelines/"
+          parent: "resources"
+          weight: 20
+        
+        - name: "Phần mềm & Công cụ"
+          url: "/resources/tools/"
+          parent: "resources"
+          weight: 30
+        
+        - name: "Nghiên cứu điển hình"
+          url: "/resources/case-studies/"
+          parent: "resources"
+          weight: 40
+        
+        - name: "Tiêu chuẩn"
+          url: "/resources/standards/"
+          parent: "resources"
+          weight: 50
+
+      news:
+        - name: "Tin tức mới nhất"
+          url: "/news/"
+          parent: "news"
+          weight: 10
+        
+        - name: "Bản tin"
+          url: "/news/newsletter/"
+          parent: "news"
+          weight: 20
+        
+        - name: "Thông báo"
+          url: "/news/announcements/"
+          parent: "news"
+          weight: 30
+
+      collaboration:
+        - name: "Đối tác học thuật"
+          url: "/collaboration/academic/"
+          parent: "collaboration"
+          weight: 10
+        
+        - name: "Đối tác công nghiệp"
+          url: "/collaboration/industry/"
+          parent: "collaboration"
+          weight: 20
+        
+        - name: "Quan hệ chính phủ"
+          url: "/collaboration/government/"
+          parent: "collaboration"
+          weight: 30
+        
+        - name: "Dự án nghiên cứu"
+          url: "/collaboration/research/"
+          parent: "collaboration"
+          weight: 40
+
+      career:
+        - name: "Bảng việc làm"
+          url: "/career/jobs/"
+          parent: "career"
+          weight: 10
+        
+        - name: "Giáo dục"
+          url: "/career/education/"
+          parent: "career"
+          weight: 20
+        
+        - name: "Chứng chỉ"
+          url: "/career/certification/"
+          parent: "career"
+          weight: 30
+        
+        - name: "Phát triển chuyên môn"
+          url: "/career/development/"
+          parent: "career"
+          weight: 40
+
+      footer:
+        - name: "Chính sách bảo mật"
+          url: "/privacy/"
+          weight: 10
+        
+        - name: "Điều khoản dịch vụ"
+          url: "/terms/"
+          weight: 20
+        
+        - name: "Sơ đồ trang web"
+          url: "/sitemap/"
+          weight: 30
+
+googleAnalytics: ""
 
 # SEO and social media
 markup:
@@ -34,56 +311,12 @@ markup:
 
 # Output formats
 outputs:
-  home: ["HTML", "RSS", "JSON"]
+  home: ["HTML", "RSS"]
   page: ["HTML"]
   section: ["HTML", "RSS"]
 
-# Menu configuration based on INITIAL.md navigation structure
+# Menu configuration with submenus
 menu:
-  main:
-    - name: "Home"
-      url: "/"
-      weight: 10
-    
-    - name: "About"
-      url: "/about/"
-      weight: 20
-      hasChildren: true
-    
-    - name: "Membership"
-      url: "/membership/"
-      weight: 30
-      hasChildren: true
-    
-    - name: "Events"
-      url: "/events/"
-      weight: 40
-      hasChildren: true
-    
-    - name: "Resources"
-      url: "/resources/"
-      weight: 50
-      hasChildren: true
-    
-    - name: "News"
-      url: "/news/"
-      weight: 60
-      hasChildren: true
-    
-    - name: "Collaboration"
-      url: "/collaboration/"
-      weight: 70
-      hasChildren: true
-    
-    - name: "Career"
-      url: "/career/"
-      weight: 80
-      hasChildren: true
-    
-    - name: "Contact"
-      url: "/contact/"
-      weight: 90
-
   about:
     - name: "Mission & Vision"
       url: "/about/mission/"

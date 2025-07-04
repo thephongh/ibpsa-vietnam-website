@@ -1,110 +1,120 @@
 ---
-title: "Contact Us"
-description: "Get in touch with IBPSA Vietnam. Find our contact information, office locations, and ways to connect with our team and community."
+title: "Liên hệ"
+description: "Liên hệ với IBPSA Việt Nam. Tìm thông tin liên hệ, địa điểm văn phòng và cách kết nối với đội ngũ và cộng đồng của chúng tôi."
 featured_image: "/images/pages/contact-person.jpg"
 layout: "contact"
 ---
 
-# Contact IBPSA Vietnam
+# Liên hệ IBPSA Việt Nam
 
-We'd love to hear from you! Whether you have questions about membership, want to get involved, or need information about our programs and services, we're here to help.
+Chúng tôi rất mong nhận được phản hồi từ bạn! Cho dù bạn có câu hỏi về tư cách thành viên, muốn tham gia hay cần thông tin về các chương trình và dịch vụ của chúng tôi, chúng tôi luôn sẵn lòng hỗ trợ.
 
-## Get in Touch
+## Liên hệ
 
-### General Inquiries
-For general questions about IBPSA Vietnam, our activities, or how to get involved:
+### Yêu cầu chung
+
+Đối với các câu hỏi chung về IBPSA Việt Nam, các hoạt động của chúng tôi hoặc cách tham gia:
 
 **Email**: info@ibpsa-vietnam.org  
-**Phone**: +84 xxx xxx xxxx
+**Điện thoại**: +84 xxx xxx xxxx
 
-### Membership Services
-For questions about membership, benefits, or joining our community:
+### Dịch vụ thành viên
+
+Đối với các câu hỏi về tư cách thành viên, lợi ích hoặc việc tham gia cộng đồng của chúng tôi:
 
 **Email**: membership@ibpsa-vietnam.org  
-**Phone**: +84 xxx xxx xxxx
+**Điện thoại**: +84 xxx xxx xxxx
 
-### Events & Programs
-For information about events, workshops, and educational programs:
+### Sự kiện & Chương trình
+
+Để biết thông tin về các sự kiện, hội thảo và chương trình giáo dục:
 
 **Email**: events@ibpsa-vietnam.org  
-**Phone**: +84 xxx xxx xxxx
+**Điện thoại**: +84 xxx xxx xxxx
 
-### Media & Press
-For media inquiries, press releases, and interview requests:
+### Truyền thông & Báo chí
+
+Đối với các yêu cầu truyền thông, thông cáo báo chí và yêu cầu phỏng vấn:
 
 **Email**: media@ibpsa-vietnam.org
 
-## Office Locations
+## Địa điểm văn phòng
 
-### Hanoi Office
-**Address**: [Office Address]  
-Hanoi, Vietnam
+### Văn phòng Hà Nội
 
-**Office Hours**: Monday - Friday, 9:00 AM - 5:00 PM
+**Địa chỉ**: [Địa chỉ văn phòng]  
+Hà Nội, Việt Nam
 
-### Ho Chi Minh City Office
-**Address**: [Office Address]  
-Ho Chi Minh City, Vietnam
+**Giờ làm việc**: Thứ Hai - Thứ Sáu, 9:00 AM - 5:00 PM
 
-**Office Hours**: Monday - Friday, 9:00 AM - 5:00 PM
+### Văn phòng Thành phố Hồ Chí Minh
 
-## Connect with Us
+**Địa chỉ**: [Địa chỉ văn phòng]  
+Thành phố Hồ Chí Minh, Việt Nam
 
-### Social Media
-Stay connected and get real-time updates through our social media channels:
+**Giờ làm việc**: Thứ Hai - Thứ Sáu, 9:00 AM - 5:00 PM
+
+## Kết nối với chúng tôi
+
+### Mạng xã hội
+
+Luôn kết nối và nhận thông tin cập nhật theo thời gian thực thông qua các kênh mạng xã hội của chúng tôi:
 
 - **LinkedIn**: [linkedin.com/company/ibpsa-vietnam](https://linkedin.com/company/ibpsa-vietnam)
 - **Facebook**: [facebook.com/ibpsa.vietnam](https://facebook.com/ibpsa.vietnam)
 - **Twitter**: [@ibpsa_vietnam](https://twitter.com/ibpsa_vietnam)
 
-### Newsletter
-Subscribe to our newsletter for regular updates on events, news, and opportunities in the building performance simulation community.
+### Bản tin
 
-[Subscribe to Newsletter](/news/newsletter/)
+Đăng ký nhận bản tin của chúng tôi để nhận thông tin cập nhật thường xuyên về các sự kiện, tin tức và cơ hội trong cộng đồng mô phỏng hiệu suất tòa nhà.
 
-## Leadership Team
+[Đăng ký nhận bản tin](/news/newsletter/)
 
-### Board of Directors
-Contact our board members for specific organizational matters:
+## Đội ngũ lãnh đạo
 
-**Chair**: [Name] - chair@ibpsa-vietnam.org  
-**Vice Chair**: [Name] - vicechair@ibpsa-vietnam.org  
-**Secretary**: [Name] - secretary@ibpsa-vietnam.org  
-**Treasurer**: [Name] - treasurer@ibpsa-vietnam.org
+### Ban Giám đốc
 
-### Committee Chairs
-Reach out to committee chairs for specific areas of interest:
+Liên hệ với các thành viên ban giám đốc của chúng tôi về các vấn đề tổ chức cụ thể:
 
-**Education Committee**: education@ibpsa-vietnam.org  
-**Research Committee**: research@ibpsa-vietnam.org  
-**Industry Relations**: industry@ibpsa-vietnam.org  
-**International Affairs**: international@ibpsa-vietnam.org
+**Chủ tịch**: [Tên] - chair@ibpsa-vietnam.org  
+**Phó Chủ tịch**: [Tên] - vicechair@ibpsa-vietnam.org  
+**Thư ký**: [Tên] - secretary@ibpsa-vietnam.org  
+**Thủ quỹ**: [Tên] - treasurer@ibpsa-vietnam.org
 
-## Frequently Asked Questions
+### Chủ tịch các ủy ban
 
-Before reaching out, you might find answers to common questions in our FAQ section:
+Liên hệ với chủ tịch các ủy ban về các lĩnh vực quan tâm cụ thể:
 
-- How do I become a member?
-- What are the membership benefits?
-- How can I attend events?
-- What career opportunities are available?
-- How can I contribute content or resources?
+**Ủy ban Giáo dục**: education@ibpsa-vietnam.org  
+**Ủy ban Nghiên cứu**: research@ibpsa-vietnam.org  
+**Quan hệ Công nghiệp**: industry@ibpsa-vietnam.org  
+**Quan hệ Quốc tế**: international@ibpsa-vietnam.org
 
-[View FAQ](/about/faq/)
+## Câu hỏi thường gặp
 
-## Business Hours
+Trước khi liên hệ, bạn có thể tìm thấy câu trả lời cho các câu hỏi thường gặp trong phần FAQ của chúng tôi:
 
-**Regular Hours**: Monday - Friday, 9:00 AM - 5:00 PM (Vietnam Time)  
-**Emergency Contact**: For urgent matters, please email info@ibpsa-vietnam.org
+- Làm thế nào để trở thành thành viên?
+- Lợi ích của việc trở thành thành viên là gì?
+- Làm thế nào để tôi có thể tham dự các sự kiện?
+- Có những cơ hội nghề nghiệp nào?
+- Làm thế nào để tôi có thể đóng góp nội dung hoặc tài nguyên?
 
-We typically respond to inquiries within 1-2 business days. For urgent matters, please indicate "URGENT" in your subject line.
+[Xem FAQ](/about/faq/)
 
-## Mailing Address
+## Giờ làm việc
 
-**IBPSA Vietnam**  
-[Mailing Address]  
-Vietnam
+**Giờ làm việc thông thường**: Thứ Hai - Thứ Sáu, 9:00 AM - 5:00 PM (Giờ Việt Nam)  
+**Liên hệ khẩn cấp**: Đối với các vấn đề khẩn cấp, vui lòng gửi email tới info@ibpsa-vietnam.org
+
+Chúng tôi thường phản hồi các yêu cầu trong vòng 1-2 ngày làm việc. Đối với các vấn đề khẩn cấp, vui lòng ghi "KHẨN CẤP" trong dòng tiêu đề của bạn.
+
+## Địa chỉ gửi thư
+
+**IBPSA Việt Nam**  
+[Địa chỉ gửi thư]  
+Việt Nam
 
 ---
 
-*We value your privacy. Any information you provide will be used solely for responding to your inquiry and will not be shared with third parties without your consent.*
+_Chúng tôi coi trọng quyền riêng tư của bạn. Mọi thông tin bạn cung cấp sẽ chỉ được sử dụng để phản hồi yêu cầu của bạn và sẽ không được chia sẻ với bên thứ ba nếu không có sự đồng ý của bạn._

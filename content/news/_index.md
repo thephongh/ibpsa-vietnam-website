@@ -1,68 +1,78 @@
 ---
-title: "News & Updates"
-description: "Stay informed with the latest news, announcements, and updates from IBPSA Vietnam and the global building performance simulation community."
+title: "Tin tức & Cập nhật"
+description: "Luôn cập nhật những tin tức, thông báo và cập nhật mới nhất từ IBPSA Việt Nam và cộng đồng mô phỏng hiệu suất tòa nhà toàn cầu."
 featured_image: "/images/pages/energy-simulation.jpg"
 layout: "section"
 ---
 
-# News & Updates
+# Tin tức & Cập nhật
 
-Stay connected with the latest developments in building performance simulation in Vietnam and around the world. Get updates on research breakthroughs, industry trends, policy changes, and community activities.
+Luôn kết nối với những phát triển mới nhất trong lĩnh vực mô phỏng hiệu suất tòa nhà tại Việt Nam và trên thế giới. Nhận thông tin cập nhật về các đột phá nghiên cứu, xu hướng ngành, thay đổi chính sách và các hoạt động cộng đồng.
 
-## Latest News
+## Tin tức mới nhất
 
-### Industry Updates
-- New building energy codes and regulations
-- Technology advances in simulation software
-- Research breakthroughs and publications
-- Policy developments affecting building performance
+### Cập nhật ngành
 
-### Community News
-- Member achievements and recognitions
-- New partnerships and collaborations
-- Conference and event announcements
-- Educational program launches
+- Các quy chuẩn và quy định năng lượng tòa nhà mới
+- Tiến bộ công nghệ trong phần mềm mô phỏng
+- Đột phá nghiên cứu và các ấn phẩm
+- Phát triển chính sách ảnh hưởng đến hiệu suất tòa nhà
 
-### International Developments
-- Global IBPSA activities and initiatives
-- International conference updates
-- Cross-border collaboration opportunities
-- Global research trends and findings
+### Tin tức cộng đồng
 
-## Communication Channels
+- Thành tựu và công nhận của thành viên
+- Các mối quan hệ đối tác và hợp tác mới
+- Thông báo hội nghị và sự kiện
+- Ra mắt chương trình giáo dục
 
-### Newsletter
-Our monthly newsletter features:
-- Chapter updates and announcements
-- Upcoming events and deadlines
-- Member spotlights and achievements
-- Technical articles and insights
-- Job opportunities and career updates
+### Phát triển quốc tế
 
-### Announcements
-Important and time-sensitive information including:
-- Event registrations and deadlines
-- Policy changes and updates
-- Emergency communications
-- Special opportunities and calls for participation
+- Các hoạt động và sáng kiến IBPSA toàn cầu
+- Cập nhật hội nghị quốc tế
+- Cơ hội hợp tác xuyên biên giới
+- Xu hướng và phát hiện nghiên cứu toàn cầu
 
-### Social Media
-Follow us on social platforms for:
-- Real-time updates and news
-- Behind-the-scenes content from events
-- Quick tips and technical insights
-- Community discussions and engagement
+## Kênh truyền thông
 
-## Newsletter Subscription
+### Bản tin
 
-Join our mailing list to receive regular updates delivered directly to your inbox. Choose from:
-- **Weekly Digest**: Summary of important news and updates
-- **Monthly Newsletter**: Comprehensive chapter and industry updates
-- **Event Alerts**: Notifications about upcoming events and deadlines
-- **Job Board**: Career opportunities in building simulation
+Bản tin hàng tháng của chúng tôi có các nội dung:
 
-## Archive
+- Cập nhật và thông báo của chi hội
+- Các sự kiện sắp tới và thời hạn
+- Điểm nổi bật và thành tựu của thành viên
+- Các bài viết và thông tin chuyên sâu về kỹ thuật
+- Cơ hội việc làm và cập nhật nghề nghiệp
 
-Browse our archive of past newsletters, announcements, and news articles to stay informed about the evolution of building performance simulation in Vietnam.
+### Thông báo
 
-[Subscribe to Newsletter](/news/newsletter/) | [View Announcements](/news/announcements/) | [Browse Archive](/news/archive/)
+Thông tin quan trọng và nhạy cảm về thời gian bao gồm:
+
+- Đăng ký và thời hạn sự kiện
+- Thay đổi và cập nhật chính sách
+- Thông tin liên lạc khẩn cấp
+- Cơ hội đặc biệt và lời kêu gọi tham gia
+
+### Mạng xã hội
+
+Theo dõi chúng tôi trên các nền tảng xã hội để biết:
+
+- Cập nhật và tin tức theo thời gian thực
+- Nội dung hậu trường từ các sự kiện
+- Mẹo nhanh và thông tin chuyên sâu về kỹ thuật
+- Thảo luận và tương tác cộng đồng
+
+## Đăng ký nhận bản tin
+
+Tham gia danh sách gửi thư của chúng tôi để nhận thông tin cập nhật thường xuyên được gửi trực tiếp vào hộp thư đến của bạn. Chọn từ:
+
+- **Tóm tắt hàng tuần**: Tóm tắt các tin tức và cập nhật quan trọng
+- **Bản tin hàng tháng**: Cập nhật toàn diện về chi hội và ngành
+- **Thông báo sự kiện**: Thông báo về các sự kiện và thời hạn sắp tới
+- **Bảng việc làm**: Cơ hội nghề nghiệp trong lĩnh vực mô phỏng tòa nhà
+
+## Lưu trữ
+
+Duyệt qua kho lưu trữ các bản tin, thông báo và bài viết tin tức trước đây của chúng tôi để luôn cập nhật về sự phát triển của mô phỏng hiệu suất tòa nhà tại Việt Nam.
+
+[Đăng ký nhận bản tin](/news/newsletter/) | [Xem thông báo](/news/announcements/) | [Duyệt kho lưu trữ](/news/archive/)

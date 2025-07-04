@@ -1,51 +1,54 @@
 ---
-title: "Membership"
-description: "Join IBPSA Vietnam and become part of our growing community of building performance simulation professionals. Learn about membership benefits, requirements, and how to join."
+title: "Thành viên"
+description: "Tham gia IBPSA Việt Nam và trở thành một phần của cộng đồng ngày càng phát triển của các chuyên gia mô phỏng hiệu suất tòa nhà. Tìm hiểu về lợi ích, yêu cầu và cách thức tham gia thành viên."
 featured_image: "/images/membership/handshake.jpg"
 layout: "section"
 ---
 
-# Join IBPSA Vietnam
+# Tham gia IBPSA Việt Nam
 
-Become part of Vietnam's premier building performance simulation community. IBPSA Vietnam membership connects you with professionals, researchers, and students who are passionate about improving building performance through simulation.
+Trở thành một phần của cộng đồng mô phỏng hiệu suất tòa nhà hàng đầu Việt Nam. Tư cách thành viên IBPSA Việt Nam kết nối bạn với các chuyên gia, nhà nghiên cứu và sinh viên đam mê cải thiện hiệu suất tòa nhà thông qua mô phỏng.
 
-## Who Should Join
+## Ai nên tham gia
 
-- **Researchers and Academics**: Faculty, students, and research staff working in building simulation
-- **Consulting Engineers**: Professionals providing building performance simulation services
-- **Architects**: Design professionals interested in performance-based design
-- **Software Developers**: Companies and individuals developing simulation tools
-- **Government Officials**: Policymakers working on building energy standards
-- **Industry Professionals**: Anyone working in the building performance sector
+- **Các nhà nghiên cứu và học giả**: Giảng viên, sinh viên và nhân viên nghiên cứu làm việc trong lĩnh vực mô phỏng tòa nhà
+- **Kỹ sư tư vấn**: Các chuyên gia cung cấp dịch vụ mô phỏng hiệu suất tòa nhà
+- **Kiến trúc sư**: Các chuyên gia thiết kế quan tâm đến thiết kế dựa trên hiệu suất
+- **Các nhà phát triển phần mềm**: Các công ty và cá nhân phát triển công cụ mô phỏng
+- **Các quan chức chính phủ**: Các nhà hoạch định chính sách làm việc về tiêu chuẩn năng lượng tòa nhà
+- **Các chuyên gia ngành**: Bất kỳ ai làm việc trong lĩnh vực hiệu suất tòa nhà
 
-## Membership Categories
+## Các loại hình thành viên
 
-### Individual Membership
-- Open to all professionals and students
-- Access to all chapter events and resources
-- Networking opportunities with local and international experts
-- Professional development opportunities
+### Thành viên cá nhân
 
-### Student Membership
-- Discounted rates for full-time students
-- Access to educational resources and mentorship
-- Career development support
-- Research collaboration opportunities
+- Mở cửa cho tất cả các chuyên gia và sinh viên
+- Tiếp cận tất cả các sự kiện và tài nguyên của chi hội
+- Cơ hội kết nối với các chuyên gia trong nước và quốc tế
+- Cơ hội phát triển chuyên môn
 
-### Corporate Membership
-- For organizations supporting building simulation
-- Enhanced visibility in the community
-- Sponsorship opportunities
-- Multiple staff access to events
+### Thành viên sinh viên
 
-## Why Join IBPSA Vietnam?
+- Mức giá ưu đãi cho sinh viên toàn thời gian
+- Tiếp cận các tài nguyên giáo dục và cố vấn
+- Hỗ trợ phát triển nghề nghiệp
+- Cơ hội hợp tác nghiên cứu
 
-- **Professional Growth**: Advance your career through networking and professional development
-- **Knowledge Sharing**: Access to cutting-edge research and best practices
-- **Local Expertise**: Learn about simulation in Vietnam's unique climate and building context
-- **International Connection**: Links to the global IBPSA community
-- **Industry Influence**: Contribute to the development of local standards and practices
+### Thành viên doanh nghiệp
 
-## Get Started Today
+- Dành cho các tổ chức hỗ trợ mô phỏng tòa nhà
+- Nâng cao khả năng hiển thị trong cộng đồng
+- Cơ hội tài trợ
+- Nhiều nhân viên có thể truy cập các sự kiện
 
-Ready to join our community? Explore our membership options and take the first step towards advancing your career in building performance simulation.
+## Tại sao nên tham gia IBPSA Việt Nam?
+
+- **Phát triển chuyên môn**: Nâng cao sự nghiệp của bạn thông qua kết nối và phát triển chuyên môn
+- **Chia sẻ kiến thức**: Tiếp cận nghiên cứu tiên tiến và các thực tiễn tốt nhất
+- **Chuyên môn địa phương**: Tìm hiểu về mô phỏng trong khí hậu và bối cảnh xây dựng độc đáo của Việt Nam
+- **Kết nối quốc tế**: Liên kết với cộng đồng IBPSA toàn cầu
+- **Ảnh hưởng ngành**: Đóng góp vào việc phát triển các tiêu chuẩn và thực tiễn địa phương
+
+## Bắt đầu ngay hôm nay
+
+Sẵn sàng tham gia cộng đồng của chúng tôi? Khám phá các tùy chọn thành viên của chúng tôi và thực hiện bước đầu tiên để nâng cao sự nghiệp của bạn trong lĩnh vực mô phỏng hiệu suất tòa nhà.

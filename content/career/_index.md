@@ -1,117 +1,135 @@
 ---
-title: "Career Development"
-description: "Advance your career in building performance simulation with job opportunities, educational programs, certification paths, and professional development resources in Vietnam."
+title: "Phát triển sự nghiệp"
+description: "Nâng cao sự nghiệp của bạn trong lĩnh vực mô phỏng hiệu suất tòa nhà với các cơ hội việc làm, chương trình giáo dục, lộ trình chứng nhận và tài nguyên phát triển chuyên môn tại Việt Nam."
 featured_image: "/images/career/office-workspace.jpg"
 layout: "section"
 ---
 
-# Career Development
+# Phát triển sự nghiệp
 
-Build your career in building performance simulation with support from IBPSA Vietnam. Whether you're just starting out or looking to advance your expertise, we provide resources, opportunities, and connections to help you succeed.
+Xây dựng sự nghiệp của bạn trong lĩnh vực mô phỏng hiệu suất tòa nhà với sự hỗ trợ từ IBPSA Việt Nam. Cho dù bạn mới bắt đầu hay đang tìm cách nâng cao chuyên môn, chúng tôi cung cấp tài nguyên, cơ hội và các mối quan hệ để giúp bạn thành công.
 
-## Career Resources
+## Tài nguyên nghề nghiệp
 
-### Job Board
-Find exciting career opportunities in building performance simulation across Vietnam:
-- Engineering consulting positions
-- Research and academic roles
-- Software development opportunities
-- Government and policy positions
-- Project management roles
+### Bảng việc làm
 
-### Educational Pathways
-Discover educational opportunities to develop your simulation expertise:
-- Degree programs in building physics and energy modeling
-- Professional training courses and workshops
-- Online learning resources and tutorials
-- Research opportunities and graduate programs
+Tìm kiếm các cơ hội nghề nghiệp hấp dẫn trong lĩnh vực mô phỏng hiệu suất tòa nhà trên khắp Việt Nam:
 
-### Professional Certification
-Advance your credentials through certification programs:
-- Building Energy Modeling Professional (BEMP)
-- LEED AP with specialty credentials
-- Local certification programs
-- Continuing education requirements
+- Vị trí tư vấn kỹ thuật
+- Vai trò nghiên cứu và học thuật
+- Cơ hội phát triển phần mềm
+- Vị trí chính phủ và chính sách
+- Vai trò quản lý dự án
 
-### Professional Development
-Grow your skills and expertise through:
-- Mentorship programs
-- Professional networking events
-- Technical workshops and seminars
-- Leadership development opportunities
+### Lộ trình giáo dục
 
-## Career Tracks
+Khám phá các cơ hội giáo dục để phát triển chuyên môn mô phỏng của bạn:
 
-### Research & Academia
-- University faculty positions
-- Research institute roles
-- Graduate research opportunities
-- Post-doctoral fellowships
+- Các chương trình cấp bằng về vật lý xây dựng và mô hình năng lượng
+- Các khóa đào tạo và hội thảo chuyên nghiệp
+- Tài nguyên học tập trực tuyến và hướng dẫn
+- Cơ hội nghiên cứu và các chương trình sau đại học
 
-### Consulting & Industry
-- Energy modeling consultant
-- Building performance analyst
-- Sustainability consultant
-- Project engineer roles
+### Chứng nhận chuyên nghiệp
 
-### Technology & Software
-- Simulation software developer
-- Technical support specialist
-- Product manager positions
-- Training and education roles
+Nâng cao bằng cấp của bạn thông qua các chương trình chứng nhận:
 
-### Policy & Government
-- Building energy policy analyst
-- Green building program manager
-- Standards development specialist
-- Energy efficiency program coordinator
+- Chuyên gia mô hình năng lượng tòa nhà (BEMP)
+- LEED AP với các chứng chỉ chuyên biệt
+- Các chương trình chứng nhận địa phương
+- Yêu cầu giáo dục thường xuyên
 
-## Skill Development
+### Phát triển chuyên môn
 
-### Technical Skills
-- Building energy modeling software
-- Data analysis and visualization
-- Programming and scripting
-- Measurement and verification
+Phát triển kỹ năng và chuyên môn của bạn thông qua:
 
-### Professional Skills
-- Project management
-- Client communication
-- Technical writing
-- Presentation skills
+- Các chương trình cố vấn
+- Các sự kiện kết nối chuyên nghiệp
+- Các hội thảo kỹ thuật và hội nghị chuyên đề
+- Các cơ hội phát triển lãnh đạo
 
-### Specialized Knowledge
-- Building physics and thermodynamics
-- HVAC systems and controls
-- Renewable energy systems
-- Green building standards
+## Lộ trình nghề nghiệp
 
-## Getting Started
+### Nghiên cứu & Học thuật
 
-### For Students
-- Identify relevant degree programs
-- Seek internship and research opportunities
-- Join student chapters and organizations
-- Attend conferences and networking events
+- Vị trí giảng viên đại học
+- Vai trò tại viện nghiên cứu
+- Cơ hội nghiên cứu sau đại học
+- Học bổng sau tiến sĩ
 
-### For Professionals
-- Assess current skills and identify gaps
-- Pursue relevant training and certification
-- Build professional networks
-- Consider specialization areas
+### Tư vấn & Công nghiệp
 
-### For Career Changers
-- Evaluate transferable skills
-- Identify entry-level opportunities
-- Pursue foundational education
-- Connect with mentors in the field
+- Tư vấn mô hình năng lượng
+- Chuyên viên phân tích hiệu suất tòa nhà
+- Tư vấn bền vững
+- Vai trò kỹ sư dự án
 
-## Support Services
+### Công nghệ & Phần mềm
 
-- Career counseling and guidance
-- Resume and portfolio review
-- Interview preparation support
-- Professional reference network
-- Salary and compensation guidance
+- Nhà phát triển phần mềm mô phỏng
+- Chuyên viên hỗ trợ kỹ thuật
+- Vị trí quản lý sản phẩm
+- Vai trò đào tạo và giáo dục
 
-[Browse Jobs](/career/jobs/) | [Educational Programs](/career/education/) | [Certification Info](/career/certification/) | [Professional Development](/career/development/)
+### Chính sách & Chính phủ
+
+- Chuyên viên phân tích chính sách năng lượng tòa nhà
+- Quản lý chương trình công trình xanh
+- Chuyên viên phát triển tiêu chuẩn
+- Điều phối viên chương trình hiệu quả năng lượng
+
+## Phát triển kỹ năng
+
+### Kỹ năng kỹ thuật
+
+- Phần mềm mô hình năng lượng tòa nhà
+- Phân tích và trực quan hóa dữ liệu
+- Lập trình và viết kịch bản
+- Đo lường và xác minh
+
+### Kỹ năng chuyên nghiệp
+
+- Quản lý dự án
+- Giao tiếp với khách hàng
+- Viết tài liệu kỹ thuật
+- Kỹ năng thuyết trình
+
+### Kiến thức chuyên môn
+
+- Vật lý và nhiệt động lực học tòa nhà
+- Hệ thống HVAC và điều khiển
+- Hệ thống năng lượng tái tạo
+- Tiêu chuẩn công trình xanh
+
+## Bắt đầu
+
+### Dành cho sinh viên
+
+- Xác định các chương trình cấp bằng liên quan
+- Tìm kiếm cơ hội thực tập và nghiên cứu
+- Tham gia các chi hội và tổ chức sinh viên
+- Tham dự các hội nghị và sự kiện kết nối
+
+### Dành cho chuyên gia
+
+- Đánh giá kỹ năng hiện tại và xác định khoảng trống
+- Theo đuổi các khóa đào tạo và chứng nhận liên quan
+- Xây dựng mạng lưới chuyên nghiệp
+- Cân nhắc các lĩnh vực chuyên môn
+
+### Dành cho người chuyển đổi nghề nghiệp
+
+- Đánh giá các kỹ năng có thể chuyển đổi
+- Xác định các cơ hội cấp độ đầu vào
+- Theo đuổi giáo dục nền tảng
+- Kết nối với các cố vấn trong lĩnh vực
+
+## Dịch vụ hỗ trợ
+
+- Tư vấn và hướng dẫn nghề nghiệp
+- Đánh giá sơ yếu lý lịch và hồ sơ năng lực
+- Hỗ trợ chuẩn bị phỏng vấn
+- Mạng lưới giới thiệu chuyên nghiệp
+- Hướng dẫn về lương và phúc lợi
+
+[Duyệt việc làm](/career/jobs/) | [Chương trình giáo dục](/career/education/) | [Thông tin chứng nhận](/career/certification/) | [Phát triển chuyên môn](/career/development/)
