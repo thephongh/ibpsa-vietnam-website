@@ -1,6 +1,6 @@
 ---
 title: "IBPSA Việt Nam"
-description: "Hiệp hội Mô phỏng Hiệu suất Tòa nhà Quốc tế - Chi hội Việt Nam. Thúc đẩy mô phỏng hiệu suất tòa nhà để cải thiện thiết kế, xây dựng, vận hành và bảo trì môi trường xây dựng tại Việt Nam."
+description: "Hiệp hội Mô phỏng Hiệu năng Công trình Xây dựng Quốc tế - Chi hội Việt Nam. Thúc đẩy mô phỏng Hiệu năng Công trình Xây dựng để cải thiện thiết kế, xây dựng, vận hành và bảo trì môi trường xây dựng tại Việt Nam."
 featured_image: "/images/pages/homepage-hero.jpg"
 keywords:
   [
@@ -9,18 +9,18 @@ keywords:
     "phân tích hiệu suất",
     "Việt Nam",
     "IBPSA",
-    "hiệu suất tòa nhà",
+    "Hiệu năng Công trình Xây dựng",
   ]
 layout: "home"
 ---
 
 # Chào mừng đến với IBPSA Việt Nam
 
-Chi hội Hiệp hội Mô phỏng Hiệu suất Tòa nhà Quốc tế (IBPSA) Việt Nam cam kết thúc đẩy và phát triển mô phỏng hiệu suất tòa nhà và môi trường để cải thiện thiết kế, xây dựng, vận hành và bảo trì môi trường xây dựng trên khắp Việt Nam.
+Chi hội Hiệp hội Mô phỏng Hiệu năng Công trình Xây dựng Quốc tế (IBPSA) Việt Nam cam kết thúc đẩy và phát triển mô phỏng hiệu năng để cải thiện thiết kế, xây dựng, vận hành và bảo trì môi trường xây dựng trên khắp Việt Nam.
 
 ## Sứ mệnh của chúng tôi
 
-Chúng tôi thúc đẩy các tòa nhà tốt hơn thông qua mô phỏng bằng cách kết nối các chuyên gia, nhà nghiên cứu và sinh viên làm việc trong lĩnh vực mô phỏng hiệu suất tòa nhà trên khắp Việt Nam. Cộng đồng của chúng tôi thúc đẩy chia sẻ kiến thức, phát triển chuyên môn và áp dụng các công nghệ mô phỏng trong ngành xây dựng Việt Nam.
+Chúng tôi thúc đẩy các tòa nhà tốt hơn thông qua mô phỏng bằng cách kết nối các chuyên gia, nhà nghiên cứu và sinh viên làm việc trong lĩnh vực mô phỏng Hiệu năng Công trình Xây dựng trên khắp Việt Nam. Cộng đồng của chúng tôi thúc đẩy chia sẻ kiến thức, phát triển chuyên môn và áp dụng các công nghệ mô phỏng trong ngành xây dựng Việt Nam.
 
 ## Những gì chúng tôi làm
 
@@ -32,6 +32,6 @@ Chúng tôi thúc đẩy các tòa nhà tốt hơn thông qua mô phỏng bằng
 
 ## Tham gia cộng đồng của chúng tôi
 
-Trở thành một phần của cộng đồng mô phỏng hiệu suất tòa nhà đang phát triển của Việt Nam. Cho dù bạn là nhà nghiên cứu, tư vấn viên, sinh viên hay chuyên gia xây dựng, IBPSA Việt Nam mang đến cơ hội để nâng cao kiến thức và đóng góp vào các thực hành xây dựng bền vững tại Việt Nam.
+Trở thành một phần của cộng đồng mô phỏng Hiệu năng Công trình Xây dựng đang phát triển của Việt Nam. Cho dù bạn là nhà nghiên cứu, tư vấn viên, sinh viên hay chuyên gia xây dựng, IBPSA Việt Nam mang đến cơ hội để nâng cao kiến thức và đóng góp vào các thực hành xây dựng bền vững tại Việt Nam.
 
 [Tìm hiểu thêm về tư cách thành viên](/membership/) hoặc [liên hệ với chúng tôi](/contact/) để tham gia.
