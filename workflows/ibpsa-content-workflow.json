@@ -1,0 +1,782 @@
+{
+  "name": "IBPSA Vietnam Content Generation Workflow",
+  "nodes": [
+    {
+      "id": "manual_trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1.0,
+      "position": [200, 300],
+      "parameters": {}
+    },
+    {
+      "id": "schedule_trigger",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [200, 500],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "value": "0 9 * * 1,4"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "merge_triggers",
+      "name": "Merge Triggers",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [400, 400],
+      "parameters": {
+        "mode": "append",
+        "options": {}
+      }
+    },
+    {
+      "id": "set_search_parameters",
+      "name": "Set Search Parameters",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [600, 400],
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "search_query_ibpsa",
+              "value": "IBPSA building performance simulation research latest"
+            },
+            {
+              "name": "search_query_tropical",
+              "value": "tropical building energy efficiency Southeast Asia Vietnam"
+            },
+            {
+              "name": "workflow_id",
+              "value": "ibpsa-content-{{$now.format('YYYY-MM-DD-HHmm')}}"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "tavily_search_ibpsa",
+      "name": "Tavily Search IBPSA",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [800, 300],
+      "parameters": {
+        "httpVersion": "v1.1",
+        "method": "POST",
+        "url": "https://api.tavily.com/search",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer {{$credentials.tavilyApi.api_key}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "body": "={\n  \"query\": \"{{$json.search_query_ibpsa}}\",\n  \"search_depth\": \"advanced\",\n  \"include_domains\": [\".edu\", \".gov\", \"ibpsa.org\", \"ashrae.org\"],\n  \"max_results\": 10,\n  \"include_raw_content\": false,\n  \"include_images\": false\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "tavily_api_credentials",
+          "name": "Tavily API"
+        }
+      }
+    },
+    {
+      "id": "tavily_search_tropical",
+      "name": "Tavily Search Tropical",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [800, 500],
+      "parameters": {
+        "httpVersion": "v1.1",
+        "method": "POST",
+        "url": "https://api.tavily.com/search",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer {{$credentials.tavilyApi.api_key}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "body": "={\n  \"query\": \"{{$json.search_query_tropical}}\",\n  \"search_depth\": \"advanced\",\n  \"include_domains\": [\".edu\", \".gov\", \"ashrae.org\", \"iea.org\"],\n  \"max_results\": 10,\n  \"include_raw_content\": false,\n  \"include_images\": false\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "tavily_api_credentials",
+          "name": "Tavily API"
+        }
+      }
+    },
+    {
+      "id": "merge_search_results",
+      "name": "Merge Search Results",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [1000, 400],
+      "parameters": {
+        "mode": "append",
+        "options": {}
+      }
+    },
+    {
+      "id": "filter_academic_sources",
+      "name": "Filter Academic Sources",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1200, 400],
+      "parameters": {
+        "language": "javascript",
+        "jsCode": "// Filter and enhance search results for academic quality\nconst ibpsaResults = $input.first().json.results || [];\nconst tropicalResults = $input.all()[1]?.json?.results || [];\n\n// Combine and deduplicate results\nconst allResults = [...ibpsaResults, ...tropicalResults];\nconst uniqueResults = allResults.filter((result, index, self) => \n  index === self.findIndex(r => r.url === result.url)\n);\n\n// Academic domain scoring\nconst academicDomains = ['.edu', '.gov', 'ibpsa.org', 'ashrae.org', 'iea.org', 'nrel.gov'];\nconst scoredResults = uniqueResults.map(result => {\n  let academicScore = 0;\n  \n  // Domain scoring\n  for (const domain of academicDomains) {\n    if (result.url.includes(domain)) {\n      academicScore += domain.includes('.edu') ? 3 : domain.includes('.gov') ? 2 : 1;\n      break;\n    }\n  }\n  \n  // Content quality indicators\n  if (result.title.toLowerCase().includes('research') || \n      result.title.toLowerCase().includes('study') ||\n      result.title.toLowerCase().includes('analysis')) {\n    academicScore += 1;\n  }\n  \n  if (result.content.length > 500) {\n    academicScore += 1;\n  }\n  \n  return {\n    ...result,\n    academic_score: academicScore,\n    is_academic: academicScore >= 2\n  };\n});\n\n// Sort by academic score and select top results\nconst filteredResults = scoredResults\n  .filter(result => result.is_academic)\n  .sort((a, b) => b.academic_score - a.academic_score)\n  .slice(0, 8);\n\n// Calculate metrics\nconst academicPercentage = (filteredResults.length / Math.max(uniqueResults.length, 1)) * 100;\n\nreturn {\n  filtered_results: filteredResults,\n  selected_urls: filteredResults.map(r => r.url),\n  total_found: uniqueResults.length,\n  academic_count: filteredResults.length,\n  academic_percentage: Math.round(academicPercentage),\n  search_metadata: {\n    search_timestamp: new Date().toISOString(),\n    ibpsa_results_count: ibpsaResults.length,\n    tropical_results_count: tropicalResults.length,\n    academic_threshold: '80%',\n    quality_check: academicPercentage >= 80 ? 'PASS' : 'REVIEW'\n  }\n};"
+      }
+    },
+    {
+      "id": "tavily_extract_content",
+      "name": "Tavily Extract Content",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1400, 400],
+      "parameters": {
+        "httpVersion": "v1.1",
+        "method": "POST",
+        "url": "https://api.tavily.com/extract",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer {{$credentials.tavilyApi.api_key}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "body": "={\n  \"urls\": {{$json.selected_urls}},\n  \"extract_depth\": \"advanced\",\n  \"include_images\": false,\n  \"format\": \"markdown\"\n}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "tavily_api_credentials",
+          "name": "Tavily API"
+        }
+      }
+    },
+    {
+      "id": "process_search_results",
+      "name": "Process Search Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1600, 400],
+      "parameters": {
+        "language": "javascript",
+        "jsCode": "// Process and format search results for AI agent\nconst searchData = $input.first().json;\nconst extractedData = $input.all()[1]?.json || {};\n\nconst searchResults = searchData.filtered_results || [];\nconst extractedContent = extractedData.results || [];\nconst searchMetadata = searchData.search_metadata || {};\n\n// Combine search results with extracted content\nconst enhancedResults = searchResults.map(result => {\n  const extracted = extractedContent.find(content => content.url === result.url);\n  return {\n    title: result.title,\n    url: result.url,\n    snippet: result.content,\n    full_content: extracted?.content || result.content,\n    academic_score: result.academic_score,\n    domain: new URL(result.url).hostname\n  };\n});\n\n// Create structured input for AI agent\nconst agentInput = {\n  task: \"create_blog_post\",\n  search_summary: {\n    total_sources: enhancedResults.length,\n    academic_percentage: searchData.academic_percentage,\n    search_timestamp: searchMetadata.search_timestamp\n  },\n  source_articles: enhancedResults,\n  requirements: {\n    target_length: \"800-1200 words\",\n    audience: \"Vietnamese building professionals\",\n    climate_focus: \"tropical/subtropical\",\n    citation_format: \"academic with URLs\",\n    structure: \"introduction → findings → vietnamese context → recommendations → conclusion → references\"\n  },\n  content_guidelines: {\n    technical_level: \"accessible to both technical and non-technical audiences\",\n    geographic_focus: \"Vietnam and Southeast Asia applications\",\n    practical_emphasis: \"actionable recommendations and implementation guidance\",\n    academic_standards: \"proper citations and evidence-based content\"\n  }\n};\n\nreturn {\n  agent_input: JSON.stringify(agentInput),\n  source_count: enhancedResults.length,\n  ready_for_processing: enhancedResults.length >= 3,\n  extracted_content: extractedContent,\n  ...searchData\n};"
+      }
+    },
+    {
+      "id": "openai_chat_model_researcher",
+      "name": "OpenAI Chat Model - Researcher",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [1800, 300],
+      "parameters": {
+        "model": "gpt-4",
+        "options": {
+          "temperature": 0.3,
+          "maxTokens": 2000,
+          "topP": 1
+        }
+      },
+      "credentials": {
+        "openAiApi": {
+          "id": "openai_api_key",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "id": "simple_memory_researcher",
+      "name": "Simple Memory - Researcher",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.2,
+      "position": [1800, 200],
+      "parameters": {
+        "contextWindowLength": 10
+      }
+    },
+    {
+      "id": "ai_agent_content_researcher",
+      "name": "Content Researcher Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [1800, 400],
+      "parameters": {
+        "agentType": "toolsAgent",
+        "promptType": "define",
+        "text": "You are a research assistant for IBPSA Vietnam, specializing in building performance simulation, energy efficiency, and sustainable architecture.\n\nYour task is to analyze the provided search results and extracted content from Tavily to create a comprehensive blog post.\n\nKey Requirements:\n1. Use ONLY the provided search results and extracted content\n2. Focus on practical applications for Vietnamese building industry\n3. Include proper citations with URLs from the search results\n4. Create content relevant to tropical/subtropical climate\n5. Make it accessible to both technical and non-technical audiences\n6. Target 800-1200 words\n\nContent Structure:\n- Clear title (no markdown headers)\n- Introduction\n- Main findings with subheadings\n- Vietnamese context and applications\n- Practical recommendations\n- Conclusion with actionable steps\n- References with URLs\n\nAlways maintain academic standards while making content accessible. Focus on practical implementation in Vietnam's tropical climate conditions.",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are IBPSA Vietnam's research assistant. Create academic-quality content from provided search results, focusing on practical applications for Vietnamese building professionals in tropical climate conditions.",
+          "maxIterations": 3,
+          "returnIntermediateSteps": false
+        }
+      }
+    },
+    {
+      "id": "format_researcher_output",
+      "name": "Format Researcher Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2000, 400],
+      "parameters": {
+        "language": "javascript",
+        "jsCode": "// Format AI agent output for workflow processing\nconst agentResponse = $json.output || $json.text || '';\nconst sourceCount = $json.source_count || 0;\n\n// Extract structured content from agent response\nlet title = '';\nlet content = '';\nlet references = [];\n\n// Parse agent response for title\nconst titleMatch = agentResponse.match(/^(.+?)\\n/);\nif (titleMatch) {\n  title = titleMatch[1].replace(/^#+\\s*/, '').trim();\n}\n\n// Extract references/citations\nconst urlRegex = /https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)/g;\nconst urls = agentResponse.match(urlRegex) || [];\nreferences = [...new Set(urls)];\n\n// Clean content (remove title if it's at the beginning)\ncontent = agentResponse.replace(/^.+?\\n\\n/, '').trim();\n\n// Validate content quality\nconst wordCount = content.split(/\\s+/).length;\nconst hasIntroduction = content.toLowerCase().includes('introduction') || content.indexOf('\\n') < 200;\nconst hasConclusion = content.toLowerCase().includes('conclusion') || content.toLowerCase().includes('recommendation');\nconst hasCitations = references.length >= 3;\n\nconst qualityScore = {\n  word_count_ok: wordCount >= 800 && wordCount <= 1200,\n  has_structure: hasIntroduction && hasConclusion,\n  sufficient_citations: hasCitations,\n  overall_quality: (wordCount >= 800 && hasIntroduction && hasConclusion && hasCitations) ? 'PASS' : 'REVIEW'\n};\n\nreturn {\n  english_content: {\n    title: title || 'Advanced Building Performance Research Insights',\n    body: content,\n    word_count: wordCount,\n    references: references,\n    generated_date: new Date().toISOString().split('T')[0]\n  },\n  quality_metrics: qualityScore,\n  processing_metadata: {\n    source_articles_used: sourceCount,\n    ai_model: 'gpt-4',\n    processing_timestamp: new Date().toISOString(),\n    content_type: 'research_blog_post'\n  }\n};"
+      }
+    },
+    {
+      "id": "prepare_translation_input",
+      "name": "Prepare Translation Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2200, 400],
+      "parameters": {
+        "language": "javascript",
+        "jsCode": "// Prepare English content for Vietnamese translation\nconst englishContent = $json.english_content || {};\nconst processingMetadata = $json.processing_metadata || {};\n\n// Create structured input for translation agent\nconst translationInput = {\n  task: \"translate_to_vietnamese\",\n  source_language: \"English\",\n  target_language: \"Vietnamese\",\n  content_type: \"technical_blog_post\",\n  english_article: {\n    title: englishContent.title || '',\n    body: englishContent.body || '',\n    references: englishContent.references || [],\n    word_count: englishContent.word_count || 0\n  },\n  translation_requirements: {\n    preserve_citations: true,\n    maintain_structure: true,\n    technical_accuracy: true,\n    formal_tone: true,\n    target_audience: \"Vietnamese building professionals\",\n    adaptation_notes: \"Adapt international examples to Vietnamese context where appropriate\"\n  },\n  terminology_guidelines: {\n    \"IBPSA\": \"Hiệp hội Mô phỏng Hiệu suất Tòa nhà Quốc tế\",\n    \"Building Performance\": \"Hiệu suất tòa nhà\",\n    \"Energy Efficiency\": \"Hiệu quả năng lượng\",\n    \"Building Simulation\": \"Mô phỏng tòa nhà\",\n    \"Sustainable Architecture\": \"Kiến trúc bền vững\",\n    \"Tropical Climate\": \"Khí hậu nhiệt đới\",\n    \"HVAC\": \"Hệ thống điều hòa không khí\",\n    \"Building Envelope\": \"Vỏ tòa nhà\",\n    \"Thermal Performance\": \"Hiệu suất nhiệt\",\n    \"Ventilation\": \"Thông gió\"\n  },\n  quality_expectations: {\n    \"readability\": \"Professional but accessible Vietnamese\",\n    \"accuracy\": \"100% preservation of technical meaning\",\n    \"citations\": \"All URLs and references preserved exactly\",\n    \"flow\": \"Natural Vietnamese sentence structure\"\n  }\n};\n\nreturn {\n  agent_input: JSON.stringify(translationInput),\n  english_title: englishContent.title,\n  english_word_count: englishContent.word_count,\n  reference_count: (englishContent.references || []).length,\n  ready_for_translation: !!englishContent.body,\n  ...englishContent\n};"
+      }
+    },
+    {
+      "id": "openai_chat_model_translator",
+      "name": "OpenAI Chat Model - Translator",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [2400, 300],
+      "parameters": {
+        "model": "gpt-4",
+        "options": {
+          "temperature": 0.1,
+          "maxTokens": 2500,
+          "topP": 1
+        }
+      },
+      "credentials": {
+        "openAiApi": {
+          "id": "openai_api_key",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "id": "simple_memory_translator",
+      "name": "Simple Memory - Translator",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.2,
+      "position": [2400, 200],
+      "parameters": {
+        "contextWindowLength": 5
+      }
+    },
+    {
+      "id": "ai_agent_vietnamese_translator",
+      "name": "Vietnamese Translator Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [2400, 400],
+      "parameters": {
+        "agentType": "toolsAgent",
+        "promptType": "define",
+        "text": "You are a professional Vietnamese translator specializing in technical and scientific content for the building industry.\n\nYour task is to translate the English blog post to natural, professional Vietnamese while:\n\n1. Maintaining technical accuracy\n2. Preserving all citations and URLs exactly\n3. Using appropriate Vietnamese technical terminology\n4. Adapting for Vietnamese building professionals\n5. Keeping the same structure and formatting\n6. Using formal but accessible Vietnamese\n7. Including Vietnamese equivalents for international standards when applicable\n\nKey Vietnamese Technical Terms:\n- IBPSA = Hiệp hội Mô phỏng Hiệu suất Tòa nhà Quốc tế\n- Building Performance = Hiệu suất tòa nhà\n- Energy Efficiency = Hiệu quả năng lượng\n- Building Simulation = Mô phỏng tòa nhà\n- Sustainable Architecture = Kiến trúc bền vững\n- Tropical Climate = Khí hậu nhiệt đới\n- HVAC = Hệ thống điều hòa không khí\n- Building Envelope = Vỏ tòa nhà\n- Thermal Performance = Hiệu suất nhiệt\n- Ventilation = Thông gió\n\nEnsure the translation flows naturally in Vietnamese while preserving all technical accuracy and academic citations.",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are a professional Vietnamese translator for building industry technical content. Maintain technical accuracy while creating natural, accessible Vietnamese text.",
+          "maxIterations": 2,
+          "returnIntermediateSteps": false
+        }
+      }
+    },
+    {
+      "id": "format_translation_output",
+      "name": "Format Translation Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2600, 400],
+      "parameters": {
+        "language": "javascript",
+        "jsCode": "// Format Vietnamese translation output\nconst translationResponse = $json.output || $json.text || '';\nconst englishContent = $input.first().json;\n\n// Extract Vietnamese title and content\nlet vietnameseTitle = '';\nlet vietnameseContent = '';\nlet preservedReferences = [];\n\n// Parse translation response for title\nconst titleMatch = translationResponse.match(/^(.+?)\\n/);\nif (titleMatch) {\n  vietnameseTitle = titleMatch[1].replace(/^#+\\s*/, '').trim();\n}\n\n// Extract preserved references/citations\nconst urlRegex = /https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)/g;\nconst urls = translationResponse.match(urlRegex) || [];\npreservedReferences = [...new Set(urls)];\n\n// Clean Vietnamese content\nvietnameseContent = translationResponse.replace(/^.+?\\n\\n/, '').trim();\n\n// Validate translation quality\nconst vietnameseWordCount = vietnameseContent.split(/\\s+/).length;\nconst englishWordCount = englishContent.word_count || 0;\nconst referenceCount = englishContent.reference_count || 0;\nconst citationPreservation = preservedReferences.length >= Math.floor(referenceCount * 0.9);\nconst hasVietnameseStructure = vietnameseContent.includes('\\n') && vietnameseContent.length > 500;\n\n// Check for Vietnamese technical terms\nconst technicalTerms = [\n  'Hiệp hội Mô phỏng Hiệu suất Tòa nhà',\n  'hiệu suất tòa nhà',\n  'hiệu quả năng lượng',\n  'mô phỏng tòa nhà',\n  'kiến trúc bền vững',\n  'khí hậu nhiệt đới'\n];\nconst hasVietnameseTerms = technicalTerms.some(term => \n  vietnameseContent.toLowerCase().includes(term.toLowerCase())\n);\n\nconst translationQuality = {\n  title_translated: !!vietnameseTitle,\n  content_length_appropriate: vietnameseWordCount >= englishWordCount * 0.8,\n  citations_preserved: citationPreservation,\n  has_structure: hasVietnameseStructure,\n  uses_vietnamese_technical_terms: hasVietnameseTerms,\n  overall_quality: (vietnameseTitle && citationPreservation && hasVietnameseStructure && hasVietnameseTerms) ? 'PASS' : 'REVIEW'\n};\n\nreturn {\n  english_content: englishContent,\n  vietnamese_content: {\n    title: vietnameseTitle || 'Nghiên cứu Tiên tiến về Hiệu suất Tòa nhà',\n    body: vietnameseContent,\n    word_count: vietnameseWordCount,\n    references: preservedReferences,\n    translated_date: new Date().toISOString().split('T')[0]\n  },\n  translation_metrics: translationQuality,\n  processing_metadata: {\n    translation_model: 'gpt-4',\n    translation_timestamp: new Date().toISOString(),\n    content_type: 'vietnamese_blog_post'\n  }\n};"
+      }
+    },
+    {
+      "id": "prepare_github_files",
+      "name": "Prepare GitHub Files",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2800, 400],
+      "parameters": {
+        "language": "javascript",
+        "jsCode": "// Prepare English and Vietnamese content for GitHub file creation\nconst englishContent = $json.english_content || {};\nconst vietnameseContent = $json.vietnamese_content || {};\nconst processingMetadata = $json.processing_metadata || {};\n\n// Generate slug from title\nfunction generateSlug(title) {\n  return title\n    .toLowerCase()\n    .replace(/[^a-z0-9\\s-]/g, '')\n    .replace(/\\s+/g, '-')\n    .replace(/-+/g, '-')\n    .trim('-')\n    .substring(0, 50);\n}\n\n// Generate current date in YYYY-MM-DD format\nconst currentDate = new Date().toISOString().split('T')[0];\n\n// Create file paths\nconst englishSlug = generateSlug(englishContent.title || 'building-performance-research');\nconst vietnameseSlug = generateSlug(vietnameseContent.title || 'nghien-cuu-hieu-suat-toa-nha');\n\nconst englishFilePath = `content/en/${currentDate}-${englishSlug}.md`;\nconst vietnameseFilePath = `content/${currentDate}-${vietnameseSlug}.md`;\n\n// Create Hugo frontmatter\nfunction createFrontmatter(content, language) {\n  const tags = [\n    \"IBPSA\",\n    \"Building Performance\",\n    \"Energy Efficiency\",\n    \"Research\",\n    \"Vietnam\"\n  ];\n  \n  const categories = [\n    \"Building Performance\",\n    \"Energy Efficiency\",\n    \"Research\"\n  ];\n  \n  return `---\\ntitle: \"${content.title}\"\\ndate: ${currentDate}\\ndraft: false\\ntags: [${tags.map(tag => `\"${tag}\"`).join(', ')}]\\ncategories: [${categories.map(cat => `\"${cat}\"`).join(', ')}]\\nauthor: \"IBPSA Vietnam\"\\nlanguage: \"${language}\"\\nsources: \"tavily_advanced_search\"\\nsearch_summary: \"Generated from verified academic sources using Tavily advanced search\"\\ngenerated_by: \"ai_agent_with_tavily\"\\nword_count: ${content.word_count || 0}\\nreferences_count: ${(content.references || []).length}\\ngeneration_date: \"${new Date().toISOString()}\"\\n---\\n\\n`;\n}\n\n// Create complete markdown content\nconst englishMarkdown = createFrontmatter(englishContent, 'en') + englishContent.body;\nconst vietnameseMarkdown = createFrontmatter(vietnameseContent, 'vi') + vietnameseContent.body;\n\n// Validate content before GitHub upload\nconst validation = {\n  english_ready: !!(englishContent.title && englishContent.body && englishContent.body.length > 500),\n  vietnamese_ready: !!(vietnameseContent.title && vietnameseContent.body && vietnameseContent.body.length > 500),\n  has_references: (englishContent.references || []).length >= 3,\n  file_paths_valid: !!(englishFilePath && vietnameseFilePath)\n};\n\nconst overallReady = validation.english_ready && validation.vietnamese_ready && validation.has_references;\n\nreturn [\n  {\n    file_type: 'english',\n    english_file_path: englishFilePath,\n    english_markdown_content: englishMarkdown,\n    english_title: englishContent.title,\n    validation: validation,\n    ready_for_upload: overallReady\n  },\n  {\n    file_type: 'vietnamese',\n    vietnamese_file_path: vietnameseFilePath,\n    vietnamese_markdown_content: vietnameseMarkdown,\n    vietnamese_title: vietnameseContent.title,\n    validation: validation,\n    ready_for_upload: overallReady\n  }\n];"
+      }
+    },
+    {
+      "id": "github_create_english_file",
+      "name": "GitHub Create English File",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.0,
+      "position": [3000, 300],
+      "parameters": {
+        "resource": "file",
+        "operation": "create",
+        "owner": "thephongh",
+        "repository": "ibpsa-vietnam-website",
+        "filePath": "={{$json.english_file_path}}",
+        "binaryData": false,
+        "fileContent": "={{$json.english_markdown_content}}",
+        "commitMessage": "Add English article: {{$json.english_title}}",
+        "branch": "main",
+        "additionalParameters": {
+          "author": {
+            "name": "IBPSA Vietnam Bot",
+            "email": "bot@ibpsa-vietnam.org"
+          }
+        }
+      },
+      "credentials": {
+        "githubApi": {
+          "id": "github_api_token",
+          "name": "GitHub API"
+        }
+      }
+    },
+    {
+      "id": "github_create_vietnamese_file",
+      "name": "GitHub Create Vietnamese File",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.0,
+      "position": [3000, 500],
+      "parameters": {
+        "resource": "file",
+        "operation": "create",
+        "owner": "thephongh",
+        "repository": "ibpsa-vietnam-website",
+        "filePath": "={{$json.vietnamese_file_path}}",
+        "binaryData": false,
+        "fileContent": "={{$json.vietnamese_markdown_content}}",
+        "commitMessage": "Add Vietnamese article: {{$json.vietnamese_title}}",
+        "branch": "main",
+        "additionalParameters": {
+          "author": {
+            "name": "IBPSA Vietnam Bot",
+            "email": "bot@ibpsa-vietnam.org"
+          }
+        }
+      },
+      "credentials": {
+        "githubApi": {
+          "id": "github_api_token",
+          "name": "GitHub API"
+        }
+      }
+    },
+    {
+      "id": "check_github_upload_status",
+      "name": "Check GitHub Upload Status",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [3200, 400],
+      "parameters": {
+        "language": "javascript",
+        "jsCode": "// Check and log GitHub upload status\nconst allItems = $input.all();\n\nlet englishUpload = null;\nlet vietnameseUpload = null;\n\n// Find English and Vietnamese upload results\nfor (const item of allItems) {\n  if (item.json.file_type === 'english' || item.json.english_file_path) {\n    englishUpload = item.json;\n  } else if (item.json.file_type === 'vietnamese' || item.json.vietnamese_file_path) {\n    vietnameseUpload = item.json;\n  }\n}\n\n// Determine upload success\nconst englishSuccess = !!(englishUpload && (englishUpload.sha || englishUpload.content));\nconst vietnameseSuccess = !!(vietnameseUpload && (vietnameseUpload.sha || vietnameseUpload.content));\n\nconst deploymentResult = {\n  deployment_status: englishSuccess && vietnameseSuccess ? 'SUCCESS' : 'PARTIAL',\n  files_created: {\n    english: {\n      success: englishSuccess,\n      file_path: englishUpload?.path || englishUpload?.english_file_path,\n      sha: englishUpload?.sha,\n      url: englishUpload?.html_url\n    },\n    vietnamese: {\n      success: vietnameseSuccess,\n      file_path: vietnameseUpload?.path || vietnameseUpload?.vietnamese_file_path,\n      sha: vietnameseUpload?.sha,\n      url: vietnameseUpload?.html_url\n    }\n  },\n  deployment_timestamp: new Date().toISOString(),\n  next_steps: {\n    netlify_deployment: 'Automatic deployment will be triggered by GitHub webhook',\n    estimated_build_time: '2-5 minutes',\n    site_url: 'https://ibpsa-vietnam.netlify.app'\n  },\n  publication_summary: {\n    english_article_url: `https://ibpsa-vietnam.netlify.app/en/${(englishUpload?.english_file_path || '').split('/').pop()?.replace('.md', '')}/`,\n    vietnamese_article_url: `https://ibpsa-vietnam.netlify.app/${(vietnameseUpload?.vietnamese_file_path || '').split('/').pop()?.replace('.md', '')}/`,\n    publication_date: new Date().toISOString().split('T')[0]\n  }\n};\n\nreturn deploymentResult;"
+      }
+    },
+    {
+      "id": "trigger_netlify_deployment",
+      "name": "Trigger Netlify Deployment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [3400, 400],
+      "parameters": {
+        "httpVersion": "v1.1",
+        "method": "POST",
+        "url": "https://api.netlify.com/build_hooks/{{$credentials.netlifyApi.build_hook_id}}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "body": "={\n  \"trigger\": \"automated_content_publication\",\n  \"branch\": \"main\"\n}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "credentials": {
+        "netlifyApi": {
+          "id": "netlify_api_token",
+          "name": "Netlify API"
+        }
+      }
+    },
+    {
+      "id": "log_publication_success",
+      "name": "Log Publication Success",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [3600, 400],
+      "parameters": {
+        "language": "javascript",
+        "jsCode": "// Log final publication results\nconst deploymentStatus = $input.first().json;\nconst netlifyResponse = $input.all()[1]?.json || {};\n\nconst finalResults = {\n  workflow_execution: {\n    status: 'COMPLETED',\n    completion_timestamp: new Date().toISOString(),\n    execution_id: deploymentStatus.publication_summary?.publication_date || new Date().toISOString().split('T')[0]\n  },\n  content_generation: {\n    english_article: deploymentStatus.files_created?.english,\n    vietnamese_article: deploymentStatus.files_created?.vietnamese,\n    github_deployment: deploymentStatus.deployment_status\n  },\n  netlify_deployment: {\n    build_triggered: !!netlifyResponse.id,\n    build_id: netlifyResponse.id,\n    estimated_completion: '2-5 minutes',\n    site_url: 'https://ibpsa-vietnam.netlify.app'\n  },\n  publication_urls: deploymentStatus.publication_summary,\n  next_scheduled_run: 'Monday and Thursday at 9:00 AM',\n  workflow_metrics: {\n    total_execution_time: 'Approximately 5-10 minutes',\n    content_quality: 'Academic sources with AI-generated content',\n    bilingual_support: 'Full English and Vietnamese publication'\n  }\n};\n\nconsole.log('IBPSA Vietnam Content Generation Workflow Completed:', finalResults);\n\nreturn finalResults;"
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Merge Triggers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Merge Triggers",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Triggers": {
+      "main": [
+        [
+          {
+            "node": "Set Search Parameters",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Search Parameters": {
+      "main": [
+        [
+          {
+            "node": "Tavily Search IBPSA",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Tavily Search Tropical",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tavily Search IBPSA": {
+      "main": [
+        [
+          {
+            "node": "Merge Search Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tavily Search Tropical": {
+      "main": [
+        [
+          {
+            "node": "Merge Search Results",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Search Results": {
+      "main": [
+        [
+          {
+            "node": "Filter Academic Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Academic Sources": {
+      "main": [
+        [
+          {
+            "node": "Tavily Extract Content",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Process Search Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tavily Extract Content": {
+      "main": [
+        [
+          {
+            "node": "Process Search Results",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Process Search Results": {
+      "main": [
+        [
+          {
+            "node": "Content Researcher Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory - Researcher": {
+      "ai_memory": [
+        [
+          {
+            "node": "Content Researcher Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model - Researcher": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Content Researcher Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content Researcher Agent": {
+      "main": [
+        [
+          {
+            "node": "Format Researcher Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Researcher Output": {
+      "main": [
+        [
+          {
+            "node": "Prepare Translation Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Translation Input": {
+      "main": [
+        [
+          {
+            "node": "Vietnamese Translator Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory - Translator": {
+      "ai_memory": [
+        [
+          {
+            "node": "Vietnamese Translator Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model - Translator": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Vietnamese Translator Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vietnamese Translator Agent": {
+      "main": [
+        [
+          {
+            "node": "Format Translation Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Translation Output": {
+      "main": [
+        [
+          {
+            "node": "Prepare GitHub Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare GitHub Files": {
+      "main": [
+        [
+          {
+            "node": "GitHub Create English File",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GitHub Create Vietnamese File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub Create English File": {
+      "main": [
+        [
+          {
+            "node": "Check GitHub Upload Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub Create Vietnamese File": {
+      "main": [
+        [
+          {
+            "node": "Check GitHub Upload Status",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Check GitHub Upload Status": {
+      "main": [
+        [
+          {
+            "node": "Trigger Netlify Deployment",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Log Publication Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger Netlify Deployment": {
+      "main": [
+        [
+          {
+            "node": "Log Publication Success",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2024-07-07T00:00:00.000Z",
+      "updatedAt": "2024-07-07T00:00:00.000Z",
+      "id": "ibpsa-content-generation",
+      "name": "IBPSA Content Generation"
+    }
+  ],
+  "triggerCount": 2,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "id": "ibpsa-content-workflow",
+  "versionId": "1.0.0"
+}

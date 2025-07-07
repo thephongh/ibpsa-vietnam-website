@@ -1,0 +1,172 @@
+# Hugo Frontmatter Template for IBPSA Vietnam Content
+# Compatible with Hugo v0.128+ and current template syntax
+
+# Basic Hugo frontmatter structure
+frontmatter_template:
+  title: "{{ARTICLE_TITLE}}"
+  date: "{{YYYY-MM-DD}}"          # ISO date format required
+  draft: false                    # Set to false for immediate publication
+  tags: 
+    - "IBPSA"
+    - "Building Performance"
+    - "Energy Efficiency"
+    - "Research"
+    - "Vietnam"
+    - "{{DYNAMIC_TAGS}}"          # Additional tags from content analysis
+  categories:
+    - "Building Performance"
+    - "Energy Efficiency"
+    - "Research"
+  author: "IBPSA Vietnam"
+  language: "{{LANGUAGE_CODE}}"    # "en" or "vi"
+  
+  # SEO and metadata
+  description: "{{META_DESCRIPTION}}"
+  keywords: "{{SEO_KEYWORDS}}"
+  
+  # Custom IBPSA Vietnam fields
+  sources: "tavily_advanced_search"
+  search_summary: "{{SEARCH_SUMMARY}}"
+  generated_by: "ai_agent_with_tavily"
+  word_count: {{WORD_COUNT}}
+  references_count: {{REFERENCES_COUNT}}
+  generation_date: "{{ISO_TIMESTAMP}}"
+  
+  # Academic quality indicators
+  academic_percentage: {{ACADEMIC_PERCENTAGE}}
+  source_domains: "{{SOURCE_DOMAINS}}"
+  
+  # Hugo-specific settings
+  type: "post"
+  layout: "single"
+  toc: true                      # Enable table of contents
+  math: false                    # Enable if mathematical content
+  
+  # Social media and sharing
+  featured_image: ""             # Optional featured image URL
+  featured_image_alt: ""         # Alt text for featured image
+  
+  # Vietnamese-specific settings (for vi language)
+  vietnamese_specific:
+    climate_focus: "tropical"
+    target_audience: "vietnamese_building_professionals"
+    adaptation_notes: "Content adapted for Vietnamese building industry context"
+
+# English content template structure
+english_content_template: |
+  ---
+  title: "{{TITLE}}"
+  date: {{DATE}}
+  draft: false
+  tags: [{{TAGS}}]
+  categories: [{{CATEGORIES}}]
+  author: "IBPSA Vietnam"
+  language: "en"
+  sources: "tavily_advanced_search"
+  search_summary: "{{SEARCH_SUMMARY}}"
+  generated_by: "ai_agent_with_tavily"
+  word_count: {{WORD_COUNT}}
+  references_count: {{REFERENCES_COUNT}}
+  generation_date: "{{GENERATION_DATE}}"
+  academic_percentage: {{ACADEMIC_PERCENTAGE}}
+  description: "{{DESCRIPTION}}"
+  type: "post"
+  toc: true
+  ---
+
+  {{CONTENT_BODY}}
+
+# Vietnamese content template structure  
+vietnamese_content_template: |
+  ---
+  title: "{{TITLE}}"
+  date: {{DATE}}
+  draft: false
+  tags: [{{TAGS}}]
+  categories: [{{CATEGORIES}}]
+  author: "IBPSA Vietnam"
+  language: "vi"
+  sources: "tavily_advanced_search"
+  search_summary: "{{SEARCH_SUMMARY}}"
+  generated_by: "ai_agent_with_tavily"
+  word_count: {{WORD_COUNT}}
+  references_count: {{REFERENCES_COUNT}}
+  generation_date: "{{GENERATION_DATE}}"
+  academic_percentage: {{ACADEMIC_PERCENTAGE}}
+  description: "{{DESCRIPTION}}"
+  type: "post"
+  toc: true
+  climate_focus: "tropical"
+  target_audience: "vietnamese_building_professionals"
+  ---
+
+  {{CONTENT_BODY}}
+
+# Dynamic field generation rules
+field_generation:
+  date_format: "YYYY-MM-DD"
+  slug_generation: "lowercase, replace spaces with hyphens, remove special characters, max 50 chars"
+  tags_extraction: "Extract from content keywords, include standard IBPSA tags"
+  description_length: "150-160 characters for SEO optimization"
+  
+# Content structure guidelines
+content_structure:
+  introduction:
+    length: "100-200 words"
+    purpose: "Hook reader and establish context"
+    
+  main_sections:
+    count: "3-5 sections"
+    length: "200-300 words each"
+    structure: "Heading → Content → Citations"
+    
+  vietnamese_context:
+    required: true
+    length: "150-250 words"
+    focus: "Local applications and tropical climate considerations"
+    
+  practical_recommendations:
+    required: true
+    format: "Numbered or bulleted list"
+    actionability: "Specific, implementable suggestions"
+    
+  conclusion:
+    length: "100-150 words"
+    purpose: "Summarize key points and next steps"
+    
+  references:
+    format: "Academic citation with clickable URLs"
+    minimum: 3
+    preferred: "5-8 academic sources"
+
+# Hugo v0.128+ compatibility notes
+hugo_compatibility:
+  frontmatter_format: "YAML recommended for readability"
+  date_handling: "Uses Hugo's dateFormat function"
+  taxonomy_support: "Tags and categories properly configured"
+  multilingual: "Proper language codes for bilingual content"
+  template_lookup: "Follows Hugo's template lookup order"
+  
+# File naming conventions
+file_naming:
+  pattern: "YYYY-MM-DD-title-slug.md"
+  english_path: "content/en/"
+  vietnamese_path: "content/"
+  slug_max_length: 50
+  special_chars: "Remove all except hyphens"
+  
+# SEO optimization
+seo_guidelines:
+  title_length: "50-60 characters optimal"
+  description_length: "150-160 characters"
+  keyword_density: "1-2% for primary keywords"
+  heading_structure: "H1 (title) → H2 (sections) → H3 (subsections)"
+  internal_linking: "Link to related IBPSA Vietnam content when available"
+  
+# Quality assurance
+quality_checks:
+  - frontmatter_validation: "All required fields present"
+  - content_length: "800-1200 words"
+  - citation_links: "All URLs accessible and properly formatted"
+  - vietnamese_encoding: "UTF-8 for proper character display"
+  - hugo_syntax: "Valid Hugo markdown and shortcodes"

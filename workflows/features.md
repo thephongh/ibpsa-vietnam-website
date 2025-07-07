@@ -1,10 +1,8 @@
-# FEATURE:
-
-## IBPSA Vietnam content generation workflow for n8n
+# IBPSA Vietnam content generation workflow
 
 ## 🚀 Key Features
 
-Use Tavily AND Brave Search API to search for contents relevant to the ibpsa-vietnam.org mission. And build a n8n workflow to automate the process of researching and posting to the website.
+Use search tools to search and extract contents relevant to the ibpsa-vietnam.org mission. And build a workflow to automate the process of researching and posting to the website.
 
 The website is a hugo framework, and the contents are saved in https://github.com/thephongh/ibpsa-vietnam-website/tree/main/content
 
@@ -13,63 +11,16 @@ English content should be in the folder: https://github.com/thephongh/ibpsa-viet
 
 It is deployed to Netlify automatically.
 
-### **🔍 Tavily Advanced Search**
-- **Search API**: Intelligent web search with domain filtering
-- **Extract API**: Full content extraction from discovered URLs
-- **Academic Focus**: .edu, .gov, IBPSA, ASHRAE domain targeting
-- **Advanced Search Depth**: Deep content analysis
-
-### **🤖 AI Agent Processing**
-- **Content Researcher Agent**: Analyzes search results and creates blog posts
+## **🤖 AI Agent Processing**
+- **Content Researcher Agent**: Research and prepare results and creates blog posts
 - **Vietnamese Translator Agent**: Professional technical translation
-- **Intelligent Summarization**: Converts raw search data into polished content
+- **Intelligent Summarization**: Converts raw search data into polished content ready for posting on the website
 
 ### **📚 Academic Quality Control**
 - Multi-stage filtering for academic credibility
 - URL verification and content validation
 - Citation preservation with source links
 - Tropical climate and Vietnam-specific targeting
-
-## 🏗️ Workflow Architecture
-
-```
-Daily/Manual Trigger
-       ↓
-   Merge Triggers
-       ↓
-   ┌─────────────────────┐    ┌─────────────────────┐
-   │ Tavily Search       │    │ Tavily Search       │
-   │ IBPSA Research      │    │ Tropical Building   │
-   └─────────────────────┘    └─────────────────────┘
-       ↓                              ↓
-       └──────────┬───────────────────┘
-                  ↓
-       Tavily Extract Article Content
-                  ↓
-       Process & Filter Academic Results
-                  ↓
-       AI Agent Content Researcher
-                  ↓
-       AI Agent Vietnamese Translator
-                  ↓
-     ┌─────────────────┐    ┌─────────────────┐
-     │ Format English  │    │ Format Vietnamese│
-     │ Markdown        │    │ Markdown         │
-     └─────────────────┘    └─────────────────┘
-          ↓                          ↓
-     ┌─────────────────┐    ┌─────────────────┐
-     │ Create English  │    │ Create Vietnamese│
-     │ File (GitHub)   │    │ File (GitHub)    │
-     └─────────────────┘    └─────────────────┘
-          ↓                          ↓
-          └──────────┬─────────────────┘
-                     ↓
-            Trigger Netlify Deploy
-                     ↓
-            Log Publication Success
-```
-
-## 🤖 AI Agent Prompts
 
 ### **Content Researcher Agent**
 ```
@@ -114,7 +65,7 @@ Your task is to translate the English blog post to natural, professional Vietnam
 
 ### **Search Results Processing**
 1. **Dual Search**: IBPSA + Tropical building topics
-2. **Content Extraction**: Full article content via Tavily Extract API
+2. **Content Extraction**: Full article content via extract & web scrape tools
 3. **Academic Filtering**: .edu, .gov, research institution domains
 4. **Enhancement**: Combine search metadata with extracted content
 5. **Selection**: Top 5 most relevant academic articles
@@ -145,30 +96,9 @@ categories: ["Building Performance", "Energy Efficiency", "Research"]
 author: "IBPSA Vietnam"
 language: "en"  # or "vi"
 sources: "tavily_advanced_search"
-search_summary: "Found 5 verified academic articles using Tavily advanced search"
 generated_by: "ai_agent_with_tavily"
 ---
 ```
-
-## 🎯 Workflow Advantages
-
-### **Tavily Integration Benefits**
-- ✅ **Advanced Search**: Superior to basic web scraping
-- ✅ **Content Extraction**: Full article content, not just snippets
-- ✅ **Domain Filtering**: Academic source focus
-- ✅ **Real-time Search**: Always current results
-
-### **AI Agent Benefits**
-- ✅ **Intelligent Processing**: Context-aware content creation
-- ✅ **Quality Control**: Academic-standard analysis
-- ✅ **Vietnamese Expertise**: Professional technical translation
-- ✅ **Consistent Output**: Structured, reliable content
-
-### **Integration Benefits**
-- ✅ **End-to-End Automation**: Search → Process → Publish
-- ✅ **Quality Assurance**: Multi-stage academic filtering
-- ✅ **Bilingual Output**: Professional English + Vietnamese
-- ✅ **GitHub/Netlify Ready**: Automatic deployment
 
 ## 📈 Performance Metrics
 
@@ -201,25 +131,8 @@ generated_by: "ai_agent_with_tavily"
 - Citation link validation
 - Vietnamese terminology consistency
 
-
-**Technology Stack**: Tavily API + Brave Search API + n8n AI Agents + GitHub + Netlify  
 **Content Quality**: Academic-grade with verified sources  
 **Deployment**: Fully automated bilingual publishing
 
-## EXAMPLES:
-
-https://n8n.io/workflows/3291-generate-seo-optimized-wordpress-content-with-ai-powered-perplexity-research/
-https://n8n.io/workflows/5159-ai-content-creation-and-auto-wordpress-publishing-with-pexels-api-image-workflow/
-https://n8n.io/workflows/4913-auto-publish-pr-news-articles-with-featured-images-to-wordpress-from-rss/
-
-
-## DOCUMENTATION:
-
-Read the following files & links
-
-n8n-rules.md
-https://docs.n8n.io/
-
-
 ## OTHER CONSIDERATIONS:
-
+Do your best and do not hesitate to improve on the workflow.

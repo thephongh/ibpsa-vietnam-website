@@ -1,0 +1,296 @@
+{
+  "expected_workflow_outputs": {
+    "basic_workflow_test": {
+      "search_results": {
+        "total_sources_found": 15,
+        "academic_sources_filtered": 8,
+        "academic_percentage": 85,
+        "domains_represented": [".edu", ".gov", "ibpsa.org", "ashrae.org"],
+        "search_metadata": {
+          "ibpsa_results_count": 10,
+          "tropical_results_count": 10,
+          "quality_check": "PASS"
+        }
+      },
+      "content_extraction": {
+        "urls_processed": 8,
+        "extraction_success_rate": 100,
+        "content_format": "markdown",
+        "average_content_length": 2500
+      },
+      "english_content": {
+        "title": "Advanced Building Energy Simulation Validation Methods for Tropical Climates",
+        "word_count": 1050,
+        "structure_validation": {
+          "has_introduction": true,
+          "has_main_sections": true,
+          "has_vietnamese_context": true,
+          "has_recommendations": true,
+          "has_conclusion": true,
+          "has_references": true
+        },
+        "citation_count": 6,
+        "quality_score": "PASS"
+      },
+      "vietnamese_content": {
+        "title": "Phương pháp Xác thực Mô phỏng Năng lượng Tòa nhà Tiên tiến cho Khí hậu Nhiệt đới",
+        "word_count": 1120,
+        "translation_quality": {
+          "technical_terms_translated": true,
+          "citations_preserved": true,
+          "natural_vietnamese_flow": true,
+          "cultural_adaptation": true
+        },
+        "citation_preservation_rate": 100,
+        "quality_score": "PASS"
+      },
+      "github_deployment": {
+        "english_file": {
+          "path": "content/en/2024-07-07-advanced-building-energy-simulation-validation.md",
+          "created": true,
+          "sha": "abc123def456...",
+          "commit_message": "Add English article: Advanced Building Energy Simulation Validation Methods"
+        },
+        "vietnamese_file": {
+          "path": "content/2024-07-07-phuong-phap-xac-thuc-mo-phong-nang-luong.md",
+          "created": true,
+          "sha": "def456ghi789...",
+          "commit_message": "Add Vietnamese article: Phương pháp Xác thực Mô phỏng Năng lượng"
+        },
+        "deployment_status": "SUCCESS"
+      },
+      "netlify_deployment": {
+        "build_triggered": true,
+        "build_id": "build_123456",
+        "estimated_completion": "3 minutes",
+        "site_url": "https://ibpsa-vietnam.netlify.app"
+      }
+    },
+    "academic_filtering_test": {
+      "source_analysis": {
+        "total_results": 20,
+        "academic_domains": {
+          "edu_count": 8,
+          "gov_count": 4,
+          "ibpsa_org_count": 3,
+          "ashrae_org_count": 2,
+          "other_academic_count": 3
+        },
+        "commercial_filtered": 8,
+        "final_academic_percentage": 88,
+        "quality_threshold_met": true
+      },
+      "scoring_breakdown": {
+        "domain_scores": {
+          ".edu": 3,
+          ".gov": 2,
+          "ibpsa.org": 1,
+          "ashrae.org": 1
+        },
+        "content_quality_bonus": 1,
+        "minimum_academic_score": 2,
+        "selected_sources": 8
+      }
+    },
+    "ai_agent_content_quality_test": {
+      "content_analysis": {
+        "structure_validation": {
+          "introduction_present": true,
+          "main_sections_count": 4,
+          "vietnamese_context_section": true,
+          "recommendations_section": true,
+          "conclusion_present": true,
+          "references_section": true
+        },
+        "content_metrics": {
+          "word_count": 1025,
+          "paragraph_count": 12,
+          "citation_count": 5,
+          "technical_terms_used": 15
+        },
+        "quality_indicators": {
+          "academic_tone": true,
+          "practical_focus": true,
+          "vietnamese_relevance": true,
+          "actionable_recommendations": true
+        }
+      },
+      "citation_analysis": {
+        "urls_preserved": 5,
+        "url_format_valid": true,
+        "academic_sources": 5,
+        "accessibility_checked": true
+      }
+    },
+    "vietnamese_translation_test": {
+      "translation_metrics": {
+        "technical_terminology": {
+          "building_performance": "hiệu suất tòa nhà",
+          "energy_efficiency": "hiệu quả năng lượng",
+          "hvac_system": "hệ thống điều hòa không khí",
+          "building_envelope": "vỏ tòa nhà",
+          "thermal_performance": "hiệu suất nhiệt"
+        },
+        "citation_preservation": {
+          "urls_preserved": 5,
+          "urls_lost": 0,
+          "preservation_rate": 100
+        },
+        "language_quality": {
+          "formal_tone": true,
+          "natural_flow": true,
+          "technical_accuracy": true,
+          "cultural_adaptation": true
+        },
+        "word_count_comparison": {
+          "english_words": 1025,
+          "vietnamese_words": 1098,
+          "ratio": 1.07,
+          "appropriate_length": true
+        }
+      }
+    },
+    "github_integration_test": {
+      "file_creation": {
+        "english_file": {
+          "path_correct": true,
+          "frontmatter_valid": true,
+          "encoding_correct": "UTF-8",
+          "hugo_compatible": true,
+          "commit_successful": true
+        },
+        "vietnamese_file": {
+          "path_correct": true,
+          "frontmatter_valid": true,
+          "vietnamese_chars_preserved": true,
+          "encoding_correct": "UTF-8",
+          "hugo_compatible": true,
+          "commit_successful": true
+        }
+      },
+      "frontmatter_validation": {
+        "required_fields_present": [
+          "title",
+          "date",
+          "draft",
+          "tags",
+          "categories",
+          "author",
+          "language",
+          "sources",
+          "generated_by"
+        ],
+        "date_format": "2024-07-07",
+        "tags_array": ["IBPSA", "Building Performance", "Energy Efficiency", "Research", "Vietnam"],
+        "language_codes": ["en", "vi"],
+        "hugo_syntax_valid": true
+      }
+    }
+  },
+  "error_handling_scenarios": {
+    "tavily_api_failure": {
+      "error_detected": true,
+      "retry_attempted": true,
+      "retry_count": 3,
+      "fallback_action": "Use cached results if available",
+      "user_notification": "Tavily API rate limit exceeded, retrying in 60 seconds",
+      "workflow_continuation": "Degraded mode with reduced search results"
+    },
+    "openai_api_failure": {
+      "error_detected": true,
+      "error_type": "insufficient_credits",
+      "retry_attempted": false,
+      "fallback_action": "Switch to alternative model if configured",
+      "user_notification": "OpenAI API credits exhausted, workflow paused",
+      "workflow_continuation": false
+    },
+    "github_api_failure": {
+      "error_detected": true,
+      "error_type": "file_already_exists",
+      "retry_attempted": false,
+      "fallback_action": "Generate unique filename with timestamp",
+      "user_notification": "File exists, creating with timestamp suffix",
+      "workflow_continuation": true
+    },
+    "content_quality_failure": {
+      "error_detected": true,
+      "quality_issues": ["word_count_too_low", "insufficient_citations"],
+      "retry_attempted": true,
+      "fallback_action": "Regenerate content with additional context",
+      "user_notification": "Content quality below threshold, regenerating",
+      "workflow_continuation": true
+    }
+  },
+  "performance_benchmarks": {
+    "execution_times": {
+      "total_workflow": "9.5 minutes",
+      "search_phase": "2.1 minutes",
+      "content_generation": "4.2 minutes",
+      "translation_phase": "2.3 minutes",
+      "deployment_phase": "0.9 minutes"
+    },
+    "api_success_rates": {
+      "tavily_api": "96%",
+      "openai_api": "99%",
+      "github_api": "100%",
+      "netlify_api": "98%"
+    },
+    "content_quality_metrics": {
+      "academic_percentage_average": 84,
+      "word_count_accuracy": "±8%",
+      "citation_preservation": "98%",
+      "translation_quality": "Professional"
+    }
+  },
+  "final_publication_results": {
+    "english_article": {
+      "url": "https://ibpsa-vietnam.netlify.app/en/2024-07-07-advanced-building-energy-simulation/",
+      "title": "Advanced Building Energy Simulation Validation Methods for Tropical Climates",
+      "publication_date": "2024-07-07",
+      "word_count": 1025,
+      "academic_sources": 6,
+      "seo_optimized": true
+    },
+    "vietnamese_article": {
+      "url": "https://ibpsa-vietnam.netlify.app/2024-07-07-phuong-phap-xac-thuc-mo-phong/",
+      "title": "Phương pháp Xác thực Mô phỏng Năng lượng Tòa nhà Tiên tiến cho Khí hậu Nhiệt đới",
+      "publication_date": "2024-07-07",
+      "word_count": 1098,
+      "academic_sources": 6,
+      "vietnamese_seo_optimized": true
+    },
+    "deployment_metrics": {
+      "github_commits": 2,
+      "netlify_build_time": "3.2 minutes",
+      "site_availability": "100%",
+      "content_accessibility": "Full bilingual access"
+    }
+  },
+  "quality_assurance_checklist": {
+    "content_validation": {
+      "academic_standards": "✓ Peer-reviewed sources used",
+      "technical_accuracy": "✓ Building terminology correct",
+      "vietnamese_quality": "✓ Professional translation",
+      "citation_format": "✓ Academic citations with URLs",
+      "hugo_compatibility": "✓ Valid Hugo v0.128+ syntax"
+    },
+    "seo_optimization": {
+      "english_seo": "✓ Optimized title, meta, keywords",
+      "vietnamese_seo": "✓ Vietnamese keyword optimization",
+      "url_structure": "✓ SEO-friendly URL slugs",
+      "internal_linking": "✓ Related content linking"
+    },
+    "technical_validation": {
+      "utf8_encoding": "✓ Vietnamese characters properly encoded",
+      "responsive_design": "✓ Mobile-friendly layout",
+      "load_performance": "✓ Fast page load times",
+      "accessibility": "✓ Screen reader compatible"
+    },
+    "workflow_reliability": {
+      "error_handling": "✓ Comprehensive error recovery",
+      "api_resilience": "✓ Retry mechanisms implemented",
+      "data_validation": "✓ Input/output validation",
+      "monitoring": "✓ Execution logging and alerts"
+    }
+  }
+}

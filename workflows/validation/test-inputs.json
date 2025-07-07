@@ -1,0 +1,244 @@
+{
+  "test_scenarios": [
+    {
+      "scenario_id": "basic_workflow_test",
+      "description": "Test complete workflow with sample IBPSA research topic",
+      "input_data": {
+        "search_query_ibpsa": "IBPSA building energy simulation validation methods",
+        "search_query_tropical": "tropical building cooling strategies energy efficiency",
+        "workflow_id": "test-ibpsa-content-2024-07-07-1200",
+        "test_mode": true
+      },
+      "expected_behavior": {
+        "tavily_searches": "Both IBPSA and tropical searches execute successfully",
+        "academic_filtering": "At least 80% academic sources (.edu/.gov domains)",
+        "content_extraction": "Full article content extracted for top 5-8 sources",
+        "ai_agent_processing": "English content 800-1200 words with proper structure",
+        "vietnamese_translation": "Professional Vietnamese translation with preserved citations",
+        "github_deployment": "Both English and Vietnamese files created successfully",
+        "netlify_trigger": "Build hook triggered for automatic deployment"
+      },
+      "validation_criteria": {
+        "academic_percentage": ">=80",
+        "english_word_count": "800-1200",
+        "vietnamese_word_count": "800-1400",
+        "citation_count": ">=5",
+        "file_creation_success": true,
+        "content_quality_score": "PASS"
+      }
+    },
+    {
+      "scenario_id": "academic_filtering_test",
+      "description": "Test academic source filtering with mixed domain results",
+      "input_data": {
+        "search_query_ibpsa": "building performance simulation research",
+        "search_query_tropical": "hot climate building design energy",
+        "expected_domains": [".edu", ".gov", "ibpsa.org", "ashrae.org", "iea.org"],
+        "minimum_academic_percentage": 80
+      },
+      "expected_behavior": {
+        "domain_filtering": "Prioritize academic domains over commercial",
+        "score_calculation": "Proper academic scoring based on domain credibility",
+        "result_ranking": "Top results ranked by academic score",
+        "quality_threshold": "Only academic sources above threshold selected"
+      },
+      "validation_criteria": {
+        "academic_sources_count": ">=6",
+        "commercial_sources_filtered": true,
+        "academic_percentage": ">=80",
+        "domain_variety": "Multiple academic institutions represented"
+      }
+    },
+    {
+      "scenario_id": "ai_agent_content_quality_test",
+      "description": "Test AI agent content generation quality and structure",
+      "input_data": {
+        "mock_search_results": [
+          {
+            "title": "Advanced Building Energy Simulation Techniques for Tropical Climates",
+            "url": "https://www.ibpsa.org/proceedings/2023/paper123.pdf",
+            "content": "Research on energy simulation methodologies for buildings in hot humid climates...",
+            "academic_score": 5,
+            "domain": "ibpsa.org"
+          },
+          {
+            "title": "Vietnam Building Energy Code Implementation",
+            "url": "https://energy.gov.vn/research/building-codes-2023.pdf",
+            "content": "Analysis of Vietnamese building energy standards and implementation challenges...",
+            "academic_score": 4,
+            "domain": "energy.gov.vn"
+          }
+        ],
+        "content_requirements": {
+          "target_length": "800-1200 words",
+          "structure": "introduction → findings → vietnam context → recommendations → conclusion",
+          "citation_format": "academic with URLs"
+        }
+      },
+      "expected_behavior": {
+        "content_structure": "Clear introduction, main sections, Vietnamese context, recommendations, conclusion",
+        "citation_integration": "Proper academic citations with clickable URLs",
+        "technical_accuracy": "Accurate building performance terminology",
+        "vietnamese_relevance": "Content adapted for Vietnamese building industry"
+      },
+      "validation_criteria": {
+        "word_count": "800-1200",
+        "section_count": ">=5",
+        "citation_count": ">=3",
+        "vietnamese_context_present": true,
+        "recommendations_actionable": true,
+        "conclusion_summarizes_key_points": true
+      }
+    },
+    {
+      "scenario_id": "vietnamese_translation_quality_test",
+      "description": "Test Vietnamese translation accuracy and technical terminology",
+      "input_data": {
+        "english_content": {
+          "title": "Advanced Building Performance Simulation for Tropical Climates",
+          "body": "Building performance simulation is essential for optimizing energy efficiency in tropical climates. HVAC systems must be carefully designed to handle high humidity and temperature conditions. The building envelope plays a crucial role in thermal performance.",
+          "references": [
+            "https://www.ibpsa.org/research/tropical-simulation",
+            "https://ashrae.org/hvac-tropical-design"
+          ]
+        },
+        "technical_terms": {
+          "Building Performance": "Hiệu suất tòa nhà",
+          "Energy Efficiency": "Hiệu quả năng lượng",
+          "HVAC": "Hệ thống điều hòa không khí",
+          "Building Envelope": "Vỏ tòa nhà",
+          "Thermal Performance": "Hiệu suất nhiệt"
+        }
+      },
+      "expected_behavior": {
+        "technical_terminology": "Correct Vietnamese technical terms used",
+        "citation_preservation": "All URLs preserved exactly",
+        "natural_flow": "Natural Vietnamese sentence structure",
+        "formal_tone": "Professional but accessible Vietnamese"
+      },
+      "validation_criteria": {
+        "vietnamese_technical_terms_used": true,
+        "citation_preservation_rate": ">=95%",
+        "readability_appropriate": true,
+        "cultural_adaptation": "Content adapted for Vietnamese context"
+      }
+    },
+    {
+      "scenario_id": "github_integration_test",
+      "description": "Test GitHub file creation and Hugo frontmatter formatting",
+      "input_data": {
+        "english_content": {
+          "title": "Test Building Performance Article",
+          "body": "Sample content for testing GitHub integration...",
+          "word_count": 950,
+          "references": ["https://example.edu/paper1", "https://example.gov/report2"]
+        },
+        "vietnamese_content": {
+          "title": "Bài viết Thử nghiệm về Hiệu suất Tòa nhà",
+          "body": "Nội dung mẫu để kiểm tra tích hợp GitHub...",
+          "word_count": 980,
+          "references": ["https://example.edu/paper1", "https://example.gov/report2"]
+        },
+        "repository": "thephongh/ibpsa-vietnam-website",
+        "target_paths": {
+          "english": "content/en/2024-07-07-test-building-performance-article.md",
+          "vietnamese": "content/2024-07-07-bai-viet-thu-nghiem-ve-hieu-suat-toa-nha.md"
+        }
+      },
+      "expected_behavior": {
+        "hugo_frontmatter": "Proper YAML frontmatter with all required fields",
+        "file_naming": "YYYY-MM-DD-slug.md format",
+        "directory_structure": "English in content/en/, Vietnamese in content/",
+        "commit_messages": "Descriptive commit messages for each file"
+      },
+      "validation_criteria": {
+        "frontmatter_valid": true,
+        "file_paths_correct": true,
+        "utf8_encoding": true,
+        "commit_success": true,
+        "vietnamese_characters_preserved": true
+      }
+    },
+    {
+      "scenario_id": "error_handling_test",
+      "description": "Test error handling and recovery mechanisms",
+      "input_data": {
+        "error_scenarios": [
+          {
+            "type": "tavily_api_failure",
+            "description": "Tavily API returns 429 rate limit error"
+          },
+          {
+            "type": "openai_api_failure", 
+            "description": "OpenAI API returns insufficient credits error"
+          },
+          {
+            "type": "github_api_failure",
+            "description": "GitHub API returns file already exists error"
+          },
+          {
+            "type": "content_quality_failure",
+            "description": "AI agent generates content below quality threshold"
+          }
+        ]
+      },
+      "expected_behavior": {
+        "api_retries": "Automatic retry with exponential backoff",
+        "error_logging": "Detailed error messages with recovery suggestions",
+        "graceful_degradation": "Workflow continues with available data when possible",
+        "user_notification": "Clear error notifications with actionable steps"
+      },
+      "validation_criteria": {
+        "error_detection": true,
+        "retry_mechanisms": true,
+        "error_reporting": "Detailed and actionable",
+        "workflow_resilience": "Continues operation where possible"
+      }
+    }
+  ],
+  "performance_benchmarks": {
+    "execution_time": {
+      "total_workflow": "8-12 minutes",
+      "tavily_searches": "30-60 seconds each",
+      "content_extraction": "60-90 seconds",
+      "ai_content_generation": "3-5 minutes",
+      "vietnamese_translation": "2-3 minutes",
+      "github_operations": "30-60 seconds",
+      "netlify_deployment": "2-5 minutes"
+    },
+    "content_quality": {
+      "academic_percentage": ">=80%",
+      "word_count_accuracy": "800-1200 words ±10%",
+      "citation_preservation": ">=95%",
+      "vietnamese_translation_quality": "Professional grade",
+      "hugo_compatibility": "Valid Hugo v0.128+ syntax"
+    },
+    "api_reliability": {
+      "tavily_success_rate": ">=95%",
+      "openai_success_rate": ">=98%",
+      "github_success_rate": ">=99%",
+      "netlify_trigger_success": ">=99%"
+    }
+  },
+  "data_validation": {
+    "required_fields": {
+      "search_results": ["title", "url", "content", "academic_score"],
+      "english_content": ["title", "body", "word_count", "references"],
+      "vietnamese_content": ["title", "body", "word_count", "references"],
+      "hugo_frontmatter": ["title", "date", "tags", "categories", "author", "language"]
+    },
+    "data_types": {
+      "academic_percentage": "number (0-100)",
+      "word_count": "number (>0)",
+      "references": "array of valid URLs",
+      "timestamps": "ISO 8601 format",
+      "file_paths": "valid Unix path format"
+    },
+    "content_validation": {
+      "url_accessibility": "All citation URLs return 200 status",
+      "vietnamese_encoding": "Proper UTF-8 character encoding",
+      "hugo_syntax": "Valid Hugo markdown and frontmatter",
+      "academic_citations": "Proper academic citation format"
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "ibpsa_search_node": {
+    "id": "tavily_search_ibpsa",
+    "name": "Tavily Search IBPSA",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [400, 300],
+    "parameters": {
+      "httpVersion": "v1.1",
+      "method": "POST",
+      "url": "https://api.tavily.com/search",
+      "authentication": "genericCredentialType",
+      "genericAuthType": "httpHeaderAuth",
+      "sendHeaders": true,
+      "headerParameters": {
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "Authorization", 
+            "value": "Bearer {{$credentials.tavilyApi.api_key}}"
+          }
+        ]
+      },
+      "sendBody": true,
+      "bodyParameters": {
+        "parameters": [
+          {
+            "name": "query",
+            "value": "{{$json.search_query || 'IBPSA building performance simulation research'}}"
+          },
+          {
+            "name": "search_depth", 
+            "value": "advanced"
+          },
+          {
+            "name": "include_domains",
+            "value": [".edu", ".gov", "ibpsa.org", "ashrae.org"]
+          },
+          {
+            "name": "max_results",
+            "value": 10
+          },
+          {
+            "name": "include_raw_content",
+            "value": false
+          },
+          {
+            "name": "include_images",
+            "value": false
+          }
+        ]
+      },
+      "options": {
+        "timeout": 30000,
+        "retry": {
+          "enabled": true,
+          "maxAttempts": 3
+        }
+      }
+    }
+  },
+  "tropical_search_node": {
+    "id": "tavily_search_tropical",
+    "name": "Tavily Search Tropical",
+    "type": "n8n-nodes-base.httpRequest", 
+    "typeVersion": 4.2,
+    "position": [600, 300],
+    "parameters": {
+      "httpVersion": "v1.1",
+      "method": "POST",
+      "url": "https://api.tavily.com/search",
+      "authentication": "genericCredentialType",
+      "genericAuthType": "httpHeaderAuth",
+      "sendHeaders": true,
+      "headerParameters": {
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "Authorization",
+            "value": "Bearer {{$credentials.tavilyApi.api_key}}"
+          }
+        ]
+      },
+      "sendBody": true,
+      "bodyParameters": {
+        "parameters": [
+          {
+            "name": "query",
+            "value": "{{$json.search_query_tropical || 'tropical building energy efficiency Southeast Asia Vietnam'}}"
+          },
+          {
+            "name": "search_depth",
+            "value": "advanced"
+          },
+          {
+            "name": "include_domains", 
+            "value": [".edu", ".gov", "ashrae.org", "iea.org"]
+          },
+          {
+            "name": "max_results",
+            "value": 10
+          },
+          {
+            "name": "include_raw_content",
+            "value": false
+          },
+          {
+            "name": "include_images",
+            "value": false
+          }
+        ]
+      },
+      "options": {
+        "timeout": 30000,
+        "retry": {
+          "enabled": true,
+          "maxAttempts": 3
+        }
+      }
+    }
+  },
+  "content_extract_node": {
+    "id": "tavily_extract_content",
+    "name": "Tavily Extract Content",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [500, 500],
+    "parameters": {
+      "httpVersion": "v1.1",
+      "method": "POST", 
+      "url": "https://api.tavily.com/extract",
+      "authentication": "genericCredentialType",
+      "genericAuthType": "httpHeaderAuth",
+      "sendHeaders": true,
+      "headerParameters": {
+        "parameters": [
+          {
+            "name": "Content-Type", 
+            "value": "application/json"
+          },
+          {
+            "name": "Authorization",
+            "value": "Bearer {{$credentials.tavilyApi.api_key}}"
+          }
+        ]
+      },
+      "sendBody": true,
+      "bodyParameters": {
+        "parameters": [
+          {
+            "name": "urls",
+            "value": "={{$json.selected_urls}}"
+          },
+          {
+            "name": "extract_depth",
+            "value": "advanced"
+          },
+          {
+            "name": "include_images",
+            "value": false
+          },
+          {
+            "name": "format",
+            "value": "markdown"
+          }
+        ]
+      },
+      "options": {
+        "timeout": 60000,
+        "retry": {
+          "enabled": true,
+          "maxAttempts": 2
+        }
+      }
+    }
+  },
+  "academic_filter_node": {
+    "id": "filter_academic_sources",
+    "name": "Filter Academic Sources",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [700, 400],
+    "parameters": {
+      "language": "javascript",
+      "jsCode": "// Filter and enhance search results for academic quality\nconst ibpsaResults = $input.first().json.results || [];\nconst tropicalResults = $input.all()[1]?.json?.results || [];\n\n// Combine and deduplicate results\nconst allResults = [...ibpsaResults, ...tropicalResults];\nconst uniqueResults = allResults.filter((result, index, self) => \n  index === self.findIndex(r => r.url === result.url)\n);\n\n// Academic domain scoring\nconst academicDomains = ['.edu', '.gov', 'ibpsa.org', 'ashrae.org', 'iea.org', 'nrel.gov'];\nconst scoredResults = uniqueResults.map(result => {\n  let academicScore = 0;\n  \n  // Domain scoring\n  for (const domain of academicDomains) {\n    if (result.url.includes(domain)) {\n      academicScore += domain.includes('.edu') ? 3 : domain.includes('.gov') ? 2 : 1;\n      break;\n    }\n  }\n  \n  // Content quality indicators\n  if (result.title.toLowerCase().includes('research') || \n      result.title.toLowerCase().includes('study') ||\n      result.title.toLowerCase().includes('analysis')) {\n    academicScore += 1;\n  }\n  \n  if (result.content.length > 500) {\n    academicScore += 1;\n  }\n  \n  return {\n    ...result,\n    academic_score: academicScore,\n    is_academic: academicScore >= 2\n  };\n});\n\n// Sort by academic score and select top results\nconst filteredResults = scoredResults\n  .filter(result => result.is_academic)\n  .sort((a, b) => b.academic_score - a.academic_score)\n  .slice(0, 8);\n\n// Calculate metrics\nconst academicPercentage = (filteredResults.length / Math.max(uniqueResults.length, 1)) * 100;\n\nreturn {\n  filtered_results: filteredResults,\n  selected_urls: filteredResults.map(r => r.url),\n  total_found: uniqueResults.length,\n  academic_count: filteredResults.length,\n  academic_percentage: Math.round(academicPercentage),\n  search_metadata: {\n    search_timestamp: new Date().toISOString(),\n    ibpsa_results_count: ibpsaResults.length,\n    tropical_results_count: tropicalResults.length,\n    academic_threshold: '80%',\n    quality_check: academicPercentage >= 80 ? 'PASS' : 'REVIEW'\n  }\n};"
+    }
+  },
+  "credentials_setup": {
+    "tavily_api": {
+      "name": "Tavily API",
+      "type": "httpHeaderAuth",
+      "data": {
+        "name": "Authorization",
+        "value": "Bearer YOUR_TAVILY_API_KEY"
+      }
+    }
+  },
+  "validation_notes": {
+    "required_fields": ["query", "search_depth", "include_domains", "max_results"],
+    "api_rate_limits": "1000 requests/month, 100 requests/minute on free tier",
+    "recommended_domains": [".edu", ".gov", "ibpsa.org", "ashrae.org", "iea.org", "nrel.gov"],
+    "quality_threshold": "80% academic sources for content validation"
+  }
+}

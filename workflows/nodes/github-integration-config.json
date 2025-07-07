@@ -1,0 +1,93 @@
+{
+  "github_create_english_file": {
+    "id": "github_create_english_file",
+    "name": "GitHub Create English File",
+    "type": "n8n-nodes-base.github",
+    "typeVersion": 1.0,
+    "position": [1600, 500],
+    "parameters": {
+      "resource": "file",
+      "operation": "create",
+      "owner": "thephongh",
+      "repository": "ibpsa-vietnam-website",
+      "filePath": "={{$json.english_file_path}}",
+      "fileContent": "={{$json.english_markdown_content}}",
+      "commitMessage": "Add English article: {{$json.english_title}}",
+      "branch": "main",
+      "additionalParameters": {
+        "author": {
+          "name": "IBPSA Vietnam Bot",
+          "email": "bot@ibpsa-vietnam.org"
+        }
+      }
+    },
+    "credentials": {
+      "githubApi": {
+        "id": "github_api_token",
+        "name": "GitHub API"
+      }
+    }
+  },
+  "github_create_vietnamese_file": {
+    "id": "github_create_vietnamese_file", 
+    "name": "GitHub Create Vietnamese File",
+    "type": "n8n-nodes-base.github",
+    "typeVersion": 1.0,
+    "position": [1600, 700],
+    "parameters": {
+      "resource": "file",
+      "operation": "create",
+      "owner": "thephongh",
+      "repository": "ibpsa-vietnam-website",
+      "filePath": "={{$json.vietnamese_file_path}}",
+      "fileContent": "={{$json.vietnamese_markdown_content}}",
+      "commitMessage": "Add Vietnamese article: {{$json.vietnamese_title}}",
+      "branch": "main",
+      "additionalParameters": {
+        "author": {
+          "name": "IBPSA Vietnam Bot",
+          "email": "bot@ibpsa-vietnam.org"
+        }
+      }
+    },
+    "credentials": {
+      "githubApi": {
+        "id": "github_api_token",
+        "name": "GitHub API"
+      }
+    }
+  },
+  "prepare_github_files": {
+    "id": "prepare_github_files",
+    "name": "Prepare GitHub Files",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [1400, 800],
+    "parameters": {
+      "language": "javascript",
+      "jsCode": "// Prepare English and Vietnamese content for GitHub file creation\nconst englishContent = $json.english_content || {};\nconst vietnameseContent = $json.vietnamese_content || {};\nconst processingMetadata = $json.processing_metadata || {};\n\n// Generate slug from title\nfunction generateSlug(title) {\n  return title\n    .toLowerCase()\n    .replace(/[^a-z0-9\\s-]/g, '')\n    .replace(/\\s+/g, '-')\n    .replace(/-+/g, '-')\n    .trim('-')\n    .substring(0, 50);\n}\n\n// Generate current date in YYYY-MM-DD format\nconst currentDate = new Date().toISOString().split('T')[0];\n\n// Create file paths\nconst englishSlug = generateSlug(englishContent.title || 'building-performance-research');\nconst vietnameseSlug = generateSlug(vietnameseContent.title || 'nghien-cuu-hieu-suat-toa-nha');\n\nconst englishFilePath = `content/en/${currentDate}-${englishSlug}.md`;\nconst vietnameseFilePath = `content/${currentDate}-${vietnameseSlug}.md`;\n\n// Create Hugo frontmatter\nfunction createFrontmatter(content, language) {\n  const tags = [\n    \"IBPSA\",\n    \"Building Performance\", \n    \"Energy Efficiency\",\n    \"Research\",\n    \"Vietnam\"\n  ];\n  \n  const categories = [\n    \"Building Performance\",\n    \"Energy Efficiency\", \n    \"Research\"\n  ];\n  \n  return `---\ntitle: \"${content.title}\"\ndate: ${currentDate}\ndraft: false\ntags: [${tags.map(tag => `\"${tag}\"`).join(', ')}]\ncategories: [${categories.map(cat => `\"${cat}\"`).join(', ')}]\nauthor: \"IBPSA Vietnam\"\nlanguage: \"${language}\"\nsources: \"tavily_advanced_search\"\nsearch_summary: \"Generated from verified academic sources using Tavily advanced search\"\ngenerated_by: \"ai_agent_with_tavily\"\nword_count: ${content.word_count || 0}\nreferences_count: ${(content.references || []).length}\ngeneration_date: \"${new Date().toISOString()}\"\n---\n\n`;\n}\n\n// Create complete markdown content\nconst englishMarkdown = createFrontmatter(englishContent, 'en') + englishContent.body;\nconst vietnameseMarkdown = createFrontmatter(vietnameseContent, 'vi') + vietnameseContent.body;\n\n// Validate content before GitHub upload\nconst validation = {\n  english_ready: !!(englishContent.title && englishContent.body && englishContent.body.length > 500),\n  vietnamese_ready: !!(vietnameseContent.title && vietnameseContent.body && vietnameseContent.body.length > 500),\n  has_references: (englishContent.references || []).length >= 3,\n  file_paths_valid: !!(englishFilePath && vietnameseFilePath)\n};\n\nconst overallReady = validation.english_ready && validation.vietnamese_ready && validation.has_references;\n\nreturn [\n  {\n    file_type: 'english',\n    english_file_path: englishFilePath,\n    english_markdown_content: englishMarkdown,\n    english_title: englishContent.title,\n    validation: validation,\n    ready_for_upload: overallReady\n  },\n  {\n    file_type: 'vietnamese', \n    vietnamese_file_path: vietnameseFilePath,\n    vietnamese_markdown_content: vietnameseMarkdown,\n    vietnamese_title: vietnameseContent.title,\n    validation: validation,\n    ready_for_upload: overallReady\n  }\n];"
+    }
+  },
+  "github_status_checker": {
+    "id": "check_github_upload_status",
+    "name": "Check GitHub Upload Status",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [1800, 600],
+    "parameters": {
+      "language": "javascript",
+      "jsCode": "// Check and log GitHub upload status\nconst allItems = $input.all();\n\nlet englishUpload = null;\nlet vietnameseUpload = null;\n\n// Find English and Vietnamese upload results\nfor (const item of allItems) {\n  if (item.json.file_type === 'english' || item.json.english_file_path) {\n    englishUpload = item.json;\n  } else if (item.json.file_type === 'vietnamese' || item.json.vietnamese_file_path) {\n    vietnameseUpload = item.json;\n  }\n}\n\n// Determine upload success\nconst englishSuccess = !!(englishUpload && (englishUpload.sha || englishUpload.content));\nconst vietnameseSuccess = !!(vietnameseUpload && (vietnameseUpload.sha || vietnameseUpload.content));\n\nconst deploymentResult = {\n  deployment_status: englishSuccess && vietnameseSuccess ? 'SUCCESS' : 'PARTIAL',\n  files_created: {\n    english: {\n      success: englishSuccess,\n      file_path: englishUpload?.path || englishUpload?.english_file_path,\n      sha: englishUpload?.sha,\n      url: englishUpload?.html_url\n    },\n    vietnamese: {\n      success: vietnameseSuccess,\n      file_path: vietnameseUpload?.path || vietnameseUpload?.vietnamese_file_path, \n      sha: vietnameseUpload?.sha,\n      url: vietnameseUpload?.html_url\n    }\n  },\n  deployment_timestamp: new Date().toISOString(),\n  next_steps: {\n    netlify_deployment: 'Automatic deployment will be triggered by GitHub webhook',\n    estimated_build_time: '2-5 minutes',\n    site_url: 'https://ibpsa-vietnam.netlify.app'\n  },\n  publication_summary: {\n    english_article_url: `https://ibpsa-vietnam.netlify.app/en/${(englishUpload?.english_file_path || '').split('/').pop()?.replace('.md', '')}/`,\n    vietnamese_article_url: `https://ibpsa-vietnam.netlify.app/${(vietnameseUpload?.vietnamese_file_path || '').split('/').pop()?.replace('.md', '')}/`,\n    publication_date: new Date().toISOString().split('T')[0]\n  }\n};\n\nreturn deploymentResult;"
+    }
+  },
+  "netlify_deployment_trigger": {
+    "id": "trigger_netlify_deployment",
+    "name": "Trigger Netlify Deployment", 
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [2000, 600],
+    "parameters": {
+      "httpVersion": "v1.1",
+      "method": "POST",
+      "url": "https://api.netlify.com/build_hooks/{{$credentials.netlifyApi.build_hook_id}}",
+      "sendHeaders": true,
+      "headerParameters": {\n        \"parameters\": [\n          {\n            \"name\": \"Content-Type\",\n            \"value\": \"application/json\"\n          }\n        ]\n      },\n      \"sendBody\": true,\n      \"bodyParameters\": {\n        \"parameters\": [\n          {\n            \"name\": \"trigger\",\n            \"value\": \"automated_content_publication\"\n          },\n          {\n            \"name\": \"branch\",\n            \"value\": \"main\"\n          }\n        ]\n      },\n      \"options\": {\n        \"timeout\": 10000\n      }\n    }\n  },\n  \"error_handling_node\": {\n    \"id\": \"github_error_handler\",\n    \"name\": \"GitHub Error Handler\",\n    \"type\": \"n8n-nodes-base.code\",\n    \"typeVersion\": 2,\n    \"position\": [1600, 900],\n    \"parameters\": {\n      \"language\": \"javascript\",\n      \"jsCode\": \"// Handle GitHub API errors and provide recovery suggestions\\nconst error = $input.first().error || {};\\nconst itemData = $input.first().json || {};\\n\\n// Common GitHub API error patterns\\nconst errorPatterns = {\\n  'file already exists': {\\n    solution: 'File already exists - consider updating instead of creating',\\n    action: 'Use update operation with SHA parameter',\\n    retry: false\\n  },\\n  'bad credentials': {\\n    solution: 'GitHub API token is invalid or expired',\\n    action: 'Update GitHub API credentials in n8n',\\n    retry: false\\n  },\\n  'rate limit': {\\n    solution: 'GitHub API rate limit exceeded',\\n    action: 'Wait for rate limit reset or use different token',\\n    retry: true,\\n    retry_delay: 3600000\\n  },\\n  'repository not found': {\\n    solution: 'Repository does not exist or token lacks access',\\n    action: 'Verify repository name and token permissions',\\n    retry: false\\n  }\\n};\\n\\nlet errorType = 'unknown';\\nlet errorSolution = null;\\n\\n// Identify error type\\nfor (const [pattern, solution] of Object.entries(errorPatterns)) {\\n  if (error.message?.toLowerCase().includes(pattern)) {\\n    errorType = pattern;\\n    errorSolution = solution;\\n    break;\\n  }\\n}\\n\\nconst errorReport = {\\n  error_type: errorType,\\n  error_message: error.message || 'Unknown error occurred',\\n  solution: errorSolution,\\n  failed_operation: {\\n    file_path: itemData.english_file_path || itemData.vietnamese_file_path,\\n    operation: 'file_creation',\\n    repository: 'thephongh/ibpsa-vietnam-website'\\n  },\\n  recovery_actions: [\\n    'Check GitHub API token permissions',\\n    'Verify repository exists and is accessible',\\n    'Ensure file paths are valid',\\n    'Check for existing files with same name'\\n  ],\\n  timestamp: new Date().toISOString()\\n};\\n\\nreturn errorReport;\"\n    }\n  },\n  \"credentials_setup\": {\n    \"github_api\": {\n      \"name\": \"GitHub API\",\n      \"type\": \"githubApi\",\n      \"data\": {\n        \"server\": \"https://api.github.com\",\n        \"user\": \"thephongh\",\n        \"accessToken\": \"YOUR_GITHUB_PERSONAL_ACCESS_TOKEN\"\n      }\n    },\n    \"netlify_api\": {\n      \"name\": \"Netlify API\",\n      \"type\": \"httpHeaderAuth\",\n      \"data\": {\n        \"name\": \"Authorization\",\n        \"value\": \"Bearer YOUR_NETLIFY_API_TOKEN\",\n        \"build_hook_id\": \"YOUR_NETLIFY_BUILD_HOOK_ID\"\n      }\n    }\n  },\n  \"validation_notes\": {\n    \"github_requirements\": {\n      \"token_scope\": \"Personal Access Token with 'repo' scope required\",\n      \"repository_access\": \"Token must have write access to thephongh/ibpsa-vietnam-website\",\n      \"file_paths\": \"English content in content/en/, Vietnamese in content/\",\n      \"commit_strategy\": \"Direct commits to main branch\"\n    },\n    \"file_validation\": {\n      \"frontmatter_required\": \"Hugo YAML frontmatter with all required fields\",\n      \"content_minimum\": \"Minimum 500 characters of body content\",\n      \"references_required\": \"Minimum 3 academic references with URLs\",\n      \"encoding\": \"UTF-8 encoding for Vietnamese characters\"\n    },\n    \"error_recovery\": {\n      \"duplicate_files\": \"Check for existing files before creation\",\n      \"rate_limiting\": \"Implement retry logic with exponential backoff\",\n      \"network_errors\": \"Validate network connectivity and API availability\",\n      \"permission_errors\": \"Verify GitHub token scope and repository access\"\n    }\n  }\n}"

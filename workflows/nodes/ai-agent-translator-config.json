@@ -1,0 +1,81 @@
+{
+  "vietnamese_translator_agent": {
+    "id": "ai_agent_vietnamese_translator",
+    "name": "Vietnamese Translator Agent",
+    "type": "@n8n/n8n-nodes-langchain.agent",
+    "typeVersion": 1.6,
+    "position": [1200, 600],
+    "parameters": {
+      "agentType": "toolsAgent",
+      "promptType": "define",
+      "text": "You are a professional Vietnamese translator specializing in technical and scientific content for the building industry.\n\nYour task is to translate the English blog post to natural, professional Vietnamese while:\n\n1. Maintaining technical accuracy\n2. Preserving all citations and URLs exactly\n3. Using appropriate Vietnamese technical terminology\n4. Adapting for Vietnamese building professionals\n5. Keeping the same structure and formatting\n6. Using formal but accessible Vietnamese\n7. Including Vietnamese equivalents for international standards when applicable\n\nKey Vietnamese Technical Terms:\n- IBPSA = Hiệp hội Mô phỏng Hiệu suất Tòa nhà Quốc tế\n- Building Performance = Hiệu suất tòa nhà\n- Energy Efficiency = Hiệu quả năng lượng\n- Building Simulation = Mô phỏng tòa nhà\n- Sustainable Architecture = Kiến trúc bền vững\n- Tropical Climate = Khí hậu nhiệt đới\n- HVAC = Hệ thống điều hòa không khí\n- Building Envelope = Vỏ tòa nhà\n- Thermal Performance = Hiệu suất nhiệt\n- Ventilation = Thông gió\n\nEnsure the translation flows naturally in Vietnamese while preserving all technical accuracy and academic citations.",
+      "hasOutputParser": true,
+      "options": {
+        "systemMessage": "You are a professional Vietnamese translator for building industry technical content. Maintain technical accuracy while creating natural, accessible Vietnamese text.",
+        "maxIterations": 2,
+        "returnIntermediateSteps": false
+      }
+    }
+  },
+  "openai_chat_model_translator": {
+    "id": "openai_chat_model_translator",
+    "name": "OpenAI Chat Model - Translator",
+    "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+    "typeVersion": 1.3,
+    "position": [1200, 500],
+    "parameters": {
+      "model": "gpt-4",
+      "options": {
+        "temperature": 0.1,
+        "maxTokens": 2500,
+        "topP": 1,
+        "frequencyPenalty": 0,
+        "presencePenalty": 0,
+        "timeout": 60000
+      },
+      "requestOptions": {
+        "maxRetries": 3,
+        "retryDelay": 2000
+      }
+    },
+    "credentials": {
+      "openAiApi": {
+        "id": "openai_api_key",
+        "name": "OpenAI API"
+      }
+    }
+  },
+  "simple_memory_translator": {
+    "id": "simple_memory_translator",
+    "name": "Simple Memory - Translator",
+    "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+    "typeVersion": 1.2,
+    "position": [1100, 500],
+    "parameters": {
+      "contextWindowLength": 5,
+      "options": {}
+    }
+  },
+  "translation_input_processor": {
+    "id": "prepare_translation_input",
+    "name": "Prepare Translation Input",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [1000, 700],
+    "parameters": {
+      "language": "javascript",
+      "jsCode": "// Prepare English content for Vietnamese translation\nconst englishContent = $json.english_content || {};\nconst processingMetadata = $json.processing_metadata || {};\n\n// Create structured input for translation agent\nconst translationInput = {\n  task: \"translate_to_vietnamese\",\n  source_language: \"English\",\n  target_language: \"Vietnamese\",\n  content_type: \"technical_blog_post\",\n  english_article: {\n    title: englishContent.title || '',\n    body: englishContent.body || '',\n    references: englishContent.references || [],\n    word_count: englishContent.word_count || 0\n  },\n  translation_requirements: {\n    preserve_citations: true,\n    maintain_structure: true,\n    technical_accuracy: true,\n    formal_tone: true,\n    target_audience: \"Vietnamese building professionals\",\n    adaptation_notes: \"Adapt international examples to Vietnamese context where appropriate\"\n  },\n  terminology_guidelines: {\n    \"IBPSA\": \"Hiệp hội Mô phỏng Hiệu suất Tòa nhà Quốc tế\",\n    \"Building Performance\": \"Hiệu suất tòa nhà\",\n    \"Energy Efficiency\": \"Hiệu quả năng lượng\", \n    \"Building Simulation\": \"Mô phỏng tòa nhà\",\n    \"Sustainable Architecture\": \"Kiến trúc bền vững\",\n    \"Tropical Climate\": \"Khí hậu nhiệt đới\",\n    \"HVAC\": \"Hệ thống điều hòa không khí\",\n    \"Building Envelope\": \"Vỏ tòa nhà\",\n    \"Thermal Performance\": \"Hiệu suất nhiệt\",\n    \"Ventilation\": \"Thông gió\"\n  },\n  quality_expectations: {\n    \"readability\": \"Professional but accessible Vietnamese\",\n    \"accuracy\": \"100% preservation of technical meaning\",\n    \"citations\": \"All URLs and references preserved exactly\",\n    \"flow\": \"Natural Vietnamese sentence structure\"\n  }\n};\n\nreturn {\n  agent_input: JSON.stringify(translationInput),\n  english_title: englishContent.title,\n  english_word_count: englishContent.word_count,\n  reference_count: (englishContent.references || []).length,\n  ready_for_translation: !!englishContent.body\n};"
+    }
+  },
+  "translation_output_formatter": {
+    "id": "format_translation_output",
+    "name": "Format Translation Output",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [1400, 600],
+    "parameters": {
+      "language": "javascript",
+      "jsCode": "// Format Vietnamese translation output\nconst translationResponse = $json.output || $json.text || '';\nconst englishTitle = $json.english_title || '';\nconst englishWordCount = $json.english_word_count || 0;\nconst referenceCount = $json.reference_count || 0;\n\n// Extract Vietnamese title and content\nlet vietnameseTitle = '';\nlet vietnameseContent = '';\nlet preservedReferences = [];\n\n// Parse translation response for title\nconst titleMatch = translationResponse.match(/^(.+?)\\n/);\nif (titleMatch) {\n  vietnameseTitle = titleMatch[1].replace(/^#+\\s*/, '').trim();\n}\n\n// Extract preserved references/citations\nconst urlRegex = /https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)/g;\nconst urls = translationResponse.match(urlRegex) || [];\npreservedReferences = [...new Set(urls)];\n\n// Clean Vietnamese content\nvietnameseContent = translationResponse.replace(/^.+?\\n\\n/, '').trim();\n\n// Validate translation quality\nconst vietnameseWordCount = vietnameseContent.split(/\\s+/).length;\nconst citationPreservation = preservedReferences.length >= Math.floor(referenceCount * 0.9); // 90% citation preservation\nconst hasVietnameseStructure = vietnameseContent.includes('\\n') && vietnameseContent.length > 500;\n\n// Check for Vietnamese technical terms\nconst technicalTerms = [\n  'Hiệp hội Mô phỏng Hiệu suất Tòa nhà',\n  'hiệu suất tòa nhà',\n  'hiệu quả năng lượng',\n  'mô phỏng tòa nhà',\n  'kiến trúc bền vững',\n  'khí hậu nhiệt đới'\n];\nconst hasVietnameseTerms = technicalTerms.some(term => \n  vietnameseContent.toLowerCase().includes(term.toLowerCase())\n);\n\nconst translationQuality = {\n  title_translated: !!vietnameseTitle,\n  content_length_appropriate: vietnameseWordCount >= englishWordCount * 0.8,\n  citations_preserved: citationPreservation,\n  has_structure: hasVietnameseStructure,\n  uses_vietnamese_technical_terms: hasVietnameseTerms,\n  overall_quality: (vietnameseTitle && citationPreservation && hasVietnameseStructure && hasVietnameseTerms) ? 'PASS' : 'REVIEW'\n};\n\nreturn {\n  vietnamese_content: {\n    title: vietnameseTitle || 'Nghiên cứu Tiên tiến về Hiệu suất Tòa nhà',\n    body: vietnameseContent,\n    word_count: vietnameseWordCount,\n    references: preservedReferences,\n    translated_date: new Date().toISOString().split('T')[0]\n  },\n  translation_metrics: translationQuality,\n  comparison: {\n    english_word_count: englishWordCount,\n    vietnamese_word_count: vietnameseWordCount,\n    word_count_ratio: Math.round((vietnameseWordCount / Math.max(englishWordCount, 1)) * 100) / 100,\n    references_preserved: preservedReferences.length,\n    original_references: referenceCount\n  },\n  processing_metadata: {\n    translation_model: 'gpt-4',\n    translation_timestamp: new Date().toISOString(),\n    content_type: 'vietnamese_blog_post'\n  }\n};"
+    }
+  },
+  "validation_notes": {\n    "translation_requirements": {\n      "technical_accuracy": "100% preservation of technical meaning and terminology",\n      "citation_preservation": "All URLs and academic references must be preserved exactly",\n      "vietnamese_terminology": "Use established Vietnamese technical terms for building industry",\n      "readability": "Formal but accessible Vietnamese for building professionals"\n    },\n    "quality_metrics": {\n      "word_count_ratio": "Vietnamese should be 80-120% of English word count",\n      "citation_preservation": "Minimum 90% of citations preserved", \n      "structure_maintenance": "Same sectioning and formatting as English version",\n      "technical_term_usage": "Must include appropriate Vietnamese technical terminology"\n    },\n    "model_configuration": {\n      "temperature": "0.1 for consistent, accurate translation",\n      "max_tokens": "2500 to accommodate longer Vietnamese text",\n      "agent_type": "toolsAgent for translation tasks",\n      "memory": "Simple Memory with short context window for translation focus"\n    }\n  }\n}

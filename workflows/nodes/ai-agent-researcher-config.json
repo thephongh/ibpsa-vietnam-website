@@ -1,0 +1,82 @@
+{
+  "content_researcher_agent": {
+    "id": "ai_agent_content_researcher",
+    "name": "Content Researcher Agent",
+    "type": "@n8n/n8n-nodes-langchain.agent",
+    "typeVersion": 1.6,
+    "position": [800, 600],
+    "parameters": {
+      "agentType": "toolsAgent",
+      "promptType": "define",
+      "text": "You are a research assistant for IBPSA Vietnam, specializing in building performance simulation, energy efficiency, and sustainable architecture.\n\nYour task is to analyze the provided search results and extracted content from Tavily to create a comprehensive blog post.\n\nKey Requirements:\n1. Use ONLY the provided search results and extracted content\n2. Focus on practical applications for Vietnamese building industry\n3. Include proper citations with URLs from the search results\n4. Create content relevant to tropical/subtropical climate\n5. Make it accessible to both technical and non-technical audiences\n6. Target 800-1200 words\n\nContent Structure:\n- Clear title (no markdown headers)\n- Introduction\n- Main findings with subheadings\n- Vietnamese context and applications\n- Practical recommendations\n- Conclusion with actionable steps\n- References with URLs\n\nAlways maintain academic standards while making content accessible. Focus on practical implementation in Vietnam's tropical climate conditions.",
+      "hasOutputParser": true,
+      "options": {
+        "systemMessage": "You are IBPSA Vietnam's research assistant. Create academic-quality content from provided search results, focusing on practical applications for Vietnamese building professionals in tropical climate conditions.",
+        "maxIterations": 3,
+        "returnIntermediateSteps": false
+      }
+    }
+  },
+  "openai_chat_model": {
+    "id": "openai_chat_model_researcher", 
+    "name": "OpenAI Chat Model - Researcher",
+    "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+    "typeVersion": 1.3,
+    "position": [800, 500],
+    "parameters": {
+      "model": "gpt-4",
+      "options": {
+        "temperature": 0.3,
+        "maxTokens": 2000,
+        "topP": 1,
+        "frequencyPenalty": 0,
+        "presencePenalty": 0,
+        "timeout": 60000
+      },
+      "requestOptions": {
+        "maxRetries": 3,
+        "retryDelay": 2000
+      }
+    },
+    "credentials": {
+      "openAiApi": {
+        "id": "openai_api_key",
+        "name": "OpenAI API"
+      }
+    }
+  },
+  "simple_memory": {
+    "id": "simple_memory_researcher",
+    "name": "Simple Memory - Researcher", 
+    "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+    "typeVersion": 1.2,
+    "position": [700, 500],
+    "parameters": {
+      "contextWindowLength": 10,
+      "options": {}
+    }
+  },
+  "content_processing_node": {
+    "id": "process_search_results",
+    "name": "Process Search Results",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [600, 600],
+    "parameters": {
+      "language": "javascript", 
+      "jsCode": "// Process and format search results for AI agent\nconst searchResults = $json.filtered_results || [];\nconst extractedContent = $json.extracted_content || [];\nconst searchMetadata = $json.search_metadata || {};\n\n// Combine search results with extracted content\nconst enhancedResults = searchResults.map(result => {\n  const extracted = extractedContent.find(content => content.url === result.url);\n  return {\n    title: result.title,\n    url: result.url,\n    snippet: result.content,\n    full_content: extracted?.content || result.content,\n    academic_score: result.academic_score,\n    domain: new URL(result.url).hostname\n  };\n});\n\n// Create structured input for AI agent\nconst agentInput = {\n  task: \"create_blog_post\",\n  search_summary: {\n    total_sources: enhancedResults.length,\n    academic_percentage: $json.academic_percentage,\n    search_timestamp: searchMetadata.search_timestamp\n  },\n  source_articles: enhancedResults,\n  requirements: {\n    target_length: \"800-1200 words\",\n    audience: \"Vietnamese building professionals\",\n    climate_focus: \"tropical/subtropical\",\n    citation_format: \"academic with URLs\",\n    structure: \"introduction → findings → vietnamese context → recommendations → conclusion → references\"\n  },\n  content_guidelines: {\n    technical_level: \"accessible to both technical and non-technical audiences\",\n    geographic_focus: \"Vietnam and Southeast Asia applications\",\n    practical_emphasis: \"actionable recommendations and implementation guidance\",\n    academic_standards: \"proper citations and evidence-based content\"\n  }\n};\n\nreturn {\n  agent_input: JSON.stringify(agentInput),\n  source_count: enhancedResults.length,\n  ready_for_processing: enhancedResults.length >= 3\n};"
+    }
+  },
+  "output_formatter": {
+    "id": "format_researcher_output",
+    "name": "Format Researcher Output",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [1000, 600],
+    "parameters": {
+      "language": "javascript",
+      "jsCode": "// Format AI agent output for workflow processing\nconst agentResponse = $json.output || $json.text || '';\nconst sourceCount = $json.source_count || 0;\n\n// Extract structured content from agent response\nlet title = '';\nlet content = '';\nlet references = [];\n\n// Parse agent response for title\nconst titleMatch = agentResponse.match(/^(.+?)\\n/);\nif (titleMatch) {\n  title = titleMatch[1].replace(/^#+\\s*/, '').trim();\n}\n\n// Extract references/citations\nconst urlRegex = /https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)/g;\nconst urls = agentResponse.match(urlRegex) || [];\nreferences = [...new Set(urls)];\n\n// Clean content (remove title if it's at the beginning)\ncontent = agentResponse.replace(/^.+?\\n\\n/, '').trim();\n\n// Validate content quality\nconst wordCount = content.split(/\\s+/).length;\nconst hasIntroduction = content.toLowerCase().includes('introduction') || content.indexOf('\\n') < 200;\nconst hasConclusion = content.toLowerCase().includes('conclusion') || content.toLowerCase().includes('recommendation');\nconst hasCitations = references.length >= 3;\n\nconst qualityScore = {\n  word_count_ok: wordCount >= 800 && wordCount <= 1200,\n  has_structure: hasIntroduction && hasConclusion,\n  sufficient_citations: hasCitations,\n  overall_quality: (wordCount >= 800 && hasIntroduction && hasConclusion && hasCitations) ? 'PASS' : 'REVIEW'\n};\n\nreturn {\n  english_content: {\n    title: title || 'Advanced Building Performance Research Insights',\n    body: content,\n    word_count: wordCount,\n    references: references,\n    generated_date: new Date().toISOString().split('T')[0]\n  },\n  quality_metrics: qualityScore,\n  processing_metadata: {\n    source_articles_used: sourceCount,\n    ai_model: 'gpt-4',\n    processing_timestamp: new Date().toISOString(),\n    content_type: 'research_blog_post'\n  }\n};"
+    }
+  },
+  "validation_notes": {
+    "agent_configuration": {\n      "agent_type": "toolsAgent recommended for content generation",\n      "prompt_length": "Under 4000 characters for n8n compatibility",\n      "memory_type": "Simple Memory for stateless content generation",\n      "model_selection": "GPT-4 for high-quality academic content"\n    },\n    "input_requirements": {\n      "required_fields": ["filtered_results", "extracted_content", "search_metadata"],\n      "minimum_sources": 3,\n      "content_validation": "Academic percentage >= 80%"\n    },\n    "output_validation": {\n      "word_count": "800-1200 words",\n      "structure_check": "Introduction, findings, recommendations, conclusion",\n      "citation_requirement": "Minimum 3 academic URLs",\n      "quality_threshold": "Overall quality = PASS"\n    }\n  }\n}
