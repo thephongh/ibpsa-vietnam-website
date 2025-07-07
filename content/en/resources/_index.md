@@ -7,58 +7,18 @@ layout: "section"
 
 # Resources
 
-Explore our comprehensive collection of resources designed to support building performance simulation professionals in Vietnam. From technical guidelines to software tools, find everything you need to advance your simulation practice.
+Find essential tools, guidelines, and data to advance building performance simulation practice in Vietnam's tropical climate. Resources are free for IBPSA Vietnam members, with some specialized materials requiring higher membership levels.
 
-## Resource Categories
+## What's Available
 
-### Publications
-Access research papers, technical reports, and industry publications focused on building simulation in tropical and subtropical climates like Vietnam's.
+Publications & Research - Papers, reports, and studies on tropical building simulation
+Guidelines & Standards - Vietnamese building codes, best practices, and technical standards
+Software & Tools - Commercial and open-source simulation programs for local projects
+Case Studies - Real Vietnamese projects covering energy, daylighting, and thermal comfort
+Climate Data - Weather files, TMY data, and analysis tools for major Vietnamese cities
+Training Materials - Tutorials, workshops, and modeling protocols
 
-### Guidelines & Standards
-Find technical guidelines, best practice documents, and standards for building performance simulation specific to Vietnamese building codes and climate conditions.
-
-### Software & Tools
-Discover simulation software, calculation tools, and utilities commonly used in Vietnamese building projects, including both commercial and open-source options.
-
-### Case Studies
-Learn from real-world applications of building simulation in Vietnamese projects, including energy modeling, daylighting analysis, and thermal comfort studies.
-
-### Technical Standards
-Access national and international standards relevant to building performance simulation, energy efficiency, and sustainable building design in Vietnam.
-
-## Featured Resources
-
-### Climate Data
-- Vietnam weather files for major cities
-- Climate analysis tools and guides
-- Typical meteorological year (TMY) data
-
-### Modeling Guidelines
-- Vietnam-specific modeling protocols
-- Local construction materials database
-- Building typology references
-
-### Training Materials
-- Tutorial documents and videos
-- Workshop presentations and recordings
-- Best practice guides
-
-### Research Database
-- Peer-reviewed publications
-- Conference proceedings
-- Technical reports and white papers
-
-## How to Contribute
-
-We encourage community members to contribute resources that would benefit the Vietnamese building simulation community:
-
-- Submit research papers and case studies
-- Share modeling guidelines and best practices
-- Contribute software tools and utilities
-- Provide feedback on existing resources
-
-## Access Information
-
-Most resources are freely available to IBPSA Vietnam members. Some specialized materials may require higher membership levels or separate licensing agreements.
+## Contributing
+Submit your research, case studies, tools, or guidelines to help grow our community resource library.
 
 [Browse Publications](/resources/publications/) | [View Guidelines](/resources/guidelines/) | [Explore Tools](/resources/tools/)
