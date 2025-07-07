@@ -2,7 +2,7 @@
 
 Implement a feature using using the PRP file.
 
-## PRP File: `PRPs/ibpsa-vietnam-website.md`
+## PRP File: ibpsa-vietnam-content-workflow.md
 
 ## Execution Process
 

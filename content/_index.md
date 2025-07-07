@@ -1,6 +1,6 @@
 ---
-title: "IBPSA Việt Nam"
-description: "Hiệp hội Mô phỏng Hiệu năng Công trình Xây dựng Quốc tế - Chi hội Việt Nam. Thúc đẩy mô phỏng Hiệu năng Công trình Xây dựng để cải thiện thiết kế, xây dựng, vận hành và bảo trì môi trường xây dựng tại Việt Nam."
+title: "Hiệp hội Mô phỏng Hiệu năng Công trình Xây dựng Quốc tế - Chi hội Việt Nam"
+description: "Thúc đẩy mô phỏng mô phỏng hiệu năng công trình để cải thiện thiết kế, xây dựng, vận hành và bảo trì môi trường xây dựng tại Việt Nam."
 featured_image: "/images/pages/homepage-hero.jpg"
 keywords:
   [
