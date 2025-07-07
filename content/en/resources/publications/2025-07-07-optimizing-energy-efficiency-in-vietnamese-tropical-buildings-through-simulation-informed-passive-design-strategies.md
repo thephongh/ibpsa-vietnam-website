@@ -1,0 +1,115 @@
+---
+title: "Optimizing Energy Efficiency in Vietnamese Tropical Buildings Through Simulation-Informed Passive Design Strategies"
+date: 2025-07-07
+featured_image: "/images/resources/optimizing-energy-efficiency-in-vietnamese-tropical-buildings-through-simulation-informed-passive-design-strategies.jpg"
+draft: false
+tags: ["IBPSA", "Building Performance", "Energy Efficiency", "Research", "Vietnam", "Automated Content"]
+categories: ["Building Performance", "Research"]
+author: "IBPSA Vietnam AI Agent"
+language: "en"
+sources: "gemini_google_search"
+generated_by: "ai_agent_with_google_search"
+---
+Vietnam's rapid economic growth and increasing urbanization have led to a significant rise in energy demand, particularly within the building sector. Buildings in Vietnam consume a substantial portion of the nation's energy, accounting for 30-40% of its energy production and a quarter of its wood harvest. This high consumption is largely driven by the need for cooling in the prevailing hot and humid tropical climate, with space cooling estimated to represent up to 40% of residential power demand and 25-40% in commercial and public service buildings. As climate change is projected to expand tropical conditions across nearly the entire country by 2100, the demand for cooling will only intensify. Addressing this challenge is crucial for both environmental sustainability and economic resilience.
+
+Traditional Vietnamese architecture has historically employed ingenious passive design strategies to cope with the challenging climate, drawing lessons from local conditions to maximize comfort with minimal energy use. These vernacular techniques, such as appropriate building orientation, natural ventilation, and shading, offer valuable insights for modern construction. However, the rapid development and shift towards modern building types, like the ubiquitous "tube house" and high-rise buildings, often neglect these time-tested principles, resulting in structures that are not energy efficient and heavily reliant on air conditioning.
+
+This is where building performance simulation (BPS) plays a vital role. BPS tools allow architects and engineers to predict a building's energy consumption and indoor environmental quality based on various design parameters before construction begins. By simulating different passive design strategies, practitioners can identify the most effective combinations to minimize energy demand and enhance thermal comfort in Vietnam's specific tropical climate. This simulation-informed approach is key to developing energy-efficient and sustainable buildings that are well-adapted to local conditions.
+
+### Key Passive Design Strategies and Simulation Insights
+
+Several passive design strategies are particularly relevant for the Vietnamese tropical climate, and their effectiveness can be rigorously evaluated and optimized through simulation:
+
+**1. Building Orientation and Form:** The orientation of a building significantly impacts the amount of solar radiation it receives, directly affecting cooling loads. In tropical climates, orienting the longest facades towards the north and south is generally recommended to minimize exposure to the harsh east and west sun. Building simulation can analyze the energy performance of different orientations and forms, helping to determine the optimal building layout for a given site and climate zone in Vietnam. Studies have shown that the impact of orientation on energy consumption can be substantial, with buildings oriented east or west consuming significantly more energy for cooling compared to those oriented north or south. Simulation tools like EnergyPlus are commonly used for these analyses.
+
+**2. Natural Ventilation:** Maximizing natural ventilation is a cornerstone of passive cooling in hot and humid climates. Traditional Vietnamese houses often feature designs that facilitate airflow, such as open plans, courtyards, and strategically placed windows. Building simulation, including Computational Fluid Dynamics (CFD), can model airflow patterns within and around a building to assess the effectiveness of ventilation strategies. Parameters like window size, placement, and building configuration can be optimized through simulation to enhance natural ventilation and improve thermal comfort, potentially reducing the reliance on air conditioning. For instance, studies in Vietnam and similar climates have shown that natural ventilation can significantly increase the period of thermal comfort.
+
+
+
+![Illustration for Optimizing Energy Efficiency in Vietnamese Tropical Buildings Through Simulation-Informed Passive Design Strategies - section 1](/images/resources/in-article-1-optimizing-energy-efficiency-in-vietnamese-tropical-buildings-through-simulation-informed-passive-design-strategies.jpg)
+
+
+
+**3. Shading Devices:** Protecting buildings from direct solar radiation is critical in the tropics. External shading devices, such as overhangs, fins, and screens, can effectively reduce solar heat gain through windows and walls. Building energy simulation is essential for designing effective shading systems, allowing designers to evaluate the performance of different types, sizes, and materials of shading devices under varying sun angles throughout the year. Research in tropical regions has demonstrated that implementing well-designed shading can lead to a significant reduction in indoor temperatures and energy consumption for cooling. Innovative solutions, like green facades and perforated brickwork, are also being explored and simulated for their shading and ventilation benefits in the Vietnamese context.
+
+
+
+![Illustration for Optimizing Energy Efficiency in Vietnamese Tropical Buildings Through Simulation-Informed Passive Design Strategies - section 2](/images/resources/in-article-2-optimizing-energy-efficiency-in-vietnamese-tropical-buildings-through-simulation-informed-passive-design-strategies.jpg)
+
+
+
+**4. Building Envelope Optimization:** The thermal properties of the building envelope – walls, roof, and windows – play a crucial role in heat gain. Simulation can help optimize the selection of materials and construction techniques to improve insulation and reduce thermal conductivity. While high thermal mass can be beneficial in climates with large diurnal temperature swings, it might not be as effective in consistently hot and humid tropical climates where night temperatures remain high. Simulation allows for a nuanced understanding of how different materials perform in the specific Vietnamese climate, considering factors like heat absorption, storage, and release. Studies have investigated the impact of wall materials, insulation, and glazing types on energy consumption through simulation.
+
+### The Vietnamese Context: Challenges and Opportunities
+
+Applying simulation-informed passive design in Vietnam presents both challenges and opportunities. The rapid pace of construction, coupled with a potential lack of widespread understanding of passive design principles among some developers and builders, can hinder their implementation. Furthermore, while national technical regulations for energy-efficient buildings exist (like QCVN09:2017/BXD), their application might be more focused on larger buildings, with smaller residential houses, which constitute a vast majority of the housing stock, often being overlooked.
+
+However, there is a growing recognition of the importance of energy efficiency and sustainable construction in Vietnam. The government has introduced policies and strategies to promote energy-saving measures in the construction sector. Organizations like the Vietnam Green Building Council are working to raise awareness and build capacity. There is also increasing academic research focusing on the energy performance of buildings in Vietnam's climate and the potential of passive design and simulation. Collaborative projects are also underway to develop technical infrastructure and training for energy-efficient building practices.
+
+The affordability factor is also critical in a developing economy like Vietnam. While some passive design strategies might have initial costs, simulation can demonstrate their long-term energy savings and improved comfort, justifying the investment. Furthermore, many passive techniques, drawing from vernacular architecture, can be cost-effective and utilize locally available materials.
+
+### Practical Recommendations for Implementation
+
+For architects, engineers, developers, and policymakers in Vietnam, integrating simulation-informed passive design involves several practical steps:
+
+1.  **Early Integration of Simulation:** Building performance simulation should be incorporated from the initial design stages, not as an afterthought. This allows for the evaluation of fundamental design choices like orientation, form, and window placement early on, where they have the most significant impact on energy performance.
+2.  **Focus on Climate-Specific Strategies:** Prioritize passive design strategies that are most effective for the hot and humid tropical climate of Vietnam, such as maximizing natural ventilation, implementing effective external shading, and optimizing the building envelope's thermal performance.
+3.  **Utilize Local Climate Data:** Accurate and localized weather data is crucial for reliable simulation results. Using Typical Meteorological Year (TMY) data for specific Vietnamese cities is essential.
+4.  **Capacity Building:** Invest in training and education on building performance simulation tools and passive design principles for architects, engineers, and construction professionals in Vietnam.
+5.  **Develop Local Benchmarks and Guidelines:** Establish performance benchmarks and design guidelines specifically tailored to the different climatic zones and building types in Vietnam, supported by simulation studies.
+6.  **Promote Case Studies and Demonstrations:** Showcase successful examples of energy-efficient buildings in Vietnam that have utilized simulation-informed passive design to demonstrate their benefits.
+
+
+
+![Illustration for Optimizing Energy Efficiency in Vietnamese Tropical Buildings Through Simulation-Informed Passive Design Strategies - section 3](/images/resources/in-article-3-optimizing-energy-efficiency-in-vietnamese-tropical-buildings-through-simulation-informed-passive-design-strategies.jpg)
+
+
+
+### Conclusion
+
+Optimizing energy efficiency in Vietnamese tropical buildings through simulation-informed passive design strategies is not just an environmental imperative but also an economic opportunity. By leveraging the power of building performance simulation, designers can move beyond guesswork and empirically validate the effectiveness of passive techniques like optimal orientation, natural ventilation, and strategic shading. This approach, combined with insights from traditional Vietnamese architecture and tailored to the local context of a developing economy and tropical climate, can lead to buildings that are more comfortable, healthier, and significantly less reliant on energy-intensive active cooling systems. Embracing simulation-informed passive design is a crucial step towards a sustainable built environment in Vietnam, ensuring that its growth is both dynamic and environmentally responsible.
+
+---
+
+### References
+
+[^1]: [vietnam-briefing.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHRuovbhEWgEuB6GILp3VjtyDX3b3TWJBPULlmv4wUp88u-8VVn7iAmFxP1dyU6qKghGFUSINxQPsMfEtQrnuRobM76PjBg2wENAOSXnPg1M6QOaSQ09HK4SkF9RXB23kv40QPUcTuMfqMPpaD0MX83izh3dDZn2eO9vBWCmRoXRVjXrvmfXM0GZJDWP1lnP7RuqHZEL8IXzxo=)
+[^2]: [climatechange.vn](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHaWcbL9xLC2uohLs4ZWsENrF00ZbaSRUXCojRYprPyJrw_fgjnJKLhXsF9Eq0hMqEMsmAweJ-X_Ngo84ZsWJmFBjf0jdoIeDx65fstA_ubjigiyGvgPi1OcmjglM188NVSYKXFEiMu8bv0u1FXh39Sx4_giA==)
+[^3]: [dena.de](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHNmJBojyOEMTRWPwjWDvImOOkNJ8g1XcWAq0owoiJY6J1guZzufFCTPDVFVeyXbhnz4KAJx2MDI1Zp2hKvcHvWZ1f3j1YwTvrpk3k8s8n5OcabU5iN5nuqLdJ16Jz5wy5T5ykehanc5pIb-xXPJwiq1GiZW_7zUtuXhQeb43Sq2sAjXhTdS5aUOZ0NJ9qELmmoP1CsVyOfYNRZNDy47g==)
+[^4]: [scribd.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFDhd9wLOFxIcisV2_BIy5_rFa6mIF0IOZPUP6pQSKTiitwyLnR4CBxNEC521gSOrgLKY3y2MgHih_I5QzfV5ng1L7M8XaSShAv2SEQC-RnOnpcdvqqLy2d20WrcUvkO7j_dQxk8dkAvWeXJTl5n7Vmu0DbT-z4CBJcEM4fHlSXefqbCurv3TBohl_nrgFZmm81tN-hu7QhqcYF3ZZNhQ8aDLpDLvt_NtsTxx-Dk-KHFA==)
+[^5]: [uliege.be](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGRV-NCvL1Ihuh0AtB7SWRqtowFWr-26GH3lE5oTGosWntpgJS9VnPT6_fWETidEYdU1ozF2Cf06pH4To8jGXSyYPQQF9IZFOaSDOhRwrfQEGNYC-2dOiNJ2rcYVBDG9yqt9SCS1wjCKUrT2D41FKRLWKMd-w==)
+[^6]: [tudelft.nl](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHgpQTBVQkq43cmBw_5QHPuPVRov723Ef1sIyzWGuvmKH7KIlPrkxuVd8JMXxd04yW0SH5L9sCpcx1z-9DoyZDsu_tqPHOJ9rlNMYSXngS_i2b-8OVouJQVXNMlxlYX6yHzFkt5z8ofKvWziycHSdLpUus3_OJrNrs3QO64pnHDIdn_v5UOzbaE2JihazO_ohrGYKLNHUL1w0YBE5KyCgY5RiWaZ2Iy2jvkwsGyNKiaXeWIfo2vjo2L4bSsUO4yQVIDB5CcMCx6joYZ5EVSGti0R4wQ8eyyRzuPpPdnfE7UMqxk9SbQ7A==)
+[^7]: [hud.ac.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFqvLsUk65HKhERxkdTaTsdcFBuCu0s6KLXEsVp8UD3VzcVWIFW-IpbsSq6FJhIZ1ZGzi7Y2tyS_A1HE-ShRAd_j58ZO0yc8TzJ_EV-BiRyZZvwGELMBmYz84CZH8FgcFa0nDw=)
+[^8]: [researchgate.net](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEBwSPy2_pDbg8ivitX6KAaKHAxlVCt9D4kEXk1nd9zXhn5LpnO1dx2oQJ5M-byX32jR7o_OR2G5yEKFyJ9CkNrfXH0W0Tz1RGElPnmH7z6EWc2Cy3BPkQJch2HD4biWKlSUzxqVeE4gC52pxJuO5y8L5q0-CFwdP0-BZ58klHSzM-Vb6p3p64_ZAuSMPKzzPj5A--VuQWgo6aAvBvAhA19nJVcmyXzqyhYrLyrOUS4mOUWykrwBkSwjbIHoEsPvTX0TBJ7P5o6BktH7Ih8ZBEMFe8fVVIh_ZRWDkjSENDKtnoGydbxPwXFlIJXg413TqexLCGI2x_QIyM3uIMEUvP3)
+[^9]: [ksesjournal.co.kr](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGpfy--_alkvOdw3C63k0A9X_mTLSTKsLS6u7xjk_c_VVyPw3BEzM59lHdQGSqImkW9LJiQZydoddx6FAVwxRHv8iTNml1cDzyCplaDWWAhYuTnyEJadMaKOgk9h34yQRDPis_BGI_XeS7VSMkitw==)
+[^10]: [fraunhofer.de](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEvZvOLLRu3wsLXWH0TD292HnmVN8h6hJcCEjOGx6os9sJ0ZVFuqkZqwkVzedd1z3fHADOGWgqE5leX7dRsFPVvhw5Ocu4wndRsRLLAzhA4DcKj8ogfvKlKchU7BQdZE3maEIQ43okNGNFDZHdG2F3SHilRStbPGZeKWK0_BXArQYsLPRAheak88uSUAVzdTU_s)
+[^11]: [mdpi.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGKlnWVsFSV70W2fU9v42VW7wfpPph9h0qBwDX6zjiHbNm_Pj9Sw528OjVae_1WD4Tur1e6-Zh4iLjHkVxfGRaAMuJx_no42hvHlfwClhAu1aIw0qJ6IbKGf1jKRfieumtbYtw=)
+[^12]: [e3s-conferences.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEQp12t_l_iQBkXeNjmxmwsKLdq6pd6D6YBgbWXLLYUTJmRM-T6bNo7XhzNkMJSME5JazepdXVGhu_jyQ9tByCHPw8C6FJh31PHEQOwcW8qPm_1FLb8-7BgSNmMAkfnLvFMybGpHEBwP20JtAc1bgORjpKtUpjpWIe_cMn2Q8D1ykKY99Ty6wtAKKJkbBwj8_84Fv92)
+[^13]: [mdpi.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGye4vlm8trN3p9T3a1_smdvf-y39IONSf-1fTE_fiUsqezR2MEbbuUI3oZgWSUBkZ8PTNn3FQcr2WKkKGPHfBRZuxLfrRg-OVUl84t246U6iAQv8MMLyT0gK4nWEQ3IRrQ_A==)
+[^14]: [mdpi.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQErdgRYHvsahR5RBaNekI7qybA_Vy9nh1o8Gf31TLLtTlJdvnftYc3wNO5AJWYOQ6-Yz8wqS_5gW9MPYg87Euzi0MCg1zSZfkOMXcGcTdNE2iYHY5RRGCp9Rl4Rptv_tE3q3L4=)
+[^15]: [atlantis-press.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEPu9wiYrotPp36uKbPQPllBjAlLiCDMaheCoCIM1Vq9RwQ2zCpzMw9H32WgW7E0c55L5eVPPigwAhX3KLE77-IkClPTUaXa75pSb7rVKFA7kXVGT0vUkXj7cRA68QzDJYDGzJE9LwdN43arynusg==)
+[^16]: [unwira.ac.id](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFYS1HOnpnnPnVSrQwpLB5NLHnzjhyXHZW3GYi5Yy9VtTxaHQDp3_npWeBI6GawX4j4viYqGaxBHYEV4FuHFnMAbelUU2sxnHlDA9KzBw3E-TYYyg1TK_SsVrr-w_1bVcKDbPFbpdlZZ7A1AAM5eShVv7fm8Ay4D-SH)
+[^17]: [ierek.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEoR3sWX-VkOARPRr4Lj6kFS7TQtIFG7pLEYOsRAYFhkoaHN29weKJCCcBzXJm0RhScV8m4VorgIvQgm7jjRP7I2ykCNGJgqXeZecBGn1c8o3rcgShpsPGcL7mx8ggX4GqXPc3LxbRMwUk_LaOA5X-BwbgUpQ==)
+[^18]: [cetjournal.it](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGUTAa3hDfF19m1my_qcSV8T8IMSaGAYXwGYy-DGZrktJeMYpwef_LV2H8USv-KPGCIO_nLyhhj__2P-BR-TwREfNAQN_KJSuhXLrvifyDmqaFRPEHvlcBq_fFK_RSwexwiMeZsWbNLAg3lrP-pK_AfiTwt8RoMeAPPKw==)
+[^19]: [researchgate.net](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHpmh39L5PJM-xfMEakEznT1-5pJV84qnAIae1YlMkQwLyQIcNifiw3vVP9YZJhEy19keWhEW-yf8TIgjOtYicUAdH9iaXfROWa_RJlFfJO-AFYj6GbeCCBZxanlvMWuwW0QvNwhaHY9vU_s_tet1V-dq5A3McJufaww4ipyVOA2mByIldX0wt0MNr5YvggNm1zNXbqaiEtk9ql6nW1_2swBr80NVnSk3qjoAyEhldhvvnqxa1ESKvMeuVYDt3p-Azl4Jc=)
+[^20]: [uliege.be](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGOYZplA_bw4HffqKI0iIQfzXsPorb2WVylj8VL32GF0hrcSGzg-fIpj-yK7fCEkXVcD-Yjem4TrNe2T57POsCmccp9CjxltDM7qPmS-2AqJaeak43NdL5_qrrCok4uurXaqUMUEsYCMECc3WM0dEBw-xO42IJ582fOX2ww-BZsQkaJ)
+[^21]: [mdpi.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQELEorm4eki3gZ1voVTsW7fhu-7PzJ4H6UIhd2gAGdJCvS6WNSgSJeGiqF7Tma_Vt5UA-6kYMXDxrh5QWrsrQ3pkv_VITU-dbIUCpLDxbGVABkYGk4GFn6dfRX-QKEdc6l3YA==)
+[^22]: [researchgate.net](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGV9Z7_EDGVvZzQHDjg6fRAd7qxTxsQtjMChzEQ9b_Z1Y66nnYr8H-bA5kwOOkbhTkNhYE4AFQuovAeeTwdKJfP35WMtYJwPJrOPqLIkgL_yYN7Ylqe_zV8JCieqwmPxdVrm20orJRmgLBYeIwUKa--tDd4rkShs4Ogx8vg3gBCMHNKxw8tLBDyS-VOoV9GxmLIQc84i2nVXa6J8tOqdPRlBP10qY-QXrAlOF3XYWDBzrwlAf6sTv9n)
+[^23]: [researchgate.net](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEqXbVADSUjApH6Dme1tcKK6ABJUSTdGmjQmH_SX2qEyLoqGGh3USk4JvTmS138nIvXHC6z_0KNgaCS7Svq95P95qjHuuReYDP5t81CCRIANM7EHVpfCx1xtgesEto6xjBlSgLX1Vi_i0ChYzugm665ozq2ZKVyQF6SZJjPg6J3GaQUryHoYCg_PYIz0EVQfHz--s4kPr1w-c77gWrmWcLsZj0BUEJeoCbfH70jyktLahSYgoLQjGH41tOJm4LD_YkW9SRhDI8BH-aGWZF7tTcGLly1tPLa5soGplyaHYpKq2ZT9rfHJdTkLYPE9QyY7cU3imoAUtNb6Q==)
+[^24]: [lancs.ac.uk](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGTynk5UqlDlM2irH0jTCjvkDHlA3t2pC95v8FojrKlw6bPTShb_XypE1puwtvu-5RMXif73Uhkuwgx127uBnow-az0IRdi2z09Ej3uwEf5eMzPJM7OH7hGk1IY5x7b-_6-vDLhg17QR9yLG_As_pZOlYu14pW2Vc5yWQdORJsCjkQbFc5iEHzhIN-ddBq-9Drq9Zf-uRd_6-IVgYsTTHY=)
+[^25]: [e3s-conferences.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFytzhQSd85mOouCDJFloHyWeCrwiQcbjHY1UEbEA3KK8a7uiiocwfmj8xikYP5GabZLVuneYcRNBoOCaSOYRCGMUOJgANr7nFuhKGh1-l5YD65Xh_Je2fwEWYZQQUp2I4IH1m6ibNL4EM5Dpa_8DgGcQQTDTxWyOZAQHtEJNocttUlInwMaPCsYjmSZYvyENXejB4=)
+[^26]: [researchgate.net](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG8j26nKCALv16K0hEu6x4a8Xo77KnJv6G6InFX14tHsL3wmB1LJhyBwxYFzG1oOOUThQ4-u4SCU2R_PpUx88xk1C2pXlb_z9B4C2_T3uiN_0pgKQyXkrEeItC5EOIBXxYSdRhBaJPC61XSXkGFGTf7oy1pyohwI4aw07OPYc_K6IYz9W8H_3iEjZgBpT0K-AZJvEM-K9D0rjFIj4ZLWnt440T3YJ-nB45fAEvFXns11usypN_pkAUwlVdoMStMMcM1)
+[^27]: [mdpi.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH5eG71kLFU0YrjVzLmzBLGhY2q5_u2zWkKyDcQ7GyoO7XUfRk2UL1dQLPNUg9A6Sf571G3GJZDlSnu192nwITcu9PGV9cNXFZ6ipBBrx-eSUi0AvknF-UKHqQrCTp4QgYzJg==)
+[^28]: [uni.xyz](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGgmozdmfulxTMy1zo3Tuot5m6cF7w5JFoJnpgysCiNX-pB1e6EzclCyrQvIn-mD1KmQa9aCpu5f69PuRe3v7FaBKJr_XGf8ZrcaQlGQn-YW53u7O_wl9Es2EVl9im7BlgPdBmpNfgy_NlewR92ucIob90vNSr8muYKNg==)
+[^29]: [allenpress.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHN3F4Tl8jjLoRSPCRwjxaT0Ip95-EqUpxYERA6qBkF9gbQOVxzlMYSojrqghp3buEZ6k8TcG3mee7qSC1xqdCOjIpQzL2p0olxZeqwPqBfVO9bqJIiIOAV_svv7oq4t_UBr-UUhuEiBaMzGzrKYWKbLKr_RZ1KB8I2CS4OkPwW4kHhb5prFrJTDzkWJGUqUhNa08IhGc_PxNdSSG7UC1aXZpHELDE=)
+[^30]: [researchgate.net](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFVWD-fMfpDc0AZnJyl2RMznPQA32zVOl4kK2zsRixCpgMKx7jgdyuwUUrJnOPcxoMFO6aEQ4XZ_SeJo9c-dUzUKisI6T2NvhOCiLcXq3vf0NiVAYzmV-QXiMios7uWl74VUfe16Uc5hH7E50slYyMeFMVWHiHkAiz8sgW6AMqGFZxgT8X39kO6C7rSTI3AX5VKD2hgpmvq74XOyNeA536NTis6NyPjBAMvZKinowPIqXsQjVH6CnmauVRL4G1PjBalWZthFXOZ5NPzpR4=)
+[^31]: [azuremagazine.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEe0wx1PrGST1lLpMNfOPCUKhHG1fzbIda_C_zmrha6fN-D_O3tuaFeH6Qn_heesq-_D9A8ioMgWE1lSdM0Vo3uw4b9gIRT4r8QisdO1PcBjZ5ie2fYakHmHilxURPtDVG1UOyeitMthQ_qGI8ve6HiY598EMxWRnHya-WP1i-yhcldDQxM-uZUDhzWwgvVH-2KprDR1lBLGqywly9YfYHC)
+[^32]: [innovationhouse.com.au](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG3oo2PacS4IiSXyc8_dbknPP9-cq1Igg9KoO_pfOnT7ag7PhHJkiQiOwDWi9R7Y0tDx1M6sh_9ZvBmcjOQMXMRhyRPZez0tSnIic67Ss7-hS-MPInAMYUBvz0bgNTI658LWLz40D5fcILpu2PMXxIXa-Ix1GvRIztMUt2SthZP9qQ-38FvFdx4m6bmiQ==)
+[^33]: [yourhome.gov.au](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG31Bk3_jawzLrFJUBCbKYuszdkdzk8KaCzlxEx0nof-ypI-nDe777td0a-DOKlY2iKtLHS8OP0v_1XNzgSp4vG1mwZ6X5mlTSkcUj6bbVhQIqEhIDEDRJ6-lEFPY_owYjUlWR2ElOx2dCmN8mZCtnJ2w==)
+[^34]: [venturewell.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEDU86RhzkaShXCZDPR6XLsF9T0ExXphrKHuR0S_1vIeiPO_RsCBE986vglOA0oFOkR9vqeoqE4DxR9L1vEtNGuTX0FChH5Wj5oViLocOPHFZfJB5WD__z70OO8yGpB3Eh-YrMsQffhuWCUcN4Fewii118jTI2Pqw==)
+[^35]: [nih.gov](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF09j_kTmCQmKEGIrXo7dyEYTxNPC4GmV3ryf9xUSmKUxtveYZ7RjM-nFLEvrGKGXpD5u_FJvFhXzsycmsAuJEKpyP4gb6iPYaxruCNpQcGKkMi1Uaq7iAMYPVZvr8p6IjaXmNRA7PYnghfVg==)
+[^36]: [dena.de](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGSIaAtE326U8D9CYqUTGhMOuxnT5BwWBv3PdERKukvcrXmJ5a7dpnoB3mspCIyc_X22IgqQ9sMMR5DiUcY1D54a4t5DeFx7ykwHYh3eSUe1hOcDtmHJZE6BpnuxmRjiaa0Oax2ljW8HWmtHHwDTNqHrdKSdncsId3rJghgfFm8T5Xq0BLWUnI950lHyhq34b86XQfUINKbg5xbu6l61K43Gh6V-VQj8wDRPhweo5gXz6WolGpTX4Byu_AqBQ==)
+[^37]: [mdpi.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHW3lXTOywZoAPz2Yo2yEkbcKZA1546KbwKKntOrzHq8rL7TqEWyaZJ9THsiF5HEzR717l1kMKJNwZWIIbjvqKfRs6gv1PKeBykqRKhM3ezIRWzDi5oSkui6xnYQO2rBRln2k9G)
+[^38]: [emerald.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGXhwMHn-dY5qJ34OPyAmKo4oxqcdZQViKuIVXQKxJc5ndt-a5os1_MK366CJ9uwVkP_d16hb1tz-BcUkc7iKJJEQbAM6Ov3SSTDlX5Fn18bl3UhifByH7doRNWseAHETmYTZUsd9feTrQe26Kbm_efapIjLKMUClIiMfsIM8-rkMaSlM0Oa0nc65I=)
+[^39]: [jst.go.jp](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHSDe4fe_EolVfeuV9WUN1dxQnRe45YwYN8UoxR9Us5wQLVPGGmqsTwcMH_asOf6YjM_bX5p-vaJFsiua-WDz4bKE3R4XGq20QTdpk0PP5S9TlRScRR_Dd9ZTKgQMO2BYfrQ3uz7EEd7GcHiZZ9JHunDj_kL14WhP7PJ1PO5ck=)
+[^40]: [happyeconews.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5jG8Suz_u2dPIF1csQm53ugFHHoTJQ7PMhxgJ5biICd2eisStVPZc4wObUC5qpYsrYwpzIjmw3JHYqPZrBLD1qiagIwKJpHyESisbrXZU6h8iloFNlRn_GM85rDl24MekHer99YymzMUXXQ2gKgXi9FI_VY7Q127E7gbeWCeQSUZWemf3rV-254sSmOlXgdwS)
