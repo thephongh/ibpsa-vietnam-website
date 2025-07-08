@@ -1,0 +1,171 @@
+{{ define "main" }}
+<div class="bg-white">
+    <!-- Hero Section -->
+    {{ if .Params.featured_image }}
+    <div class="relative h-96 sm:h-[500px] lg:h-[600px] overflow-hidden">
+        <img src="{{ .Params.featured_image | absURL }}" 
+             alt="{{ .Title }}"
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">{{ .Site.Title }}</h1>
+                {{ if .Description }}
+                <p class="text-xl sm:text-2xl opacity-90 max-w-4xl mx-auto">{{ .Description }}</p>
+                {{ end }}
+                <div class="mt-8 space-x-4">
+                    <a href="/membership/" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                        Tham gia ngay
+                    </a>
+                    <a href="/about/" class="inline-block bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                        Tìm hiểu thêm
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ else }}
+    <div class="bg-gradient-to-r from-blue-600 to-blue-800 py-20 sm:py-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">{{ .Site.Title }}</h1>
+            {{ if .Description }}
+            <p class="text-xl sm:text-2xl opacity-90 max-w-4xl mx-auto">{{ .Description }}</p>
+            {{ end }}
+            <div class="mt-8 space-x-4">
+                <a href="/membership/" class="inline-block bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                    Tham gia ngay
+                </a>
+                <a href="/about/" class="inline-block bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                    Tìm hiểu thêm
+                </a>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        {{ if .Content }}
+        <div class="max-w-4xl mx-auto">
+            <div class="prose prose-lg max-w-none">
+                {{ .Content }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+
+    <!-- Features Section -->
+    <div class="bg-gray-50 py-16 lg:py-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Tại sao chọn IBPSA Việt Nam?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Chúng tôi dẫn đầu trong việc ứng dụng mô phỏng hiệu suất tòa nhà tại Việt Nam</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H9m0 0H7m2 0v-3a1 1 0 011-1h1a1 1 0 011 1v3M9 7h6m-6 4h6m-6 4h6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Chuyên môn hàng đầu</h3>
+                    <p class="text-gray-600">Tập hợp các chuyên gia và nhà nghiên cứu hàng đầu trong lĩnh vực mô phỏng tòa nhà</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Công nghệ tiên tiến</h3>
+                    <p class="text-gray-600">Ứng dụng các công cụ mô phỏng hiện đại phù hợp với điều kiện khí hậu nhiệt đới</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Cộng đồng mạnh mẽ</h3>
+                    <p class="text-gray-600">Kết nối với mạng lưới chuyên gia và cơ hội hợp tác trên toàn quốc</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latest Resources Section -->
+    <div class="py-16 lg:py-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Tài nguyên mới nhất</h2>
+                <p class="text-xl text-gray-600">Khám phá các nghiên cứu và tài liệu hướng dẫn mới nhất</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Resources cards would go here -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <img src="/images/features/green-building.jpg" alt="Công trình xanh" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Ấn phẩm & Nghiên cứu</h3>
+                        <p class="text-gray-600 mb-4">Các bài báo khoa học và nghiên cứu về mô phỏng tòa nhà trong khí hậu nhiệt đới</p>
+                        <a href="/resources/publications/" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Xem thêm →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <img src="/images/features/hvac-system.jpg" alt="Hướng dẫn" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Hướng dẫn & Tiêu chuẩn</h3>
+                        <p class="text-gray-600 mb-4">Quy chuẩn xây dựng và các phương pháp thực hành tốt nhất</p>
+                        <a href="/resources/guidelines/" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Xem thêm →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <img src="/images/features/solar-panels.jpg" alt="Công cụ" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Phần mềm & Công cụ</h3>
+                        <p class="text-gray-600 mb-4">Các công cụ mô phỏng và phần mềm phù hợp cho dự án Việt Nam</p>
+                        <a href="/resources/tools/" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Xem thêm →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="/resources/" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                    Xem tất cả tài nguyên
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-blue-600 py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Sẵn sàng tham gia cộng đồng?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                Trở thành thành viên của IBPSA Việt Nam và kết nối với cộng đồng chuyên gia mô phỏng tòa nhà
+            </p>
+            <div class="space-x-4">
+                <a href="/membership/join/" class="inline-block bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                    Đăng ký thành viên
+                </a>
+                <a href="/contact/" class="inline-block bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                    Liên hệ chúng tôi
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
