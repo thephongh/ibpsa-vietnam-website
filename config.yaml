@@ -22,10 +22,6 @@ languages:
       favicon: "/images/favicon.ico"
     menu:
       main:
-        - name: "Home"
-          url: "/en/"
-          weight: 10
-
         - name: "About"
           url: "/en/about/"
           weight: 20
@@ -48,22 +44,27 @@ languages:
 
         - name: "News"
           url: "/en/news/"
-          weight: 60
+          weight: 55
           hasChildren: true
 
         - name: "Collaboration"
           url: "/en/collaboration/"
-          weight: 70
+          weight: 60
           hasChildren: true
 
         - name: "Career"
           url: "/en/career/"
-          weight: 80
+          weight: 70
           hasChildren: true
 
         - name: "Contact"
           url: "/en/contact/"
+          weight: 80
+
+        - name: "Blog"
+          url: "/en/blog/"
           weight: 90
+          hasChildren: true
 
   vi:
     languageCode: vi-vn
@@ -84,10 +85,6 @@ languages:
       favicon: "/images/favicon.ico"
     menu:
       main:
-        - name: "Trang chủ"
-          url: "/"
-          weight: 10
-
         - name: "Giới thiệu"
           url: "/about/"
           weight: 20
@@ -110,22 +107,27 @@ languages:
 
         - name: "Tin tức"
           url: "/news/"
-          weight: 60
+          weight: 55
           hasChildren: true
 
         - name: "Hợp tác"
           url: "/collaboration/"
-          weight: 70
+          weight: 60
           hasChildren: true
 
         - name: "Nghề nghiệp"
           url: "/career/"
-          weight: 80
+          weight: 70
           hasChildren: true
 
         - name: "Liên hệ"
           url: "/contact/"
+          weight: 80
+
+        - name: "Blog"
+          url: "/blog/"
           weight: 90
+          hasChildren: true
 
       about:
         - name: "Sứ mệnh & Tầm nhìn"
@@ -220,6 +222,22 @@ languages:
           url: "/resources/standards/"
           parent: "resources"
           weight: 50
+
+      blog:
+        - name: "Bài viết mới nhất"
+          url: "/blog/"
+          parent: "blog"
+          weight: 10
+
+        - name: "Danh mục"
+          url: "/categories/"
+          parent: "blog"
+          weight: 20
+
+        - name: "Thẻ"
+          url: "/tags/"
+          parent: "blog"
+          weight: 30
 
       news:
         - name: "Tin tức mới nhất"
@@ -410,6 +428,22 @@ menu:
       url: "/resources/standards/"
       parent: "resources"
       weight: 50
+
+  blog:
+    - name: "Latest Posts"
+      url: "/blog/"
+      parent: "blog"
+      weight: 10
+
+    - name: "Categories"
+      url: "/categories/"
+      parent: "blog"
+      weight: 20
+
+    - name: "Tags"
+      url: "/tags/"
+      parent: "blog"
+      weight: 30
 
   news:
     - name: "Latest News"

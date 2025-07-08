@@ -4,6 +4,7 @@ description: "Advancing building performance simulation to improve the design, c
 featured_image: "/images/pages/homepage-hero.jpg"
 keywords: ["building simulation", "energy modeling", "performance analysis", "Vietnam", "IBPSA", "building performance"]
 layout: "home"
+redirect: "/en/about/"
 ---
 
 # Welcome to IBPSA Vietnam
