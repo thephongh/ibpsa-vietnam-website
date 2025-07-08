@@ -4,7 +4,6 @@ description: "Advancing building performance simulation to improve the design, c
 featured_image: "/images/pages/homepage-hero.jpg"
 keywords: ["building simulation", "energy modeling", "performance analysis", "Vietnam", "IBPSA", "building performance"]
 layout: "home"
-redirect: "/en/about/"
 ---
 
 # Welcome to IBPSA Vietnam
@@ -27,4 +26,4 @@ We foster better buildings through simulation by connecting professionals, resea
 
 Become part of Vietnam's growing building performance simulation community. Whether you're a researcher, consultant, student, or building professional, IBPSA Vietnam offers opportunities to advance your knowledge and contribute to sustainable building practices in Vietnam.
 
-[Learn more about membership](/membership/) or [contact us](/contact/) to get involved.
+[Learn more about membership](/en/membership/) or [contact us](/en/contact/) to get involved.
