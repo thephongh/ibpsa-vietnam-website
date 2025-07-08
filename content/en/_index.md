@@ -2,8 +2,14 @@
 title: "International Building Performance Simulation Association - Vietnam Chapter"
 description: "Advancing building performance simulation to improve the design, construction, operation, and maintenance of the built environment in Vietnam."
 featured_image: "/images/pages/homepage-hero.jpg"
-keywords: ["building simulation", "energy modeling", "performance analysis", "Vietnam", "IBPSA", "building performance"]
-layout: "home"
+keywords:
+  - building simulation
+  - energy modeling
+  - performance analysis
+  - Vietnam
+  - IBPSA
+  - building performance
+layout: home
 ---
 
 # Welcome to IBPSA Vietnam

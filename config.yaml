@@ -22,6 +22,10 @@ languages:
       favicon: "/images/favicon.ico"
     menu:
       main:
+        - name: "Home"
+          url: "/en/"
+          weight: 10
+
         - name: "About"
           url: "/en/about/"
           weight: 20
@@ -85,6 +89,10 @@ languages:
       favicon: "/images/favicon.ico"
     menu:
       main:
+        - name: "Trang chủ"
+          url: "/"
+          weight: 10
+
         - name: "Giới thiệu"
           url: "/about/"
           weight: 20
