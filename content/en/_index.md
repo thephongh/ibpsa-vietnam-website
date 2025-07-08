@@ -1,8 +1,6 @@
 ---
 title: "International Building Performance Simulation Association - Vietnam Chapter"
 description: "Advancing building performance simulation to improve the design, construction, operation, and maintenance of the built environment in Vietnam."
-layout: "home"
-featured_image: "/images/pages/homepage-hero.jpg"
 keywords:
   - building simulation
   - energy modeling
