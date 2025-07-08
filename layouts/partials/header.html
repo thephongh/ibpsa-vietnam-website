@@ -1,3 +1,4 @@
+<header class="bg-business-white border-b border-business-gray-200" style="padding: 1rem 0;">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
   <div class="flex items-center justify-between h-16">
     <!-- Logo and site title -->
@@ -10,7 +11,7 @@
           class="h-8 w-auto"
         />
         {{ end }}
-        <span class="text-xl font-bold text-gray-900">{{ .Site.Title }}</span>
+        <span class="logo-text">{{ .Site.Title }}</span>
       </a>
     </div>
 
@@ -22,7 +23,7 @@
       <div class="relative group">
         <a
           href="{{ .URL | relLangURL }}"
-          class="flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200 {{ if $isActive }}text-blue-600 bg-blue-50{{ else }}text-gray-700 hover:text-blue-600 hover:bg-gray-50{{ end }}"
+          class="flex items-center nav-link {{ if $isActive }}nav-link-active{{ end }}"
         >
           {{ .Name }} {{ if .HasChildren }}
           <svg
@@ -68,7 +69,7 @@
         <a
           href="{{ if eq .Lang "vi" }}/{{ else }}/{{ .Lang }}/{{ end }}"
           class="px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200 
-                        {{ if eq .Lang $.Site.Language.Lang }}text-white bg-blue-600{{ else }}text-gray-700 hover:text-blue-600 hover:bg-gray-50{{ end }}"
+                        {{ if eq .Lang $.Site.Language.Lang }}text-white bg-business-purple{{ else }}nav-link{{ end }}"
         >
           {{ .LanguageName }}
         </a>
@@ -177,3 +178,4 @@
     </div>
   </div>
 </div>
+</header>

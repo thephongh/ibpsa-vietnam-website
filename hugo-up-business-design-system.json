@@ -1,0 +1,511 @@
+{
+  "designSystem": {
+    "name": "Hugo Up Business",
+    "description": "Clean and modern landing page design system with light illustrations and professional aesthetics",
+    "framework": "Hugo + Tailwind CSS",
+    "colorPalette": {
+      "primary": {
+        "purple": "#6366F1",
+        "purpleLight": "#8B5CF6",
+        "purpleDark": "#4F46E5"
+      },
+      "secondary": {
+        "pink": "#EC4899",
+        "pinkLight": "#F472B6",
+        "coral": "#F97316"
+      },
+      "neutrals": {
+        "gray900": "#111827",
+        "gray800": "#1F2937",
+        "gray700": "#374151",
+        "gray600": "#4B5563",
+        "gray500": "#6B7280",
+        "gray400": "#9CA3AF",
+        "gray300": "#D1D5DB",
+        "gray200": "#E5E7EB",
+        "gray100": "#F3F4F6",
+        "gray50": "#F9FAFB",
+        "white": "#FFFFFF"
+      },
+      "accents": {
+        "green": "#86EFAC",
+        "greenContainer": "#BBF7D0",
+        "brown": "#D2B48C",
+        "brownContainer": "#F3E8D5",
+        "rose": "#FDA4AF",
+        "roseContainer": "#FECDD3",
+        "lightPurple": "#C4B5FD",
+        "lightPurpleContainer": "#DDD6FE"
+      },
+      "backgrounds": {
+        "lightBlue": "#EFF6FF",
+        "cardBackground": "#F8FAFC"
+      }
+    },
+    "typography": {
+      "fontFamily": {
+        "primary": "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+      },
+      "headings": {
+        "h1": {
+          "fontSize": "clamp(2.5rem, 5vw, 4rem)",
+          "fontWeight": "700",
+          "lineHeight": "1.1",
+          "color": "#111827",
+          "letterSpacing": "-0.025em"
+        },
+        "h2": {
+          "fontSize": "clamp(1.875rem, 4vw, 2.25rem)",
+          "fontWeight": "700",
+          "lineHeight": "1.2",
+          "color": "#111827"
+        },
+        "h3": {
+          "fontSize": "1.5rem",
+          "fontWeight": "600",
+          "lineHeight": "1.3",
+          "color": "#374151"
+        }
+      },
+      "body": {
+        "fontSize": "1rem",
+        "lineHeight": "1.6",
+        "color": "#6B7280",
+        "fontWeight": "400"
+      },
+      "small": {
+        "fontSize": "0.875rem",
+        "lineHeight": "1.5",
+        "color": "#9CA3AF"
+      }
+    },
+    "spacing": {
+      "sections": "5rem",
+      "cardPadding": "2rem",
+      "buttonPadding": "0.75rem 1.5rem",
+      "iconSpacing": "1rem"
+    },
+    "borderRadius": {
+      "small": "0.375rem",
+      "medium": "0.5rem",
+      "large": "0.75rem",
+      "xl": "1rem"
+    },
+    "shadows": {
+      "card": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+      "button": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+      "hover": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
+    }
+  },
+  "elementStyling": {
+    "header": {
+      "background": "#FFFFFF",
+      "borderBottom": "1px solid #E5E7EB",
+      "padding": "1rem 0",
+      "logo": {
+        "color": "#6366F1",
+        "fontSize": "1.5rem",
+        "fontWeight": "700",
+        "text": "UP BUSINESS"
+      },
+      "navigation": {
+        "linkColor": "#6B7280",
+        "linkHover": "#6366F1",
+        "fontSize": "0.875rem",
+        "fontWeight": "500"
+      },
+      "cta": {
+        "background": "#6366F1",
+        "color": "#FFFFFF",
+        "borderRadius": "0.5rem",
+        "padding": "0.5rem 1rem",
+        "fontWeight": "600",
+        "hover": {
+          "background": "#4F46E5",
+          "transform": "translateY(-1px)"
+        }
+      }
+    },
+    "hero": {
+      "background": "#FFFFFF",
+      "title": {
+        "gradient": "linear-gradient(135deg, #6366F1 0%, #EC4899 50%, #F97316 100%)",
+        "backgroundClip": "text",
+        "textFillColor": "transparent",
+        "fontSize": "clamp(2.5rem, 5vw, 4rem)",
+        "fontWeight": "700",
+        "lineHeight": "1.1"
+      },
+      "subtitle": {
+        "color": "#6B7280",
+        "fontSize": "1.125rem",
+        "lineHeight": "1.6",
+        "maxWidth": "600px"
+      },
+      "buttons": {
+        "primary": {
+          "background": "#6366F1",
+          "color": "#FFFFFF",
+          "borderRadius": "0.5rem",
+          "padding": "0.875rem 2rem",
+          "fontWeight": "600",
+          "hover": {
+            "background": "#4F46E5",
+            "transform": "translateY(-2px)",
+            "shadow": "0 10px 15px -3px rgba(99, 102, 241, 0.3)"
+          }
+        },
+        "secondary": {
+          "background": "transparent",
+          "color": "#6366F1",
+          "border": "2px solid #6366F1",
+          "borderRadius": "0.5rem",
+          "padding": "0.875rem 2rem",
+          "fontWeight": "600",
+          "hover": {
+            "background": "#6366F1",
+            "color": "#FFFFFF",
+            "transform": "translateY(-2px)"
+          }
+        }
+      },
+      "illustration": {
+        "container": "#F8FAFC",
+        "primaryColor": "#6366F1",
+        "accentColors": ["#86EFAC", "#F97316", "#EC4899"]
+      }
+    },
+    "cards": {
+      "serviceCards": {
+        "background": "#EFF6FF",
+        "borderRadius": "1rem",
+        "padding": "2rem",
+        "border": "none",
+        "hover": {
+          "transform": "translateY(-8px)",
+          "shadow": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+          "transition": "all 0.3s ease"
+        },
+        "icon": {
+          "background": "none",
+          "color": "#6366F1",
+          "size": "3rem"
+        },
+        "title": {
+          "color": "#374151",
+          "fontSize": "1.25rem",
+          "fontWeight": "600",
+          "marginBottom": "0.5rem"
+        },
+        "description": {
+          "color": "#6B7280",
+          "fontSize": "0.875rem",
+          "lineHeight": "1.6"
+        },
+        "cta": {
+          "color": "#6366F1",
+          "fontSize": "0.875rem",
+          "fontWeight": "600",
+          "textDecoration": "none",
+          "hover": {
+            "textDecoration": "underline"
+          }
+        }
+      },
+      "testimonialCards": {
+        "background": "#FFFFFF",
+        "borderRadius": "0.75rem",
+        "padding": "1.5rem",
+        "border": "1px solid #E5E7EB",
+        "shadow": "0 1px 3px 0 rgba(0, 0, 0, 0.1)",
+        "avatar": {
+          "sizes": {
+            "small": "2.5rem",
+            "medium": "3rem"
+          },
+          "colors": {
+            "green": "#86EFAC",
+            "brown": "#D2B48C", 
+            "rose": "#FDA4AF",
+            "purple": "#C4B5FD"
+          }
+        },
+        "quote": {
+          "color": "#374151",
+          "fontSize": "0.875rem",
+          "lineHeight": "1.6",
+          "fontStyle": "italic"
+        },
+        "attribution": {
+          "color": "#6366F1",
+          "fontSize": "0.875rem",
+          "fontWeight": "600"
+        }
+      }
+    },
+    "sections": {
+      "testimonials": {
+        "background": "#FFFFFF",
+        "padding": "5rem 0",
+        "title": {
+          "color": "#6366F1",
+          "fontSize": "2.25rem",
+          "fontWeight": "700",
+          "textAlign": "center",
+          "marginBottom": "3rem"
+        },
+        "quoteIcon": {
+          "color": "#C4B5FD",
+          "size": "6rem",
+          "opacity": "0.3"
+        },
+        "illustration": {
+          "primaryColor": "#6366F1",
+          "accentColor": "#EC4899",
+          "backgroundColor": "#F8FAFC"
+        }
+      },
+      "portfolio": {
+        "background": "#FFFFFF",
+        "label": {
+          "color": "#EC4899",
+          "fontSize": "0.875rem",
+          "fontWeight": "600",
+          "textTransform": "uppercase",
+          "letterSpacing": "0.05em"
+        },
+        "title": {
+          "color": "#111827",
+          "fontSize": "2.25rem",
+          "fontWeight": "700",
+          "lineHeight": "1.2"
+        },
+        "description": {
+          "color": "#6B7280",
+          "fontSize": "1rem",
+          "lineHeight": "1.6",
+          "maxWidth": "500px"
+        },
+        "buttons": {
+          "primary": {
+            "background": "#6366F1",
+            "color": "#FFFFFF",
+            "borderRadius": "0.5rem",
+            "padding": "0.75rem 1.5rem",
+            "fontWeight": "600"
+          },
+          "secondary": {
+            "background": "transparent",
+            "color": "#6366F1",
+            "border": "2px solid #E5E7EB",
+            "borderRadius": "0.5rem",
+            "padding": "0.75rem 1.5rem",
+            "fontWeight": "600"
+          }
+        },
+        "illustration": {
+          "phoneColor": "#6366F1",
+          "bagColors": ["#F97316", "#EC4899"],
+          "cardColor": "#C4B5FD"
+        }
+      }
+    },
+    "footer": {
+      "background": "#F9FAFB",
+      "padding": "3rem 0 2rem",
+      "border": "1px solid #E5E7EB",
+      "logo": {
+        "color": "#6366F1",
+        "fontSize": "1.5rem",
+        "fontWeight": "700"
+      },
+      "description": {
+        "color": "#6B7280",
+        "fontSize": "0.875rem",
+        "lineHeight": "1.6",
+        "maxWidth": "400px"
+      },
+      "socialIcons": {
+        "color": "#9CA3AF",
+        "hover": "#6366F1",
+        "size": "1.25rem"
+      },
+      "links": {
+        "headings": {
+          "color": "#111827",
+          "fontSize": "1rem",
+          "fontWeight": "600"
+        },
+        "items": {
+          "color": "#6B7280",
+          "fontSize": "0.875rem",
+          "hover": "#6366F1"
+        }
+      },
+      "contact": {
+        "email": {
+          "color": "#6B7280",
+          "fontSize": "0.875rem"
+        },
+        "phone": {
+          "color": "#6B7280",
+          "fontSize": "0.875rem"
+        },
+        "addresses": {
+          "color": "#6B7280",
+          "fontSize": "0.875rem",
+          "lineHeight": "1.5"
+        }
+      },
+      "copyright": {
+        "color": "#9CA3AF",
+        "fontSize": "0.875rem",
+        "textAlign": "center",
+        "borderTop": "1px solid #E5E7EB",
+        "paddingTop": "2rem"
+      }
+    }
+  },
+  "componentStates": {
+    "buttons": {
+      "default": {
+        "transition": "all 0.2s ease",
+        "cursor": "pointer"
+      },
+      "hover": {
+        "transform": "translateY(-2px)",
+        "transition": "all 0.2s ease"
+      },
+      "active": {
+        "transform": "translateY(0)",
+        "transition": "all 0.1s ease"
+      },
+      "focus": {
+        "outline": "2px solid #6366F1",
+        "outlineOffset": "2px"
+      }
+    },
+    "cards": {
+      "default": {
+        "transition": "all 0.3s ease"
+      },
+      "hover": {
+        "transform": "translateY(-8px)",
+        "transition": "all 0.3s ease"
+      }
+    },
+    "links": {
+      "default": {
+        "transition": "color 0.2s ease"
+      },
+      "hover": {
+        "transition": "color 0.2s ease"
+      }
+    }
+  },
+  "layoutPatterns": {
+    "container": {
+      "maxWidth": "1200px",
+      "margin": "0 auto",
+      "padding": "0 1rem",
+      "responsive": {
+        "sm": "0 2rem",
+        "lg": "0 2rem"
+      }
+    },
+    "grid": {
+      "testimonials": "repeat(auto-fit, minmax(300px, 1fr))",
+      "services": "repeat(auto-fit, minmax(280px, 1fr))",
+      "gap": "2rem"
+    },
+    "flexbox": {
+      "header": "justify-between items-center",
+      "hero": "items-center gap-4",
+      "footer": "justify-between items-start"
+    }
+  },
+  "illustrations": {
+    "style": "line-art",
+    "strokeWidth": "2px",
+    "colors": {
+      "primary": "#6366F1",
+      "secondary": "#EC4899",
+      "accent": "#F97316",
+      "neutral": "#9CA3AF"
+    },
+    "backgrounds": {
+      "geometric": "#F8FAFC",
+      "organic": "#EFF6FF"
+    }
+  },
+  "animations": {
+    "pageTransitions": {
+      "duration": "0.3s",
+      "easing": "ease-in-out"
+    },
+    "hoverEffects": {
+      "cards": {
+        "transform": "translateY(-8px)",
+        "duration": "0.3s",
+        "easing": "ease"
+      },
+      "buttons": {
+        "transform": "translateY(-2px)",
+        "duration": "0.2s", 
+        "easing": "ease"
+      }
+    },
+    "loadEffects": {
+      "fadeIn": {
+        "duration": "0.6s",
+        "easing": "ease-out"
+      }
+    }
+  },
+  "doNotRules": {
+    "colorApplication": [
+      "DO NOT apply card background colors to icons or text elements",
+      "DO NOT use testimonial avatar colors for buttons or navigation",
+      "DO NOT apply hero title gradient to body text or small elements",
+      "DO NOT use illustration colors for UI components",
+      "DO NOT apply accent colors to primary navigation or headers"
+    ],
+    "layoutMisplacement": [
+      "DO NOT apply card hover effects to text elements",
+      "DO NOT use section background colors for individual components",
+      "DO NOT apply button shadows to cards or containers", 
+      "DO NOT use hero button styles for footer or inline links",
+      "DO NOT apply testimonial card styling to service cards"
+    ],
+    "typographyMisuse": [
+      "DO NOT use heading gradients on body text",
+      "DO NOT apply hero title sizing to section headings",
+      "DO NOT use footer text colors for main content",
+      "DO NOT apply small text styling to important headings"
+    ],
+    "effectMisapplication": [
+      "DO NOT apply card hover transforms to static text",
+      "DO NOT use button hover shadows on non-interactive elements",
+      "DO NOT apply illustration colors to functional UI elements",
+      "DO NOT use testimonial card borders on service cards"
+    ]
+  },
+  "responsiveBreakpoints": {
+    "mobile": "640px",
+    "tablet": "768px", 
+    "desktop": "1024px",
+    "xl": "1280px"
+  },
+  "accessibility": {
+    "colorContrast": {
+      "textOnWhite": "minimum 4.5:1",
+      "textOnColored": "minimum 4.5:1",
+      "interactive": "minimum 3:1"
+    },
+    "focusStates": {
+      "outline": "2px solid #6366F1",
+      "outlineOffset": "2px"
+    },
+    "minTouchTarget": "44px"
+  }
+}
