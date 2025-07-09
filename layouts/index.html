@@ -2,7 +2,7 @@
 <div class="bg-white">
     <!-- Hero Section -->
     {{ if .Params.featured_image }}
-    <div class="relative h-96 sm:h-[500px] lg:h-[600px] overflow-hidden">
+    <div class="relative min-h-screen sm:h-[500px] lg:h-[600px] overflow-hidden">
         <img src="{{ .Params.featured_image | absURL }}" 
              alt="{{ .Title }}"
              class="w-full h-full object-cover">
