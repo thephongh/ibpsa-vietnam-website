@@ -76,7 +76,7 @@ Workshop thực hành về mô phỏng CFD cho thiết kế thông gió tự nhi
 **Theo dõi cập nhật:**
 - [Facebook](#)
 - [LinkedIn](#)
-- [Newsletter](/news/newsletter/)
+- [Resources](/resources)
 
 ---
 
