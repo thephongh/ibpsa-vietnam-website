@@ -19,4 +19,4 @@ Tại đây, các bạn có thể tìm thấy các công cụ, tài liệu hư�
 ## Đóng góp
 Chúng tôi hoan nghênh các bạn gửi các công trình nghiên cứu, các dự án điển hình, công cụ hoặc tài liệu hướng dẫn của mình để cùng chung tay xây dựng và phát triển thư viện tài nguyên chung của cộng đồng.
 
-[Duyệt ấn phẩm](/resources/publications/) | [Xem hướng dẫn](/resources/guidelines/) | [Khám phá công cụ](/resources/tools/)
+[Case-studies](/resources/case-studies/) | [Xem hướng dẫn](/resources/guidelines/) | [Khám phá công cụ](/resources/tools/)

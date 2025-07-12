@@ -4,3 +4,4 @@ description: "Giới thiệu, hướng dẫn về các công cụ mô phỏng n�
 featured_image: "/images/resources/guidelines.jpg"
 layout: "section"
 ---
+# Công cụ mô phỏng năng lượng
