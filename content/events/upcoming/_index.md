@@ -69,51 +69,9 @@ Workshop thực hành về mô phỏng CFD cho thiết kế thông gió tự nhi
 | 29/11 | Webinar BuildingOS | Trực tuyến | Online |
 
 ---
-
-## Sự kiện thường xuyên
-
-### Hội thảo trực tuyến hàng tháng
-**Thời gian:** Thứ 6 cuối tháng, 14:00-16:00  
-**Hình thức:** Trực tuyến  
-**Đối tượng:** Tất cả hội viên  
-
-Chuỗi hội thảo định kỳ với các chủ đề đa dạng từ cơ bản đến nâng cao.
-
-### Gặp mặt cộng đồng
-**Thời gian:** Tháng một lần  
-**Địa điểm:** Hà Nội và TP.HCM luân phiên  
-**Hình thức:** Networking và chia sẻ kinh nghiệm  
-
-### Khóa đào tạo cuối tuần
-**Thời gian:** Thứ 7 đầu tháng  
-**Nội dung:** Các chủ đề chuyên sâu và thực hành  
-
----
-
-## Đăng ký tham gia
-
-### Cách đăng ký
-1. **Trực tuyến:** Qua website IBPSA Vietnam
-2. **Email:** events@ibpsa-vietnam.org
-3. **Điện thoại:** [Số điện thoại sẽ cập nhật]
-
-### Chính sách hủy
-- Hoàn tiền 100% nếu hủy trước 7 ngày
-- Hoàn tiền 50% nếu hủy trước 3 ngày
-- Không hoàn tiền nếu hủy trong vòng 3 ngày
-
-### Hỗ trợ đặc biệt
-- **Sinh viên:** Giảm giá 50% cho tất cả sự kiện
-- **Hội viên:** Ưu tiên đăng ký và giảm giá
-- **Nhóm:** Giảm giá từ 5 người trở lên
-
----
-
 ## Liên hệ
 
-**Email:** events@ibpsa-vietnam.org  
-**Điện thoại:** [Sẽ cập nhật]  
-**Website:** [Đăng ký sự kiện](#)
+**Email:** vietnam.ibpsa@gmail.com 
 
 **Theo dõi cập nhật:**
 - [Facebook](#)
